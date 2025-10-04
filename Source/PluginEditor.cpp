@@ -2,63 +2,109 @@
 
 //==============================================================================
 WubForgeAudioProcessorEditor::WubForgeAudioProcessorEditor (WubForgeAudioProcessor& p)
-    : MagicPluginEditor (&p, juce::Desktop::getInstance().getDisplays().getPrimaryDisplay()->DPI),
-      audioProcessor (p)
+    : AudioProcessorEditor (&p), audioProcessor (p)
 {
-    // Set up the editor with appropriate size constraints
-    setSize (1200, 800);
-    setResizable (true, true);
-    resizeConstrainer.setMinimumSize (1000, 700);
-    resizeConstrainer.setMaximumSize (1600, 1200);
-    setConstrainer (&resizeConstrainer);
+    setSize (1400, 900);
+    setResizable (false, false); // Fixed size for now
 
-    // Configure spectrogram component
-    addAndMakeVisible (spectrogramComponent);
+    // Initialize UI components
+    addAndMakeVisible (tabbedModules);
+    addAndMakeVisible (centerPanel);
+    addAndMakeVisible (rightPanel);
+
+    // Center panel setup - Spectrogram section
+    centerPanel.addAndMakeVisible (headerLabel);
+    centerPanel.addAndMakeVisible (spectrogramComponent);
+
+    // Configure spectrogram
     spectrogramComponent.setTimeWindow (2.0f);
     spectrogramComponent.setFreqRange (20.0f, 20000.0f);
-    spectrogramComponent.setColourMap (0); // Viridis
+    spectrogramComponent.setColourMap (0);
     spectrogramComponent.setUpdateRateHz (30);
     spectrogramComponent.setEnabled (true);
 
-    // Start timer for real-time updates (30 FPS)
+    // Style the header
+    headerLabel.setFont (headerLabel.getFont().withHeight (18.0f));
+    headerLabel.setJustificationType (juce::Justification::centred);
+    headerLabel.setColour (juce::Label::textColourId, juce::Colours::white);
+
+    // Setup parameter controls
+    setupModuleControls();
+    setupParameterBoxes();
+    loadParameterValues();
+    connectParametersToControls();
+
+    // Start timer for real-time updates
     startTimerHz (30);
 
-    // Set up the magic GUI state
-    magicState.setGuiValueTree (binaryData, binaryDataSize);
-
-    // Initialize layout
-    setupLayout();
+    updateUI();
 }
 
 WubForgeAudioProcessorEditor::~WubForgeAudioProcessorEditor()
 {
     stopTimer();
+
+    // Clean up parameter attachments (would be done by JUCE value tree state)
 }
 
 //==============================================================================
 void WubForgeAudioProcessorEditor::paint (juce::Graphics& g)
 {
-    // Fill background with dark theme
-    g.fillAll (juce::Colour (30, 30, 30));
+    // Professional dark theme background
+    g.fillAll (juce::Colour (45, 48, 51)); // Twitter dark mode background
 
-    // Draw title
-    g.setColour (juce::Colours::white);
-    g.setFont (24.0f);
-    g.drawText ("WubForge - Spectral Bass Processor",
-                getLocalBounds().removeFromTop (40).reduced (20, 0),
-                juce::Justification::centred, true);
+    // Subtle gradient header
+    auto headerBounds = getLocalBounds().removeFromTop (50);
+    g.setGradientFill (juce::ColourGradient (juce::Colour (30, 35, 40), headerBounds.getX(), headerBounds.getY(),
+                                           juce::Colour (20, 25, 30), headerBounds.getX(), headerBounds.getBottom(), false));
+    g.fillRect (headerBounds);
 
-    // Draw version info
-    g.setColour (juce::Colour (150, 150, 150));
+    // Brand logo/text
+    g.setColour (juce::Colour (255, 100, 0)); // Orange accent
+    g.setFont (28.0f);
+    g.drawText ("WUBFORGE", headerBounds.withTrimmedLeft (20).withTrimmedTop (15), juce::Justification::centredLeft);
+
+    // Version info
+    g.setColour (juce::Colours::white.withAlpha (0.7f));
     g.setFont (12.0f);
-    g.drawText ("v1.0.0",
-                getLocalBounds().getRight() - 100, 10, 80, 20,
-                juce::Justification::centredRight, true);
+    g.drawText ("v1.0.0 - Spectral Bass Processor", headerBounds.withTrimmedRight (20).withTrimmedTop (30),
+                juce::Justification::centredRight);
 }
 
 void WubForgeAudioProcessorEditor::resized()
 {
-    setupLayout();
+    auto bounds = getLocalBounds();
+    bounds.removeFromTop (50); // Header
+
+    auto contentBounds = bounds.reduced (20);
+
+    // Three-column layout
+    auto leftWidth = juce::roundToInt (contentBounds.getWidth() * 0.25f);
+    auto centerWidth = juce::roundToInt (contentBounds.getWidth() * 0.45f);
+    auto rightWidth = contentBounds.getWidth() - leftWidth - centerWidth;
+
+    // Left panel - Module tabs
+    tabbedModules.setBounds (contentBounds.removeFromLeft (leftWidth));
+
+    // Center panel - Spectrogram
+    centerPanel.setBounds (contentBounds.removeFromLeft (centerWidth));
+
+    // Right panel - Global controls
+    rightPanel.setBounds (contentBounds);
+
+    // Layout internal components
+    auto centerArea = centerPanel.getLocalBounds();
+    headerLabel.setBounds (centerArea.removeFromTop (30));
+    spectrogramComponent.setBounds (centerArea.reduced (5));
+
+    // Layout right panel components
+    auto rightArea = rightPanel.getLocalBounds();
+    routingGroup.setBounds (rightArea.removeFromTop (120).reduced (5));
+    outputGroup.setBounds (rightArea.removeFromTop (120).reduced (5));
+    feedbackGroup.setBounds (rightArea.removeFromTop (120).reduced (5));
+
+    // Layout controls within groups
+    setupControlLayouts();
 }
 
 //==============================================================================
