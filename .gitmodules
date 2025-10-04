@@ -1,3 +1,15 @@
 [submodule "JUCE"]
 	path = JUCE
 	url = https://github.com/juce-framework/JUCE.git
+[submodule "foleys_gui_magic"]
+	path = foleys_gui_magic
+	url = https://github.com/ffAudio/foleys_gui_magic.git
+[submodule "chowdsp_utils"]
+	path = chowdsp_utils
+	url = https://github.com/Chowdhury-DSP/chowdsp_utils.git
+[submodule "JUMP"]
+	path = JUMP
+	url = https://github.com/ImJimmi/JUMP.git
+[submodule "mda-plugins-juce"]
+	path = mda-plugins-juce
+	url = https://github.com/hollance/mda-plugins-juce.git
