@@ -1,7 +1,7 @@
 #pragma once
 
-//#include <foleys_gui_magic/foleys_gui_magic.h> // Temporarily commented out due to build issues
 #include <juce_dsp/juce_dsp.h>
+
 #include <array>
 #include <memory>
 #include "Module.h"
@@ -14,7 +14,7 @@ class WubForgeAudioProcessor : public juce::AudioProcessor
 public:
     //==============================================================================
     WubForgeAudioProcessor();
-    ~WubForgeAudioProcessor() override = default;
+    ~WubForgeAudioProcessor() override;
 
     //==============================================================================
     void prepareToPlay (double sampleRate, int samplesPerBlock) override;
@@ -25,10 +25,6 @@ public:
 
     void processBlock (juce::AudioBuffer<float>&, juce::MidiBuffer&) override;
 
-    juce::AudioProcessorEditor* createEditor() override;
-    bool hasEditor() const override { return true; }
-
-    //==============================================================================
     //==============================================================================
     const juce::String getName() const override;
     bool acceptsMidi() const override;
@@ -42,11 +38,6 @@ public:
     void setCurrentProgram (int index) override;
     const juce::String getProgramName (int index) override;
     void changeProgramName (int index, const juce::String& newName) override;
-
-    void getStateInformation (juce::MemoryBlock& destData) override;
-    void setStateInformation (const void* data, int sizeInBytes) override;
-
-    //==============================================================================
 
     //==============================================================================
     // Modular System Access
@@ -78,8 +69,9 @@ private:
     //==============================================================================
     void runMagicForge();
 
+    
+
     // Parameter management
-    juce::AudioProcessorValueTreeState valueTreeState;
     std::unique_ptr<Presets> presets;
 
     // State

@@ -24,7 +24,7 @@ public:
     };
 
     DistortionForge();
-    ~DistortionForge() override = default;
+    ~DistortionForge();
 
     //==============================================================================
     // AudioModule interface
@@ -75,13 +75,8 @@ private:
     float sampleRateReduction = 1.0f; // Sample rate reduction factor
 
     //==============================================================================
-    // DSP Components using chowdsp_utils
-
-    // Main distortion processors
-    chowdsp::ADAAHardClipper<float> hardClipper;
-    chowdsp::ADAATanhClipper<float> tanhClipper;
-    chowdsp::ADAASoftClipper<float> softClipper;
-    chowdsp::WestCoastWavefolder<float> wavefolder;
+    // DSP Components using JUCE and basic algorithms
+    // (chowdsp waveshapers not available in this version)
 
     // Tone filtering
     juce::dsp::ProcessorDuplicator<juce::dsp::IIR::Filter<float>,

@@ -21,7 +21,7 @@ public:
 
     //==============================================================================
     const juce::String getName() const override { return "MDA SubSynth"; }
-    ModuleType getType() const override { return ModuleType::Effect; }
+    ModuleType getType() const override { return ModuleType::Distortion; }
 
     //==============================================================================
     // SubSynth-specific controls

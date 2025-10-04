@@ -66,20 +66,17 @@ CMAKE_BINARY_DIR = /Volumes/Harry/WubForge/build
 all: CMakeFiles/WubForge.dir/all
 all: JUCE/all
 all: chowdsp_utils/all
-all: JUMP/all
 .PHONY : all
 
 # The main recursive "codegen" target.
 codegen: CMakeFiles/WubForge.dir/codegen
 codegen: JUCE/codegen
 codegen: chowdsp_utils/codegen
-codegen: JUMP/codegen
 .PHONY : codegen
 
 # The main recursive "preinstall" target.
 preinstall: JUCE/preinstall
 preinstall: chowdsp_utils/preinstall
-preinstall: JUMP/preinstall
 .PHONY : preinstall
 
 # The main recursive "clean" target.
@@ -87,7 +84,6 @@ clean: CMakeFiles/WubForge.dir/clean
 clean: CMakeFiles/WubForge_All.dir/clean
 clean: JUCE/clean
 clean: chowdsp_utils/clean
-clean: JUMP/clean
 .PHONY : clean
 
 #=============================================================================
@@ -169,25 +165,6 @@ JUCE/modules/preinstall:
 # Recursive "clean" directory target.
 JUCE/modules/clean:
 .PHONY : JUCE/modules/clean
-
-#=============================================================================
-# Directory level rules for directory JUMP
-
-# Recursive "all" directory target.
-JUMP/all:
-.PHONY : JUMP/all
-
-# Recursive "codegen" directory target.
-JUMP/codegen:
-.PHONY : JUMP/codegen
-
-# Recursive "preinstall" directory target.
-JUMP/preinstall:
-.PHONY : JUMP/preinstall
-
-# Recursive "clean" directory target.
-JUMP/clean:
-.PHONY : JUMP/clean
 
 #=============================================================================
 # Directory level rules for directory chowdsp_utils

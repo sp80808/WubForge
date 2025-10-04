@@ -109,29 +109,29 @@ void MDASubSynthModuleDirect::reset()
 //==============================================================================
 void MDASubSynthModuleDirect::setType(int type)
 {
-    _type = juce::jmax(0, juce::jmin(3, type));
+    _type = std::max(0, std::min(3, type));
     updateFilterCoefficients();
 }
 
 void MDASubSynthModuleDirect::setWetMix(float wet)
 {
-    _wet = juce::jmax(0.0f, juce::jmin(1.0f, wet));
+    _wet = std::max(0.0f, std::min(1.0f, wet));
 }
 
 void MDASubSynthModuleDirect::setDryMix(float dry)
 {
-    _dry = juce::jmax(0.0f, juce::jmin(1.0f, dry));
+    _dry = std::max(0.0f, std::min(1.0f, dry));
 }
 
 void MDASubSynthModuleDirect::setThreshold(float thresholdDB)
 {
-    float clampedDB = juce::jmax(-60.0f, juce::jmin(0.0f, thresholdDB));
+    float clampedDB = std::max(-60.0f, std::min(0.0f, thresholdDB));
     _threshold = juce::Decibels::decibelsToGain(clampedDB);
 }
 
 void MDASubSynthModuleDirect::setTune(float tune)
 {
-    _tune = juce::jmax(0.0f, juce::jmin(1.0f, tune));
+    _tune = std::max(0.0f, std::min(1.0f, tune));
     updateFilterCoefficients();
 }
 

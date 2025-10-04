@@ -12,16 +12,14 @@ DistortionForge::DistortionForge()
     updateGainStaging();
 }
 
+DistortionForge::~DistortionForge() = default;
+
 //==============================================================================
 void DistortionForge::prepare (const juce::dsp::ProcessSpec& spec)
 {
     sampleRate = spec.sampleRate;
 
-    // Prepare all DSP components
-    hardClipper.prepare(spec.numChannels);
-    tanhClipper.prepare(spec.numChannels);
-    softClipper.prepare(spec.numChannels);
-    wavefolder.prepare(spec.numChannels);
+    // Prepare basic DSP components (using JUCE-based algorithms)
 
     // Prepare tone filter
     toneFilter.prepare(spec);
@@ -81,10 +79,6 @@ void DistortionForge::process (const juce::dsp::ProcessContextReplacing<float>& 
 
 void DistortionForge::reset()
 {
-    hardClipper.reset();
-    tanhClipper.reset();
-    softClipper.reset();
-    wavefolder.reset();
     toneFilter.reset();
     inputGain.reset();
     outputGain.reset();
@@ -103,35 +97,35 @@ void DistortionForge::setAlgorithm (Algorithm algorithm)
 
 void DistortionForge::setDrive (float driveDB)
 {
-    this->driveDB = juce::jlimit(-20.0f, 40.0f, driveDB);
+    this->driveDB = std::max(-20.0f, std::min(40.0f, driveDB));
     updateGainStaging();
 }
 
 void DistortionForge::setTone (float toneFreqHz)
 {
-    this->toneFreqHz = juce::jlimit(200.0f, 8000.0f, toneFreqHz);
+    this->toneFreqHz = std::max(200.0f, std::min(8000.0f, toneFreqHz));
     updateFilters();
 }
 
 void DistortionForge::setMix (float wetMix)
 {
-    this->wetMix = juce::jlimit(0.0f, 1.0f, wetMix);
+    this->wetMix = std::max(0.0f, std::min(1.0f, wetMix));
     dryWetMixer.setWetMixProportion(wetMix);
 }
 
 void DistortionForge::setBias (float biasAmount)
 {
-    this->biasAmount = juce::jlimit(-1.0f, 1.0f, biasAmount);
+    this->biasAmount = std::max(-1.0f, std::min(1.0f, biasAmount));
 }
 
 void DistortionForge::setBitDepth (float bitDepth)
 {
-    this->bitDepth = juce::jlimit(1.0f, 16.0f, bitDepth);
+    this->bitDepth = std::max(1.0f, std::min(16.0f, bitDepth));
 }
 
 void DistortionForge::setSampleRateReduction (float reduction)
 {
-    this->sampleRateReduction = juce::jlimit(0.01f, 1.0f, reduction);
+    this->sampleRateReduction = std::max(0.01f, std::min(1.0f, reduction));
 }
 
 //==============================================================================
@@ -171,8 +165,8 @@ void DistortionForge::processHardClip (const juce::dsp::ProcessContextReplacing<
             float input = channelData[i] + biasAmount;
             float drive = std::pow(10.0f, driveDB / 20.0f);
 
-            // Apply hard clipping with ADAA
-            channelData[i] = hardClipper.processSample(input * drive, ch);
+            // Apply simple hard clipping (-1 to 1)
+            channelData[i] = std::max(-1.0f, std::min(1.0f, input * drive));
         }
     }
 }
@@ -191,8 +185,9 @@ void DistortionForge::processSoftClip (const juce::dsp::ProcessContextReplacing<
             float input = channelData[i] + biasAmount;
             float drive = std::pow(10.0f, driveDB / 20.0f);
 
-            // Apply soft clipping with ADAA
-            channelData[i] = softClipper.processSample(input * drive, ch);
+            // Apply polynomial soft clipping (arctangent approximation)
+            float x = input * drive;
+            channelData[i] = x / (1.0f + std::abs(x));  // Simple soft clip
         }
     }
 }
@@ -211,8 +206,10 @@ void DistortionForge::processWavefold (const juce::dsp::ProcessContextReplacing<
             float input = channelData[i] + biasAmount;
             float drive = std::pow(10.0f, driveDB / 20.0f);
 
-            // Apply wavefolding
-            channelData[i] = wavefolder.processSample(input * drive, ch);
+            // Apply simple wavefolding using sine function
+            float x = input * drive;
+            // Fold the signal into sine waves at multiples of pi
+            channelData[i] = std::sin(x);
         }
     }
 }

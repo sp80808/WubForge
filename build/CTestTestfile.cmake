@@ -6,4 +6,3 @@
 # testing this directory and lists subdirectories to be tested as well.
 subdirs("JUCE")
 subdirs("chowdsp_utils")
-subdirs("JUMP")

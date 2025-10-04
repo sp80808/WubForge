@@ -7,7 +7,6 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # JUCE Configuration
 add_subdirectory(JUCE)
 add_subdirectory(chowdsp_utils)
-add_subdirectory(JUMP)
 # Add MDA plugins as shared modules (using a custom approach since they're individual projects)
 # We'll include their source directly
 enable_testing()
@@ -85,13 +84,13 @@ target_compile_definitions(WubForge
 target_link_libraries(WubForge
     PRIVATE
         juce::juce_audio_utils
+        juce::juce_audio_processors
         juce::juce_dsp
         juce::juce_gui_basics
+        juce::juce_gui_extra
         chowdsp::chowdsp_dsp_utils
         chowdsp::chowdsp_eq
         chowdsp::chowdsp_filters
-        chowdsp::chowdsp_waveshapers
-        foleys_gui_magic
     PUBLIC
         juce::juce_recommended_config_flags
         juce::juce_recommended_lto_flags
