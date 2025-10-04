@@ -15,7 +15,7 @@ class WubForgeAudioProcessorEditor : public juce::AudioProcessorEditor
 {
 public:
     WubForgeAudioProcessorEditor (WubForgeAudioProcessor&);
-    ~WubForgeAudioProcessorEditor() override;
+    ~WubForgeAudioProcessorEditor() override; // This is correct, it overrides juce::AudioProcessorEditor's destructor
 
     //==============================================================================
     void paint (juce::Graphics&) override;
