@@ -14,6 +14,11 @@
 class WubForgeAudioProcessor : public juce::AudioProcessor,
                                public juce::AudioProcessorValueTreeState::Listener
 {
+private:
+    //==============================================================================
+    // AudioProcessorValueTreeState::Listener required implementation
+    void parameterChanged(const juce::String& parameterID, float newValue) override;
+
 public:
     //==============================================================================
     // --- Factory Methods for Modules ---
@@ -50,6 +55,13 @@ public:
     //==============================================================================
     // Modular System Access
     AudioModule* getModuleInSlot (int slotIndex) const;
+
+    //==============================================================================
+    // JUCE AudioProcessor Required Overrides
+    juce::AudioProcessorEditor* createEditor() override;
+    bool hasEditor() const override { return true; }
+    void getStateInformation (juce::MemoryBlock& destData) override;
+    void setStateInformation (const void* data, int sizeInBytes) override;
 
     //==============================================================================
     // Visualization Data Access
@@ -90,9 +102,6 @@ private:
     //==============================================================================
     juce::AudioProcessorValueTreeState::ParameterLayout createParameterLayout();
     void updateDSPParameters();
-
-    // Parameter change callback
-    void parameterChanged(const juce::String& parameterID, float newValue) override;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (WubForgeAudioProcessor)
 };

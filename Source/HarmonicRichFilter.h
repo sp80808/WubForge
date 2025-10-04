@@ -4,6 +4,7 @@
 #include <vector>
 #include <array>
 #include <memory>
+#include <cstdint>
 
 //==============================================================================
 /**
@@ -87,8 +88,8 @@ private:
 
     private:
         double sampleRate = 44100.0;
-        int64 samplesProcessed = 0;
-        int64 lastUpdateTime = 0;
+        int64_t samplesProcessed = 0;
+        int64_t lastUpdateTime = 0;
         float cpuUsage = 0.0f;
         static constexpr float updateInterval = 0.1f; // Update every 100ms
     };

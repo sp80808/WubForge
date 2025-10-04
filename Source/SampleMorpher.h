@@ -64,8 +64,7 @@ public:
 private:
     //==============================================================================
     // Sample Loading and Management
-    juce::AudioFormatManager formatManager;
-    std::unique_ptr<juce::AudioFormatReader> sampleReader;
+    // std::unique_ptr<juce::AudioFormatReader> sampleReader; // TODO: Fix JUCE API compatibility
     juce::AudioBuffer<float> sampleBuffer;
     bool sampleLoaded = false;
     juce::String loadedSampleName;

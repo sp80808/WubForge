@@ -32,8 +32,8 @@ juce_add_plugin(WubForge
     COPY_PLUGIN_AFTER_BUILD TRUE
     VST3_CATEGORIES "Fx"
     AU_MAIN_TYPE "kAudioUnitType_Effect"
-    VST3_COPY_DIR ""
-    AU_COPY_DIR ""
+    VST3_COPY_DIR "${CMAKE_SOURCE_DIR}/alpha_builds"
+    AU_COPY_DIR "${CMAKE_SOURCE_DIR}/alpha_builds"
 )
 
 # Plugin Sources
@@ -41,19 +41,12 @@ target_sources(WubForge
     PRIVATE
         Source/PluginProcessor.cpp
         Source/PluginEditor.cpp
-        Source/CombStack.cpp
         Source/DistortionForge.cpp
         Source/BitCrusher.cpp
         Source/KeyTracker.cpp
-        Source/FormantTracker.cpp
-        Source/FormantTrackerModule.cpp
-        Source/SpectralMorphingModule.cpp
         Source/FractalFilter.cpp
-        Source/FractalFilterModule.cpp
-        Source/SpectrogramComponent.cpp
-        Source/ChowEQModule.cpp
         Source/MDASubSynthModuleDirect.cpp
-        Source/Presets.cpp
+        Source/ModuleSlotComponent.cpp
 )
 
 # Plugin Headers

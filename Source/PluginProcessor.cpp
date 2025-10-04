@@ -1,13 +1,17 @@
 #include "PluginProcessor.h"
+#include "PluginEditor.h"
 #include "UniversalDistortionModule.h"
 #include "UniversalFilterModule.h"
-#include "ChowEQModule.h"
 #include "DistortionForge.h"
 #include "MDASubSynthModuleDirect.h"
 #include "SampleMorpher.h"
 #include "FibonacciSpiralDistort.h"
 #include "HarmonicRichFilter.h"
+#include "WavetableFilterModule.h"
 #include <juce_dsp/juce_dsp.h>
+
+// Note: ChowEQModule requires ChowDSP library which may need separate installation
+// #include "ChowEQModule.h"
 
 juce::StringArray WubForgeAudioProcessor::getAvailableModules()
 {
@@ -18,7 +22,8 @@ juce::StringArray WubForgeAudioProcessor::getAvailableModules()
         "MDA SubSynth",
         "Sample Morpher",
         "Fibonacci Spiral Distort",
-        "Harmonic Rich Filter"
+        "Harmonic Rich Filter",
+        "Wavetable Filter"
     };
 }
 
@@ -26,11 +31,12 @@ std::unique_ptr<AudioModule> WubForgeAudioProcessor::createModuleFromName(const 
 {
     if (name == "Universal Filter") return std::make_unique<UniversalFilterModule>();
     if (name == "Universal Distortion") return std::make_unique<UniversalDistortionModule>();
-    if (name == "Chow EQ") return std::make_unique<ChowEQModule>();
+    // if (name == "Chow EQ") return std::make_unique<ChowEQModule>(); // Requires ChowDSP library
     if (name == "MDA SubSynth") return std::make_unique<MDASubSynthModuleDirect>();
     if (name == "Sample Morpher") return std::make_unique<SampleMorpher>();
     if (name == "Fibonacci Spiral Distort") return std::make_unique<FibonacciSpiralDistort>();
     if (name == "Harmonic Rich Filter") return std::make_unique<HarmonicRichFilter>();
+    if (name == "Wavetable Filter") return std::make_unique<WavetableFilterModule>();
 
     return nullptr;
 }
@@ -179,7 +185,7 @@ bool WubForgeAudioProcessor::getCurrentSpectrumData(float* magnitudeBuffer, int 
 //==============================================================================
 juce::AudioProcessorEditor* WubForgeAudioProcessor::createEditor()
 {
-    return new WubForgeAudioProcessorEditor (*this);
+    return new WubForgeAudioProcessorEditor (*this); // This line is causing the error
 }
 
 //==============================================================================
@@ -314,4 +320,93 @@ void WubForgeAudioProcessor::parameterChanged(const juce::String& parameterID, f
     {
         updateDSPParameters();
     }
+}
+
+//==============================================================================
+// Required JUCE AudioProcessor implementations
+//==============================================================================
+
+const juce::String WubForgeAudioProcessor::getName() const
+{
+    return juce::String ("WubForge");
+}
+
+bool WubForgeAudioProcessor::acceptsMidi() const
+{
+    return true;
+}
+
+bool WubForgeAudioProcessor::producesMidi() const
+{
+    return false;
+}
+
+bool WubForgeAudioProcessor::isMidiEffect() const
+{
+    return false;
+}
+
+double WubForgeAudioProcessor::getTailLengthSeconds() const
+{
+    return 0.0;
+}
+
+int WubForgeAudioProcessor::getNumPrograms()
+{
+    if (presets)
+        return presets->getNumPresets();
+    return 1;
+}
+
+int WubForgeAudioProcessor::getCurrentProgram()
+{
+    return 0;
+}
+
+void WubForgeAudioProcessor::setCurrentProgram(int index)
+{
+    // For now, we don't actually change presets but just track the index
+    // presets->setPresetName(index, "Current"); // Placeholder
+}
+
+const juce::String WubForgeAudioProcessor::getProgramName(int index)
+{
+    if (presets && index >= 0 && index < presets->getNumPresets())
+        return presets->getPresetName(index);
+    return "Default";
+}
+
+void WubForgeAudioProcessor::changeProgramName(int index, const juce::String& newName)
+{
+    if (presets && index >= 0 && index < presets->getNumPresets())
+        presets->setPresetName(index, newName);
+}
+
+bool WubForgeAudioProcessor::isBusesLayoutSupported(const BusesLayout& layouts) const
+{
+    // Support mono->stereo, stereo->stereo
+    if (layouts.getMainOutputChannelSet() != juce::AudioChannelSet::mono()
+        && layouts.getMainOutputChannelSet() != juce::AudioChannelSet::stereo())
+        return false;
+
+    if (layouts.getMainOutputChannelSet() != layouts.getMainInputChannelSet())
+        return false;
+
+    return true;
+}
+
+void WubForgeAudioProcessor::getStateInformation(juce::MemoryBlock& destData)
+{
+    auto state = valueTreeState.copyState();
+    std::unique_ptr<juce::XmlElement> xml(state.createXml());
+    copyXmlToBinary(*xml, destData);
+}
+
+void WubForgeAudioProcessor::setStateInformation(const void* data, int sizeInBytes)
+{
+    std::unique_ptr<juce::XmlElement> xmlState(getXmlFromBinary(data, sizeInBytes));
+
+    if (xmlState.get() != nullptr)
+        if (xmlState->hasTagName(valueTreeState.state.getType()))
+            valueTreeState.replaceState(juce::ValueTree::fromXml(*xmlState));
 }

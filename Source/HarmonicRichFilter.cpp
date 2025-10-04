@@ -199,7 +199,7 @@ void HarmonicRichFilter::processHelicalSineVeil(const float* input, float* outpu
         veilFilter.setCutoffFrequency(modulatedCutoff / sampleRate);
         veilFilter.setResonance(resonance);
 
-        float veiledSignal = veilFilter.processSample(helicalSum);
+        float veiledSignal = veilFilter.processSample(0, helicalSum);
 
         // Mix with dry signal
         output[i] = input[i] * (1.0f - mix) + veiledSignal * mix * drive;
@@ -220,7 +220,7 @@ void HarmonicRichFilter::processCascadeHarmonicBloom(const float* input, float* 
         bloomFilters[0].setCutoffFrequency(stage1Freq / sampleRate);
         bloomFilters[0].setResonance(resonance * 0.8f);
 
-        float stageOutput = bloomFilters[0].processSample(sample);
+        float stageOutput = bloomFilters[0].processSample(0, sample);
 
         // Second stage - harmonic bloom with sine modulation
         float bloomMod = bloomModulators[0].processSample(0.0f) * bloomIntensity;
@@ -228,7 +228,7 @@ void HarmonicRichFilter::processCascadeHarmonicBloom(const float* input, float* 
         bloomFilters[1].setCutoffFrequency(stage2Freq / sampleRate);
         bloomFilters[1].setResonance(resonance * 1.2f);
 
-        stageOutput = bloomFilters[1].processSample(stageOutput);
+        stageOutput = bloomFilters[1].processSample(0, stageOutput);
 
         // Third stage - final bloom with feedback
         float feedback = stageOutput * bloomFeedback[2] * 0.1f;
@@ -236,7 +236,7 @@ void HarmonicRichFilter::processCascadeHarmonicBloom(const float* input, float* 
         bloomFilters[2].setCutoffFrequency(stage3Freq / sampleRate);
         bloomFilters[2].setResonance(resonance * 0.6f);
 
-        stageOutput = bloomFilters[2].processSample(stageOutput + feedback);
+        stageOutput = bloomFilters[2].processSample(0, stageOutput + feedback);
 
         // Update cross-feedback for next sample
         bloomFeedback[0] = stageOutput * 0.05f;
@@ -278,7 +278,7 @@ void HarmonicRichFilter::processSpectralSineHelix(const float* input, float* out
         helixFilter.setCutoffFrequency(cutoffFreq / sampleRate);
         helixFilter.setResonance(resonance);
 
-        float filteredSignal = helixFilter.processSample(helixSum);
+        float filteredSignal = helixFilter.processSample(0, helixSum);
 
         // All-pass helix for phase enrichment
         for (int ap = 0; ap < maxHelixSines; ++ap)
@@ -286,7 +286,8 @@ void HarmonicRichFilter::processSpectralSineHelix(const float* input, float* out
             float apFreq = cutoffFreq * (0.8f + ap * 0.1f);
             // Simple all-pass approximation using IIR filter
             float g = 0.7f; // All-pass coefficient
-            filteredSignal = g * (filteredSignal - allpassHelix[ap].getLastOutput()) + allpassHelix[ap].processSample(filteredSignal);
+            // Use a simple delay-free all-pass approximation
+            filteredSignal = g * filteredSignal + allpassHelix[ap].processSample(filteredSignal) * (1.0f - g * g);
         }
 
         // Mix with dry signal

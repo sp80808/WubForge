@@ -100,24 +100,10 @@ CMakeFiles/WubForge.dir/Source/PluginEditor.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/WubForge.dir/Source/PluginEditor.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Volumes/Harry/WubForge/Source/PluginEditor.cpp -o CMakeFiles/WubForge.dir/Source/PluginEditor.cpp.s
 
-CMakeFiles/WubForge.dir/Source/CombStack.cpp.o: CMakeFiles/WubForge.dir/flags.make
-CMakeFiles/WubForge.dir/Source/CombStack.cpp.o: /Volumes/Harry/WubForge/Source/CombStack.cpp
-CMakeFiles/WubForge.dir/Source/CombStack.cpp.o: CMakeFiles/WubForge.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Volumes/Harry/WubForge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/WubForge.dir/Source/CombStack.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/WubForge.dir/Source/CombStack.cpp.o -MF CMakeFiles/WubForge.dir/Source/CombStack.cpp.o.d -o CMakeFiles/WubForge.dir/Source/CombStack.cpp.o -c /Volumes/Harry/WubForge/Source/CombStack.cpp
-
-CMakeFiles/WubForge.dir/Source/CombStack.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/WubForge.dir/Source/CombStack.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Volumes/Harry/WubForge/Source/CombStack.cpp > CMakeFiles/WubForge.dir/Source/CombStack.cpp.i
-
-CMakeFiles/WubForge.dir/Source/CombStack.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/WubForge.dir/Source/CombStack.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Volumes/Harry/WubForge/Source/CombStack.cpp -o CMakeFiles/WubForge.dir/Source/CombStack.cpp.s
-
 CMakeFiles/WubForge.dir/Source/DistortionForge.cpp.o: CMakeFiles/WubForge.dir/flags.make
 CMakeFiles/WubForge.dir/Source/DistortionForge.cpp.o: /Volumes/Harry/WubForge/Source/DistortionForge.cpp
 CMakeFiles/WubForge.dir/Source/DistortionForge.cpp.o: CMakeFiles/WubForge.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Volumes/Harry/WubForge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/WubForge.dir/Source/DistortionForge.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Volumes/Harry/WubForge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/WubForge.dir/Source/DistortionForge.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/WubForge.dir/Source/DistortionForge.cpp.o -MF CMakeFiles/WubForge.dir/Source/DistortionForge.cpp.o.d -o CMakeFiles/WubForge.dir/Source/DistortionForge.cpp.o -c /Volumes/Harry/WubForge/Source/DistortionForge.cpp
 
 CMakeFiles/WubForge.dir/Source/DistortionForge.cpp.i: cmake_force
@@ -131,7 +117,7 @@ CMakeFiles/WubForge.dir/Source/DistortionForge.cpp.s: cmake_force
 CMakeFiles/WubForge.dir/Source/BitCrusher.cpp.o: CMakeFiles/WubForge.dir/flags.make
 CMakeFiles/WubForge.dir/Source/BitCrusher.cpp.o: /Volumes/Harry/WubForge/Source/BitCrusher.cpp
 CMakeFiles/WubForge.dir/Source/BitCrusher.cpp.o: CMakeFiles/WubForge.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Volumes/Harry/WubForge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/WubForge.dir/Source/BitCrusher.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Volumes/Harry/WubForge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/WubForge.dir/Source/BitCrusher.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/WubForge.dir/Source/BitCrusher.cpp.o -MF CMakeFiles/WubForge.dir/Source/BitCrusher.cpp.o.d -o CMakeFiles/WubForge.dir/Source/BitCrusher.cpp.o -c /Volumes/Harry/WubForge/Source/BitCrusher.cpp
 
 CMakeFiles/WubForge.dir/Source/BitCrusher.cpp.i: cmake_force
@@ -145,7 +131,7 @@ CMakeFiles/WubForge.dir/Source/BitCrusher.cpp.s: cmake_force
 CMakeFiles/WubForge.dir/Source/KeyTracker.cpp.o: CMakeFiles/WubForge.dir/flags.make
 CMakeFiles/WubForge.dir/Source/KeyTracker.cpp.o: /Volumes/Harry/WubForge/Source/KeyTracker.cpp
 CMakeFiles/WubForge.dir/Source/KeyTracker.cpp.o: CMakeFiles/WubForge.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Volumes/Harry/WubForge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/WubForge.dir/Source/KeyTracker.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Volumes/Harry/WubForge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/WubForge.dir/Source/KeyTracker.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/WubForge.dir/Source/KeyTracker.cpp.o -MF CMakeFiles/WubForge.dir/Source/KeyTracker.cpp.o.d -o CMakeFiles/WubForge.dir/Source/KeyTracker.cpp.o -c /Volumes/Harry/WubForge/Source/KeyTracker.cpp
 
 CMakeFiles/WubForge.dir/Source/KeyTracker.cpp.i: cmake_force
@@ -156,52 +142,10 @@ CMakeFiles/WubForge.dir/Source/KeyTracker.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/WubForge.dir/Source/KeyTracker.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Volumes/Harry/WubForge/Source/KeyTracker.cpp -o CMakeFiles/WubForge.dir/Source/KeyTracker.cpp.s
 
-CMakeFiles/WubForge.dir/Source/FormantTracker.cpp.o: CMakeFiles/WubForge.dir/flags.make
-CMakeFiles/WubForge.dir/Source/FormantTracker.cpp.o: /Volumes/Harry/WubForge/Source/FormantTracker.cpp
-CMakeFiles/WubForge.dir/Source/FormantTracker.cpp.o: CMakeFiles/WubForge.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Volumes/Harry/WubForge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/WubForge.dir/Source/FormantTracker.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/WubForge.dir/Source/FormantTracker.cpp.o -MF CMakeFiles/WubForge.dir/Source/FormantTracker.cpp.o.d -o CMakeFiles/WubForge.dir/Source/FormantTracker.cpp.o -c /Volumes/Harry/WubForge/Source/FormantTracker.cpp
-
-CMakeFiles/WubForge.dir/Source/FormantTracker.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/WubForge.dir/Source/FormantTracker.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Volumes/Harry/WubForge/Source/FormantTracker.cpp > CMakeFiles/WubForge.dir/Source/FormantTracker.cpp.i
-
-CMakeFiles/WubForge.dir/Source/FormantTracker.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/WubForge.dir/Source/FormantTracker.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Volumes/Harry/WubForge/Source/FormantTracker.cpp -o CMakeFiles/WubForge.dir/Source/FormantTracker.cpp.s
-
-CMakeFiles/WubForge.dir/Source/FormantTrackerModule.cpp.o: CMakeFiles/WubForge.dir/flags.make
-CMakeFiles/WubForge.dir/Source/FormantTrackerModule.cpp.o: /Volumes/Harry/WubForge/Source/FormantTrackerModule.cpp
-CMakeFiles/WubForge.dir/Source/FormantTrackerModule.cpp.o: CMakeFiles/WubForge.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Volumes/Harry/WubForge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/WubForge.dir/Source/FormantTrackerModule.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/WubForge.dir/Source/FormantTrackerModule.cpp.o -MF CMakeFiles/WubForge.dir/Source/FormantTrackerModule.cpp.o.d -o CMakeFiles/WubForge.dir/Source/FormantTrackerModule.cpp.o -c /Volumes/Harry/WubForge/Source/FormantTrackerModule.cpp
-
-CMakeFiles/WubForge.dir/Source/FormantTrackerModule.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/WubForge.dir/Source/FormantTrackerModule.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Volumes/Harry/WubForge/Source/FormantTrackerModule.cpp > CMakeFiles/WubForge.dir/Source/FormantTrackerModule.cpp.i
-
-CMakeFiles/WubForge.dir/Source/FormantTrackerModule.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/WubForge.dir/Source/FormantTrackerModule.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Volumes/Harry/WubForge/Source/FormantTrackerModule.cpp -o CMakeFiles/WubForge.dir/Source/FormantTrackerModule.cpp.s
-
-CMakeFiles/WubForge.dir/Source/SpectralMorphingModule.cpp.o: CMakeFiles/WubForge.dir/flags.make
-CMakeFiles/WubForge.dir/Source/SpectralMorphingModule.cpp.o: /Volumes/Harry/WubForge/Source/SpectralMorphingModule.cpp
-CMakeFiles/WubForge.dir/Source/SpectralMorphingModule.cpp.o: CMakeFiles/WubForge.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Volumes/Harry/WubForge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/WubForge.dir/Source/SpectralMorphingModule.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/WubForge.dir/Source/SpectralMorphingModule.cpp.o -MF CMakeFiles/WubForge.dir/Source/SpectralMorphingModule.cpp.o.d -o CMakeFiles/WubForge.dir/Source/SpectralMorphingModule.cpp.o -c /Volumes/Harry/WubForge/Source/SpectralMorphingModule.cpp
-
-CMakeFiles/WubForge.dir/Source/SpectralMorphingModule.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/WubForge.dir/Source/SpectralMorphingModule.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Volumes/Harry/WubForge/Source/SpectralMorphingModule.cpp > CMakeFiles/WubForge.dir/Source/SpectralMorphingModule.cpp.i
-
-CMakeFiles/WubForge.dir/Source/SpectralMorphingModule.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/WubForge.dir/Source/SpectralMorphingModule.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Volumes/Harry/WubForge/Source/SpectralMorphingModule.cpp -o CMakeFiles/WubForge.dir/Source/SpectralMorphingModule.cpp.s
-
 CMakeFiles/WubForge.dir/Source/FractalFilter.cpp.o: CMakeFiles/WubForge.dir/flags.make
 CMakeFiles/WubForge.dir/Source/FractalFilter.cpp.o: /Volumes/Harry/WubForge/Source/FractalFilter.cpp
 CMakeFiles/WubForge.dir/Source/FractalFilter.cpp.o: CMakeFiles/WubForge.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Volumes/Harry/WubForge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/WubForge.dir/Source/FractalFilter.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Volumes/Harry/WubForge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/WubForge.dir/Source/FractalFilter.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/WubForge.dir/Source/FractalFilter.cpp.o -MF CMakeFiles/WubForge.dir/Source/FractalFilter.cpp.o.d -o CMakeFiles/WubForge.dir/Source/FractalFilter.cpp.o -c /Volumes/Harry/WubForge/Source/FractalFilter.cpp
 
 CMakeFiles/WubForge.dir/Source/FractalFilter.cpp.i: cmake_force
@@ -212,52 +156,10 @@ CMakeFiles/WubForge.dir/Source/FractalFilter.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/WubForge.dir/Source/FractalFilter.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Volumes/Harry/WubForge/Source/FractalFilter.cpp -o CMakeFiles/WubForge.dir/Source/FractalFilter.cpp.s
 
-CMakeFiles/WubForge.dir/Source/FractalFilterModule.cpp.o: CMakeFiles/WubForge.dir/flags.make
-CMakeFiles/WubForge.dir/Source/FractalFilterModule.cpp.o: /Volumes/Harry/WubForge/Source/FractalFilterModule.cpp
-CMakeFiles/WubForge.dir/Source/FractalFilterModule.cpp.o: CMakeFiles/WubForge.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Volumes/Harry/WubForge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/WubForge.dir/Source/FractalFilterModule.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/WubForge.dir/Source/FractalFilterModule.cpp.o -MF CMakeFiles/WubForge.dir/Source/FractalFilterModule.cpp.o.d -o CMakeFiles/WubForge.dir/Source/FractalFilterModule.cpp.o -c /Volumes/Harry/WubForge/Source/FractalFilterModule.cpp
-
-CMakeFiles/WubForge.dir/Source/FractalFilterModule.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/WubForge.dir/Source/FractalFilterModule.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Volumes/Harry/WubForge/Source/FractalFilterModule.cpp > CMakeFiles/WubForge.dir/Source/FractalFilterModule.cpp.i
-
-CMakeFiles/WubForge.dir/Source/FractalFilterModule.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/WubForge.dir/Source/FractalFilterModule.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Volumes/Harry/WubForge/Source/FractalFilterModule.cpp -o CMakeFiles/WubForge.dir/Source/FractalFilterModule.cpp.s
-
-CMakeFiles/WubForge.dir/Source/SpectrogramComponent.cpp.o: CMakeFiles/WubForge.dir/flags.make
-CMakeFiles/WubForge.dir/Source/SpectrogramComponent.cpp.o: /Volumes/Harry/WubForge/Source/SpectrogramComponent.cpp
-CMakeFiles/WubForge.dir/Source/SpectrogramComponent.cpp.o: CMakeFiles/WubForge.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Volumes/Harry/WubForge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/WubForge.dir/Source/SpectrogramComponent.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/WubForge.dir/Source/SpectrogramComponent.cpp.o -MF CMakeFiles/WubForge.dir/Source/SpectrogramComponent.cpp.o.d -o CMakeFiles/WubForge.dir/Source/SpectrogramComponent.cpp.o -c /Volumes/Harry/WubForge/Source/SpectrogramComponent.cpp
-
-CMakeFiles/WubForge.dir/Source/SpectrogramComponent.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/WubForge.dir/Source/SpectrogramComponent.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Volumes/Harry/WubForge/Source/SpectrogramComponent.cpp > CMakeFiles/WubForge.dir/Source/SpectrogramComponent.cpp.i
-
-CMakeFiles/WubForge.dir/Source/SpectrogramComponent.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/WubForge.dir/Source/SpectrogramComponent.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Volumes/Harry/WubForge/Source/SpectrogramComponent.cpp -o CMakeFiles/WubForge.dir/Source/SpectrogramComponent.cpp.s
-
-CMakeFiles/WubForge.dir/Source/ChowEQModule.cpp.o: CMakeFiles/WubForge.dir/flags.make
-CMakeFiles/WubForge.dir/Source/ChowEQModule.cpp.o: /Volumes/Harry/WubForge/Source/ChowEQModule.cpp
-CMakeFiles/WubForge.dir/Source/ChowEQModule.cpp.o: CMakeFiles/WubForge.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Volumes/Harry/WubForge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/WubForge.dir/Source/ChowEQModule.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/WubForge.dir/Source/ChowEQModule.cpp.o -MF CMakeFiles/WubForge.dir/Source/ChowEQModule.cpp.o.d -o CMakeFiles/WubForge.dir/Source/ChowEQModule.cpp.o -c /Volumes/Harry/WubForge/Source/ChowEQModule.cpp
-
-CMakeFiles/WubForge.dir/Source/ChowEQModule.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/WubForge.dir/Source/ChowEQModule.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Volumes/Harry/WubForge/Source/ChowEQModule.cpp > CMakeFiles/WubForge.dir/Source/ChowEQModule.cpp.i
-
-CMakeFiles/WubForge.dir/Source/ChowEQModule.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/WubForge.dir/Source/ChowEQModule.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Volumes/Harry/WubForge/Source/ChowEQModule.cpp -o CMakeFiles/WubForge.dir/Source/ChowEQModule.cpp.s
-
 CMakeFiles/WubForge.dir/Source/MDASubSynthModuleDirect.cpp.o: CMakeFiles/WubForge.dir/flags.make
 CMakeFiles/WubForge.dir/Source/MDASubSynthModuleDirect.cpp.o: /Volumes/Harry/WubForge/Source/MDASubSynthModuleDirect.cpp
 CMakeFiles/WubForge.dir/Source/MDASubSynthModuleDirect.cpp.o: CMakeFiles/WubForge.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Volumes/Harry/WubForge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/WubForge.dir/Source/MDASubSynthModuleDirect.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Volumes/Harry/WubForge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/WubForge.dir/Source/MDASubSynthModuleDirect.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/WubForge.dir/Source/MDASubSynthModuleDirect.cpp.o -MF CMakeFiles/WubForge.dir/Source/MDASubSynthModuleDirect.cpp.o.d -o CMakeFiles/WubForge.dir/Source/MDASubSynthModuleDirect.cpp.o -c /Volumes/Harry/WubForge/Source/MDASubSynthModuleDirect.cpp
 
 CMakeFiles/WubForge.dir/Source/MDASubSynthModuleDirect.cpp.i: cmake_force
@@ -268,24 +170,24 @@ CMakeFiles/WubForge.dir/Source/MDASubSynthModuleDirect.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/WubForge.dir/Source/MDASubSynthModuleDirect.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Volumes/Harry/WubForge/Source/MDASubSynthModuleDirect.cpp -o CMakeFiles/WubForge.dir/Source/MDASubSynthModuleDirect.cpp.s
 
-CMakeFiles/WubForge.dir/Source/Presets.cpp.o: CMakeFiles/WubForge.dir/flags.make
-CMakeFiles/WubForge.dir/Source/Presets.cpp.o: /Volumes/Harry/WubForge/Source/Presets.cpp
-CMakeFiles/WubForge.dir/Source/Presets.cpp.o: CMakeFiles/WubForge.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Volumes/Harry/WubForge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/WubForge.dir/Source/Presets.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/WubForge.dir/Source/Presets.cpp.o -MF CMakeFiles/WubForge.dir/Source/Presets.cpp.o.d -o CMakeFiles/WubForge.dir/Source/Presets.cpp.o -c /Volumes/Harry/WubForge/Source/Presets.cpp
+CMakeFiles/WubForge.dir/Source/ModuleSlotComponent.cpp.o: CMakeFiles/WubForge.dir/flags.make
+CMakeFiles/WubForge.dir/Source/ModuleSlotComponent.cpp.o: /Volumes/Harry/WubForge/Source/ModuleSlotComponent.cpp
+CMakeFiles/WubForge.dir/Source/ModuleSlotComponent.cpp.o: CMakeFiles/WubForge.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Volumes/Harry/WubForge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/WubForge.dir/Source/ModuleSlotComponent.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/WubForge.dir/Source/ModuleSlotComponent.cpp.o -MF CMakeFiles/WubForge.dir/Source/ModuleSlotComponent.cpp.o.d -o CMakeFiles/WubForge.dir/Source/ModuleSlotComponent.cpp.o -c /Volumes/Harry/WubForge/Source/ModuleSlotComponent.cpp
 
-CMakeFiles/WubForge.dir/Source/Presets.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/WubForge.dir/Source/Presets.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Volumes/Harry/WubForge/Source/Presets.cpp > CMakeFiles/WubForge.dir/Source/Presets.cpp.i
+CMakeFiles/WubForge.dir/Source/ModuleSlotComponent.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/WubForge.dir/Source/ModuleSlotComponent.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Volumes/Harry/WubForge/Source/ModuleSlotComponent.cpp > CMakeFiles/WubForge.dir/Source/ModuleSlotComponent.cpp.i
 
-CMakeFiles/WubForge.dir/Source/Presets.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/WubForge.dir/Source/Presets.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Volumes/Harry/WubForge/Source/Presets.cpp -o CMakeFiles/WubForge.dir/Source/Presets.cpp.s
+CMakeFiles/WubForge.dir/Source/ModuleSlotComponent.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/WubForge.dir/Source/ModuleSlotComponent.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Volumes/Harry/WubForge/Source/ModuleSlotComponent.cpp -o CMakeFiles/WubForge.dir/Source/ModuleSlotComponent.cpp.s
 
 CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_processors/juce_audio_processors_ara.cpp.o: CMakeFiles/WubForge.dir/flags.make
 CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_processors/juce_audio_processors_ara.cpp.o: /Volumes/Harry/WubForge/JUCE/modules/juce_audio_processors/juce_audio_processors_ara.cpp
 CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_processors/juce_audio_processors_ara.cpp.o: CMakeFiles/WubForge.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Volumes/Harry/WubForge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_processors/juce_audio_processors_ara.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Volumes/Harry/WubForge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_processors/juce_audio_processors_ara.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_processors/juce_audio_processors_ara.cpp.o -MF CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_processors/juce_audio_processors_ara.cpp.o.d -o CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_processors/juce_audio_processors_ara.cpp.o -c /Volumes/Harry/WubForge/JUCE/modules/juce_audio_processors/juce_audio_processors_ara.cpp
 
 CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_processors/juce_audio_processors_ara.cpp.i: cmake_force
@@ -299,7 +201,7 @@ CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_processors/juce_audio_processors
 CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_processors/juce_audio_processors_lv2_libs.cpp.o: CMakeFiles/WubForge.dir/flags.make
 CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_processors/juce_audio_processors_lv2_libs.cpp.o: /Volumes/Harry/WubForge/JUCE/modules/juce_audio_processors/juce_audio_processors_lv2_libs.cpp
 CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_processors/juce_audio_processors_lv2_libs.cpp.o: CMakeFiles/WubForge.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Volumes/Harry/WubForge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_processors/juce_audio_processors_lv2_libs.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Volumes/Harry/WubForge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_processors/juce_audio_processors_lv2_libs.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_processors/juce_audio_processors_lv2_libs.cpp.o -MF CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_processors/juce_audio_processors_lv2_libs.cpp.o.d -o CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_processors/juce_audio_processors_lv2_libs.cpp.o -c /Volumes/Harry/WubForge/JUCE/modules/juce_audio_processors/juce_audio_processors_lv2_libs.cpp
 
 CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_processors/juce_audio_processors_lv2_libs.cpp.i: cmake_force
@@ -313,7 +215,7 @@ CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_processors/juce_audio_processors
 CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_processors/juce_audio_processors.mm.o: CMakeFiles/WubForge.dir/flags.make
 CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_processors/juce_audio_processors.mm.o: /Volumes/Harry/WubForge/JUCE/modules/juce_audio_processors/juce_audio_processors.mm
 CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_processors/juce_audio_processors.mm.o: CMakeFiles/WubForge.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Volumes/Harry/WubForge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_processors/juce_audio_processors.mm.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Volumes/Harry/WubForge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_processors/juce_audio_processors.mm.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_processors/juce_audio_processors.mm.o -MF CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_processors/juce_audio_processors.mm.o.d -o CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_processors/juce_audio_processors.mm.o -c /Volumes/Harry/WubForge/JUCE/modules/juce_audio_processors/juce_audio_processors.mm
 
 CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_processors/juce_audio_processors.mm.i: cmake_force
@@ -327,7 +229,7 @@ CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_processors/juce_audio_processors
 CMakeFiles/WubForge.dir/JUCE/modules/juce_gui_extra/juce_gui_extra.mm.o: CMakeFiles/WubForge.dir/flags.make
 CMakeFiles/WubForge.dir/JUCE/modules/juce_gui_extra/juce_gui_extra.mm.o: /Volumes/Harry/WubForge/JUCE/modules/juce_gui_extra/juce_gui_extra.mm
 CMakeFiles/WubForge.dir/JUCE/modules/juce_gui_extra/juce_gui_extra.mm.o: CMakeFiles/WubForge.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Volumes/Harry/WubForge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/WubForge.dir/JUCE/modules/juce_gui_extra/juce_gui_extra.mm.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Volumes/Harry/WubForge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/WubForge.dir/JUCE/modules/juce_gui_extra/juce_gui_extra.mm.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/WubForge.dir/JUCE/modules/juce_gui_extra/juce_gui_extra.mm.o -MF CMakeFiles/WubForge.dir/JUCE/modules/juce_gui_extra/juce_gui_extra.mm.o.d -o CMakeFiles/WubForge.dir/JUCE/modules/juce_gui_extra/juce_gui_extra.mm.o -c /Volumes/Harry/WubForge/JUCE/modules/juce_gui_extra/juce_gui_extra.mm
 
 CMakeFiles/WubForge.dir/JUCE/modules/juce_gui_extra/juce_gui_extra.mm.i: cmake_force
@@ -341,7 +243,7 @@ CMakeFiles/WubForge.dir/JUCE/modules/juce_gui_extra/juce_gui_extra.mm.s: cmake_f
 CMakeFiles/WubForge.dir/JUCE/modules/juce_gui_basics/juce_gui_basics.mm.o: CMakeFiles/WubForge.dir/flags.make
 CMakeFiles/WubForge.dir/JUCE/modules/juce_gui_basics/juce_gui_basics.mm.o: /Volumes/Harry/WubForge/JUCE/modules/juce_gui_basics/juce_gui_basics.mm
 CMakeFiles/WubForge.dir/JUCE/modules/juce_gui_basics/juce_gui_basics.mm.o: CMakeFiles/WubForge.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Volumes/Harry/WubForge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/WubForge.dir/JUCE/modules/juce_gui_basics/juce_gui_basics.mm.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Volumes/Harry/WubForge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/WubForge.dir/JUCE/modules/juce_gui_basics/juce_gui_basics.mm.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/WubForge.dir/JUCE/modules/juce_gui_basics/juce_gui_basics.mm.o -MF CMakeFiles/WubForge.dir/JUCE/modules/juce_gui_basics/juce_gui_basics.mm.o.d -o CMakeFiles/WubForge.dir/JUCE/modules/juce_gui_basics/juce_gui_basics.mm.o -c /Volumes/Harry/WubForge/JUCE/modules/juce_gui_basics/juce_gui_basics.mm
 
 CMakeFiles/WubForge.dir/JUCE/modules/juce_gui_basics/juce_gui_basics.mm.i: cmake_force
@@ -355,7 +257,7 @@ CMakeFiles/WubForge.dir/JUCE/modules/juce_gui_basics/juce_gui_basics.mm.s: cmake
 CMakeFiles/WubForge.dir/JUCE/modules/juce_graphics/juce_graphics_Harfbuzz.cpp.o: CMakeFiles/WubForge.dir/flags.make
 CMakeFiles/WubForge.dir/JUCE/modules/juce_graphics/juce_graphics_Harfbuzz.cpp.o: /Volumes/Harry/WubForge/JUCE/modules/juce_graphics/juce_graphics_Harfbuzz.cpp
 CMakeFiles/WubForge.dir/JUCE/modules/juce_graphics/juce_graphics_Harfbuzz.cpp.o: CMakeFiles/WubForge.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Volumes/Harry/WubForge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/WubForge.dir/JUCE/modules/juce_graphics/juce_graphics_Harfbuzz.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Volumes/Harry/WubForge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/WubForge.dir/JUCE/modules/juce_graphics/juce_graphics_Harfbuzz.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/WubForge.dir/JUCE/modules/juce_graphics/juce_graphics_Harfbuzz.cpp.o -MF CMakeFiles/WubForge.dir/JUCE/modules/juce_graphics/juce_graphics_Harfbuzz.cpp.o.d -o CMakeFiles/WubForge.dir/JUCE/modules/juce_graphics/juce_graphics_Harfbuzz.cpp.o -c /Volumes/Harry/WubForge/JUCE/modules/juce_graphics/juce_graphics_Harfbuzz.cpp
 
 CMakeFiles/WubForge.dir/JUCE/modules/juce_graphics/juce_graphics_Harfbuzz.cpp.i: cmake_force
@@ -369,7 +271,7 @@ CMakeFiles/WubForge.dir/JUCE/modules/juce_graphics/juce_graphics_Harfbuzz.cpp.s:
 CMakeFiles/WubForge.dir/JUCE/modules/juce_graphics/juce_graphics_Sheenbidi.c.o: CMakeFiles/WubForge.dir/flags.make
 CMakeFiles/WubForge.dir/JUCE/modules/juce_graphics/juce_graphics_Sheenbidi.c.o: /Volumes/Harry/WubForge/JUCE/modules/juce_graphics/juce_graphics_Sheenbidi.c
 CMakeFiles/WubForge.dir/JUCE/modules/juce_graphics/juce_graphics_Sheenbidi.c.o: CMakeFiles/WubForge.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Volumes/Harry/WubForge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building C object CMakeFiles/WubForge.dir/JUCE/modules/juce_graphics/juce_graphics_Sheenbidi.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Volumes/Harry/WubForge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building C object CMakeFiles/WubForge.dir/JUCE/modules/juce_graphics/juce_graphics_Sheenbidi.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/WubForge.dir/JUCE/modules/juce_graphics/juce_graphics_Sheenbidi.c.o -MF CMakeFiles/WubForge.dir/JUCE/modules/juce_graphics/juce_graphics_Sheenbidi.c.o.d -o CMakeFiles/WubForge.dir/JUCE/modules/juce_graphics/juce_graphics_Sheenbidi.c.o -c /Volumes/Harry/WubForge/JUCE/modules/juce_graphics/juce_graphics_Sheenbidi.c
 
 CMakeFiles/WubForge.dir/JUCE/modules/juce_graphics/juce_graphics_Sheenbidi.c.i: cmake_force
@@ -383,7 +285,7 @@ CMakeFiles/WubForge.dir/JUCE/modules/juce_graphics/juce_graphics_Sheenbidi.c.s: 
 CMakeFiles/WubForge.dir/JUCE/modules/juce_graphics/juce_graphics.mm.o: CMakeFiles/WubForge.dir/flags.make
 CMakeFiles/WubForge.dir/JUCE/modules/juce_graphics/juce_graphics.mm.o: /Volumes/Harry/WubForge/JUCE/modules/juce_graphics/juce_graphics.mm
 CMakeFiles/WubForge.dir/JUCE/modules/juce_graphics/juce_graphics.mm.o: CMakeFiles/WubForge.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Volumes/Harry/WubForge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/WubForge.dir/JUCE/modules/juce_graphics/juce_graphics.mm.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Volumes/Harry/WubForge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/WubForge.dir/JUCE/modules/juce_graphics/juce_graphics.mm.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/WubForge.dir/JUCE/modules/juce_graphics/juce_graphics.mm.o -MF CMakeFiles/WubForge.dir/JUCE/modules/juce_graphics/juce_graphics.mm.o.d -o CMakeFiles/WubForge.dir/JUCE/modules/juce_graphics/juce_graphics.mm.o -c /Volumes/Harry/WubForge/JUCE/modules/juce_graphics/juce_graphics.mm
 
 CMakeFiles/WubForge.dir/JUCE/modules/juce_graphics/juce_graphics.mm.i: cmake_force
@@ -397,7 +299,7 @@ CMakeFiles/WubForge.dir/JUCE/modules/juce_graphics/juce_graphics.mm.s: cmake_for
 CMakeFiles/WubForge.dir/JUCE/modules/juce_events/juce_events.mm.o: CMakeFiles/WubForge.dir/flags.make
 CMakeFiles/WubForge.dir/JUCE/modules/juce_events/juce_events.mm.o: /Volumes/Harry/WubForge/JUCE/modules/juce_events/juce_events.mm
 CMakeFiles/WubForge.dir/JUCE/modules/juce_events/juce_events.mm.o: CMakeFiles/WubForge.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Volumes/Harry/WubForge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/WubForge.dir/JUCE/modules/juce_events/juce_events.mm.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Volumes/Harry/WubForge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/WubForge.dir/JUCE/modules/juce_events/juce_events.mm.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/WubForge.dir/JUCE/modules/juce_events/juce_events.mm.o -MF CMakeFiles/WubForge.dir/JUCE/modules/juce_events/juce_events.mm.o.d -o CMakeFiles/WubForge.dir/JUCE/modules/juce_events/juce_events.mm.o -c /Volumes/Harry/WubForge/JUCE/modules/juce_events/juce_events.mm
 
 CMakeFiles/WubForge.dir/JUCE/modules/juce_events/juce_events.mm.i: cmake_force
@@ -411,7 +313,7 @@ CMakeFiles/WubForge.dir/JUCE/modules/juce_events/juce_events.mm.s: cmake_force
 CMakeFiles/WubForge.dir/JUCE/modules/juce_core/juce_core_CompilationTime.cpp.o: CMakeFiles/WubForge.dir/flags.make
 CMakeFiles/WubForge.dir/JUCE/modules/juce_core/juce_core_CompilationTime.cpp.o: /Volumes/Harry/WubForge/JUCE/modules/juce_core/juce_core_CompilationTime.cpp
 CMakeFiles/WubForge.dir/JUCE/modules/juce_core/juce_core_CompilationTime.cpp.o: CMakeFiles/WubForge.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Volumes/Harry/WubForge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object CMakeFiles/WubForge.dir/JUCE/modules/juce_core/juce_core_CompilationTime.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Volumes/Harry/WubForge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/WubForge.dir/JUCE/modules/juce_core/juce_core_CompilationTime.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/WubForge.dir/JUCE/modules/juce_core/juce_core_CompilationTime.cpp.o -MF CMakeFiles/WubForge.dir/JUCE/modules/juce_core/juce_core_CompilationTime.cpp.o.d -o CMakeFiles/WubForge.dir/JUCE/modules/juce_core/juce_core_CompilationTime.cpp.o -c /Volumes/Harry/WubForge/JUCE/modules/juce_core/juce_core_CompilationTime.cpp
 
 CMakeFiles/WubForge.dir/JUCE/modules/juce_core/juce_core_CompilationTime.cpp.i: cmake_force
@@ -425,7 +327,7 @@ CMakeFiles/WubForge.dir/JUCE/modules/juce_core/juce_core_CompilationTime.cpp.s: 
 CMakeFiles/WubForge.dir/JUCE/modules/juce_core/juce_core.mm.o: CMakeFiles/WubForge.dir/flags.make
 CMakeFiles/WubForge.dir/JUCE/modules/juce_core/juce_core.mm.o: /Volumes/Harry/WubForge/JUCE/modules/juce_core/juce_core.mm
 CMakeFiles/WubForge.dir/JUCE/modules/juce_core/juce_core.mm.o: CMakeFiles/WubForge.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Volumes/Harry/WubForge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object CMakeFiles/WubForge.dir/JUCE/modules/juce_core/juce_core.mm.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Volumes/Harry/WubForge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/WubForge.dir/JUCE/modules/juce_core/juce_core.mm.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/WubForge.dir/JUCE/modules/juce_core/juce_core.mm.o -MF CMakeFiles/WubForge.dir/JUCE/modules/juce_core/juce_core.mm.o.d -o CMakeFiles/WubForge.dir/JUCE/modules/juce_core/juce_core.mm.o -c /Volumes/Harry/WubForge/JUCE/modules/juce_core/juce_core.mm
 
 CMakeFiles/WubForge.dir/JUCE/modules/juce_core/juce_core.mm.i: cmake_force
@@ -439,7 +341,7 @@ CMakeFiles/WubForge.dir/JUCE/modules/juce_core/juce_core.mm.s: cmake_force
 CMakeFiles/WubForge.dir/JUCE/modules/juce_data_structures/juce_data_structures.mm.o: CMakeFiles/WubForge.dir/flags.make
 CMakeFiles/WubForge.dir/JUCE/modules/juce_data_structures/juce_data_structures.mm.o: /Volumes/Harry/WubForge/JUCE/modules/juce_data_structures/juce_data_structures.mm
 CMakeFiles/WubForge.dir/JUCE/modules/juce_data_structures/juce_data_structures.mm.o: CMakeFiles/WubForge.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Volumes/Harry/WubForge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object CMakeFiles/WubForge.dir/JUCE/modules/juce_data_structures/juce_data_structures.mm.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Volumes/Harry/WubForge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/WubForge.dir/JUCE/modules/juce_data_structures/juce_data_structures.mm.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/WubForge.dir/JUCE/modules/juce_data_structures/juce_data_structures.mm.o -MF CMakeFiles/WubForge.dir/JUCE/modules/juce_data_structures/juce_data_structures.mm.o.d -o CMakeFiles/WubForge.dir/JUCE/modules/juce_data_structures/juce_data_structures.mm.o -c /Volumes/Harry/WubForge/JUCE/modules/juce_data_structures/juce_data_structures.mm
 
 CMakeFiles/WubForge.dir/JUCE/modules/juce_data_structures/juce_data_structures.mm.i: cmake_force
@@ -453,7 +355,7 @@ CMakeFiles/WubForge.dir/JUCE/modules/juce_data_structures/juce_data_structures.m
 CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_basics/juce_audio_basics.mm.o: CMakeFiles/WubForge.dir/flags.make
 CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_basics/juce_audio_basics.mm.o: /Volumes/Harry/WubForge/JUCE/modules/juce_audio_basics/juce_audio_basics.mm
 CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_basics/juce_audio_basics.mm.o: CMakeFiles/WubForge.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Volumes/Harry/WubForge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building CXX object CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_basics/juce_audio_basics.mm.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Volumes/Harry/WubForge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_basics/juce_audio_basics.mm.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_basics/juce_audio_basics.mm.o -MF CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_basics/juce_audio_basics.mm.o.d -o CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_basics/juce_audio_basics.mm.o -c /Volumes/Harry/WubForge/JUCE/modules/juce_audio_basics/juce_audio_basics.mm
 
 CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_basics/juce_audio_basics.mm.i: cmake_force
@@ -467,7 +369,7 @@ CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_basics/juce_audio_basics.mm.s: c
 CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_utils/juce_audio_utils.mm.o: CMakeFiles/WubForge.dir/flags.make
 CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_utils/juce_audio_utils.mm.o: /Volumes/Harry/WubForge/JUCE/modules/juce_audio_utils/juce_audio_utils.mm
 CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_utils/juce_audio_utils.mm.o: CMakeFiles/WubForge.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Volumes/Harry/WubForge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building CXX object CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_utils/juce_audio_utils.mm.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Volumes/Harry/WubForge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_utils/juce_audio_utils.mm.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_utils/juce_audio_utils.mm.o -MF CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_utils/juce_audio_utils.mm.o.d -o CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_utils/juce_audio_utils.mm.o -c /Volumes/Harry/WubForge/JUCE/modules/juce_audio_utils/juce_audio_utils.mm
 
 CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_utils/juce_audio_utils.mm.i: cmake_force
@@ -481,7 +383,7 @@ CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_utils/juce_audio_utils.mm.s: cma
 CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_formats/juce_audio_formats.mm.o: CMakeFiles/WubForge.dir/flags.make
 CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_formats/juce_audio_formats.mm.o: /Volumes/Harry/WubForge/JUCE/modules/juce_audio_formats/juce_audio_formats.mm
 CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_formats/juce_audio_formats.mm.o: CMakeFiles/WubForge.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Volumes/Harry/WubForge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building CXX object CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_formats/juce_audio_formats.mm.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Volumes/Harry/WubForge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_formats/juce_audio_formats.mm.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_formats/juce_audio_formats.mm.o -MF CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_formats/juce_audio_formats.mm.o.d -o CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_formats/juce_audio_formats.mm.o -c /Volumes/Harry/WubForge/JUCE/modules/juce_audio_formats/juce_audio_formats.mm
 
 CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_formats/juce_audio_formats.mm.i: cmake_force
@@ -495,7 +397,7 @@ CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_formats/juce_audio_formats.mm.s:
 CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_devices/juce_audio_devices.mm.o: CMakeFiles/WubForge.dir/flags.make
 CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_devices/juce_audio_devices.mm.o: /Volumes/Harry/WubForge/JUCE/modules/juce_audio_devices/juce_audio_devices.mm
 CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_devices/juce_audio_devices.mm.o: CMakeFiles/WubForge.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Volumes/Harry/WubForge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building CXX object CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_devices/juce_audio_devices.mm.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Volumes/Harry/WubForge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_devices/juce_audio_devices.mm.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_devices/juce_audio_devices.mm.o -MF CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_devices/juce_audio_devices.mm.o.d -o CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_devices/juce_audio_devices.mm.o -c /Volumes/Harry/WubForge/JUCE/modules/juce_audio_devices/juce_audio_devices.mm
 
 CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_devices/juce_audio_devices.mm.i: cmake_force
@@ -509,7 +411,7 @@ CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_devices/juce_audio_devices.mm.s:
 CMakeFiles/WubForge.dir/JUCE/modules/juce_dsp/juce_dsp.mm.o: CMakeFiles/WubForge.dir/flags.make
 CMakeFiles/WubForge.dir/JUCE/modules/juce_dsp/juce_dsp.mm.o: /Volumes/Harry/WubForge/JUCE/modules/juce_dsp/juce_dsp.mm
 CMakeFiles/WubForge.dir/JUCE/modules/juce_dsp/juce_dsp.mm.o: CMakeFiles/WubForge.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Volumes/Harry/WubForge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building CXX object CMakeFiles/WubForge.dir/JUCE/modules/juce_dsp/juce_dsp.mm.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Volumes/Harry/WubForge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object CMakeFiles/WubForge.dir/JUCE/modules/juce_dsp/juce_dsp.mm.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/WubForge.dir/JUCE/modules/juce_dsp/juce_dsp.mm.o -MF CMakeFiles/WubForge.dir/JUCE/modules/juce_dsp/juce_dsp.mm.o.d -o CMakeFiles/WubForge.dir/JUCE/modules/juce_dsp/juce_dsp.mm.o -c /Volumes/Harry/WubForge/JUCE/modules/juce_dsp/juce_dsp.mm
 
 CMakeFiles/WubForge.dir/JUCE/modules/juce_dsp/juce_dsp.mm.i: cmake_force
@@ -523,7 +425,7 @@ CMakeFiles/WubForge.dir/JUCE/modules/juce_dsp/juce_dsp.mm.s: cmake_force
 CMakeFiles/WubForge.dir/chowdsp_utils/modules/dsp/chowdsp_dsp_utils/chowdsp_dsp_utils.cpp.o: CMakeFiles/WubForge.dir/flags.make
 CMakeFiles/WubForge.dir/chowdsp_utils/modules/dsp/chowdsp_dsp_utils/chowdsp_dsp_utils.cpp.o: /Volumes/Harry/WubForge/chowdsp_utils/modules/dsp/chowdsp_dsp_utils/chowdsp_dsp_utils.cpp
 CMakeFiles/WubForge.dir/chowdsp_utils/modules/dsp/chowdsp_dsp_utils/chowdsp_dsp_utils.cpp.o: CMakeFiles/WubForge.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Volumes/Harry/WubForge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building CXX object CMakeFiles/WubForge.dir/chowdsp_utils/modules/dsp/chowdsp_dsp_utils/chowdsp_dsp_utils.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Volumes/Harry/WubForge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object CMakeFiles/WubForge.dir/chowdsp_utils/modules/dsp/chowdsp_dsp_utils/chowdsp_dsp_utils.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/WubForge.dir/chowdsp_utils/modules/dsp/chowdsp_dsp_utils/chowdsp_dsp_utils.cpp.o -MF CMakeFiles/WubForge.dir/chowdsp_utils/modules/dsp/chowdsp_dsp_utils/chowdsp_dsp_utils.cpp.o.d -o CMakeFiles/WubForge.dir/chowdsp_utils/modules/dsp/chowdsp_dsp_utils/chowdsp_dsp_utils.cpp.o -c /Volumes/Harry/WubForge/chowdsp_utils/modules/dsp/chowdsp_dsp_utils/chowdsp_dsp_utils.cpp
 
 CMakeFiles/WubForge.dir/chowdsp_utils/modules/dsp/chowdsp_dsp_utils/chowdsp_dsp_utils.cpp.i: cmake_force
@@ -537,7 +439,7 @@ CMakeFiles/WubForge.dir/chowdsp_utils/modules/dsp/chowdsp_dsp_utils/chowdsp_dsp_
 CMakeFiles/WubForge.dir/chowdsp_utils/modules/dsp/chowdsp_filters/chowdsp_filters.cpp.o: CMakeFiles/WubForge.dir/flags.make
 CMakeFiles/WubForge.dir/chowdsp_utils/modules/dsp/chowdsp_filters/chowdsp_filters.cpp.o: /Volumes/Harry/WubForge/chowdsp_utils/modules/dsp/chowdsp_filters/chowdsp_filters.cpp
 CMakeFiles/WubForge.dir/chowdsp_utils/modules/dsp/chowdsp_filters/chowdsp_filters.cpp.o: CMakeFiles/WubForge.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Volumes/Harry/WubForge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building CXX object CMakeFiles/WubForge.dir/chowdsp_utils/modules/dsp/chowdsp_filters/chowdsp_filters.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Volumes/Harry/WubForge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object CMakeFiles/WubForge.dir/chowdsp_utils/modules/dsp/chowdsp_filters/chowdsp_filters.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/WubForge.dir/chowdsp_utils/modules/dsp/chowdsp_filters/chowdsp_filters.cpp.o -MF CMakeFiles/WubForge.dir/chowdsp_utils/modules/dsp/chowdsp_filters/chowdsp_filters.cpp.o.d -o CMakeFiles/WubForge.dir/chowdsp_utils/modules/dsp/chowdsp_filters/chowdsp_filters.cpp.o -c /Volumes/Harry/WubForge/chowdsp_utils/modules/dsp/chowdsp_filters/chowdsp_filters.cpp
 
 CMakeFiles/WubForge.dir/chowdsp_utils/modules/dsp/chowdsp_filters/chowdsp_filters.cpp.i: cmake_force
@@ -551,7 +453,7 @@ CMakeFiles/WubForge.dir/chowdsp_utils/modules/dsp/chowdsp_filters/chowdsp_filter
 CMakeFiles/WubForge.dir/chowdsp_utils/modules/common/chowdsp_core/chowdsp_core.cpp.o: CMakeFiles/WubForge.dir/flags.make
 CMakeFiles/WubForge.dir/chowdsp_utils/modules/common/chowdsp_core/chowdsp_core.cpp.o: /Volumes/Harry/WubForge/chowdsp_utils/modules/common/chowdsp_core/chowdsp_core.cpp
 CMakeFiles/WubForge.dir/chowdsp_utils/modules/common/chowdsp_core/chowdsp_core.cpp.o: CMakeFiles/WubForge.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Volumes/Harry/WubForge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building CXX object CMakeFiles/WubForge.dir/chowdsp_utils/modules/common/chowdsp_core/chowdsp_core.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Volumes/Harry/WubForge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building CXX object CMakeFiles/WubForge.dir/chowdsp_utils/modules/common/chowdsp_core/chowdsp_core.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/WubForge.dir/chowdsp_utils/modules/common/chowdsp_core/chowdsp_core.cpp.o -MF CMakeFiles/WubForge.dir/chowdsp_utils/modules/common/chowdsp_core/chowdsp_core.cpp.o.d -o CMakeFiles/WubForge.dir/chowdsp_utils/modules/common/chowdsp_core/chowdsp_core.cpp.o -c /Volumes/Harry/WubForge/chowdsp_utils/modules/common/chowdsp_core/chowdsp_core.cpp
 
 CMakeFiles/WubForge.dir/chowdsp_utils/modules/common/chowdsp_core/chowdsp_core.cpp.i: cmake_force
@@ -565,7 +467,7 @@ CMakeFiles/WubForge.dir/chowdsp_utils/modules/common/chowdsp_core/chowdsp_core.c
 CMakeFiles/WubForge.dir/chowdsp_utils/modules/dsp/chowdsp_dsp_data_structures/chowdsp_dsp_data_structures.cpp.o: CMakeFiles/WubForge.dir/flags.make
 CMakeFiles/WubForge.dir/chowdsp_utils/modules/dsp/chowdsp_dsp_data_structures/chowdsp_dsp_data_structures.cpp.o: /Volumes/Harry/WubForge/chowdsp_utils/modules/dsp/chowdsp_dsp_data_structures/chowdsp_dsp_data_structures.cpp
 CMakeFiles/WubForge.dir/chowdsp_utils/modules/dsp/chowdsp_dsp_data_structures/chowdsp_dsp_data_structures.cpp.o: CMakeFiles/WubForge.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Volumes/Harry/WubForge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building CXX object CMakeFiles/WubForge.dir/chowdsp_utils/modules/dsp/chowdsp_dsp_data_structures/chowdsp_dsp_data_structures.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Volumes/Harry/WubForge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building CXX object CMakeFiles/WubForge.dir/chowdsp_utils/modules/dsp/chowdsp_dsp_data_structures/chowdsp_dsp_data_structures.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/WubForge.dir/chowdsp_utils/modules/dsp/chowdsp_dsp_data_structures/chowdsp_dsp_data_structures.cpp.o -MF CMakeFiles/WubForge.dir/chowdsp_utils/modules/dsp/chowdsp_dsp_data_structures/chowdsp_dsp_data_structures.cpp.o.d -o CMakeFiles/WubForge.dir/chowdsp_utils/modules/dsp/chowdsp_dsp_data_structures/chowdsp_dsp_data_structures.cpp.o -c /Volumes/Harry/WubForge/chowdsp_utils/modules/dsp/chowdsp_dsp_data_structures/chowdsp_dsp_data_structures.cpp
 
 CMakeFiles/WubForge.dir/chowdsp_utils/modules/dsp/chowdsp_dsp_data_structures/chowdsp_dsp_data_structures.cpp.i: cmake_force
@@ -579,7 +481,7 @@ CMakeFiles/WubForge.dir/chowdsp_utils/modules/dsp/chowdsp_dsp_data_structures/ch
 CMakeFiles/WubForge.dir/chowdsp_utils/modules/dsp/chowdsp_buffers/chowdsp_buffers.cpp.o: CMakeFiles/WubForge.dir/flags.make
 CMakeFiles/WubForge.dir/chowdsp_utils/modules/dsp/chowdsp_buffers/chowdsp_buffers.cpp.o: /Volumes/Harry/WubForge/chowdsp_utils/modules/dsp/chowdsp_buffers/chowdsp_buffers.cpp
 CMakeFiles/WubForge.dir/chowdsp_utils/modules/dsp/chowdsp_buffers/chowdsp_buffers.cpp.o: CMakeFiles/WubForge.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Volumes/Harry/WubForge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Building CXX object CMakeFiles/WubForge.dir/chowdsp_utils/modules/dsp/chowdsp_buffers/chowdsp_buffers.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Volumes/Harry/WubForge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building CXX object CMakeFiles/WubForge.dir/chowdsp_utils/modules/dsp/chowdsp_buffers/chowdsp_buffers.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/WubForge.dir/chowdsp_utils/modules/dsp/chowdsp_buffers/chowdsp_buffers.cpp.o -MF CMakeFiles/WubForge.dir/chowdsp_utils/modules/dsp/chowdsp_buffers/chowdsp_buffers.cpp.o.d -o CMakeFiles/WubForge.dir/chowdsp_utils/modules/dsp/chowdsp_buffers/chowdsp_buffers.cpp.o -c /Volumes/Harry/WubForge/chowdsp_utils/modules/dsp/chowdsp_buffers/chowdsp_buffers.cpp
 
 CMakeFiles/WubForge.dir/chowdsp_utils/modules/dsp/chowdsp_buffers/chowdsp_buffers.cpp.i: cmake_force
@@ -593,7 +495,7 @@ CMakeFiles/WubForge.dir/chowdsp_utils/modules/dsp/chowdsp_buffers/chowdsp_buffer
 CMakeFiles/WubForge.dir/chowdsp_utils/modules/dsp/chowdsp_math/chowdsp_math.cpp.o: CMakeFiles/WubForge.dir/flags.make
 CMakeFiles/WubForge.dir/chowdsp_utils/modules/dsp/chowdsp_math/chowdsp_math.cpp.o: /Volumes/Harry/WubForge/chowdsp_utils/modules/dsp/chowdsp_math/chowdsp_math.cpp
 CMakeFiles/WubForge.dir/chowdsp_utils/modules/dsp/chowdsp_math/chowdsp_math.cpp.o: CMakeFiles/WubForge.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Volumes/Harry/WubForge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_38) "Building CXX object CMakeFiles/WubForge.dir/chowdsp_utils/modules/dsp/chowdsp_math/chowdsp_math.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Volumes/Harry/WubForge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building CXX object CMakeFiles/WubForge.dir/chowdsp_utils/modules/dsp/chowdsp_math/chowdsp_math.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/WubForge.dir/chowdsp_utils/modules/dsp/chowdsp_math/chowdsp_math.cpp.o -MF CMakeFiles/WubForge.dir/chowdsp_utils/modules/dsp/chowdsp_math/chowdsp_math.cpp.o.d -o CMakeFiles/WubForge.dir/chowdsp_utils/modules/dsp/chowdsp_math/chowdsp_math.cpp.o -c /Volumes/Harry/WubForge/chowdsp_utils/modules/dsp/chowdsp_math/chowdsp_math.cpp
 
 CMakeFiles/WubForge.dir/chowdsp_utils/modules/dsp/chowdsp_math/chowdsp_math.cpp.i: cmake_force
@@ -608,19 +510,12 @@ CMakeFiles/WubForge.dir/chowdsp_utils/modules/dsp/chowdsp_math/chowdsp_math.cpp.
 WubForge_OBJECTS = \
 "CMakeFiles/WubForge.dir/Source/PluginProcessor.cpp.o" \
 "CMakeFiles/WubForge.dir/Source/PluginEditor.cpp.o" \
-"CMakeFiles/WubForge.dir/Source/CombStack.cpp.o" \
 "CMakeFiles/WubForge.dir/Source/DistortionForge.cpp.o" \
 "CMakeFiles/WubForge.dir/Source/BitCrusher.cpp.o" \
 "CMakeFiles/WubForge.dir/Source/KeyTracker.cpp.o" \
-"CMakeFiles/WubForge.dir/Source/FormantTracker.cpp.o" \
-"CMakeFiles/WubForge.dir/Source/FormantTrackerModule.cpp.o" \
-"CMakeFiles/WubForge.dir/Source/SpectralMorphingModule.cpp.o" \
 "CMakeFiles/WubForge.dir/Source/FractalFilter.cpp.o" \
-"CMakeFiles/WubForge.dir/Source/FractalFilterModule.cpp.o" \
-"CMakeFiles/WubForge.dir/Source/SpectrogramComponent.cpp.o" \
-"CMakeFiles/WubForge.dir/Source/ChowEQModule.cpp.o" \
 "CMakeFiles/WubForge.dir/Source/MDASubSynthModuleDirect.cpp.o" \
-"CMakeFiles/WubForge.dir/Source/Presets.cpp.o" \
+"CMakeFiles/WubForge.dir/Source/ModuleSlotComponent.cpp.o" \
 "CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_processors/juce_audio_processors_ara.cpp.o" \
 "CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_processors/juce_audio_processors_lv2_libs.cpp.o" \
 "CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_processors/juce_audio_processors.mm.o" \
@@ -650,19 +545,12 @@ WubForge_EXTERNAL_OBJECTS =
 
 lib/libWubForge_SharedCode.a: CMakeFiles/WubForge.dir/Source/PluginProcessor.cpp.o
 lib/libWubForge_SharedCode.a: CMakeFiles/WubForge.dir/Source/PluginEditor.cpp.o
-lib/libWubForge_SharedCode.a: CMakeFiles/WubForge.dir/Source/CombStack.cpp.o
 lib/libWubForge_SharedCode.a: CMakeFiles/WubForge.dir/Source/DistortionForge.cpp.o
 lib/libWubForge_SharedCode.a: CMakeFiles/WubForge.dir/Source/BitCrusher.cpp.o
 lib/libWubForge_SharedCode.a: CMakeFiles/WubForge.dir/Source/KeyTracker.cpp.o
-lib/libWubForge_SharedCode.a: CMakeFiles/WubForge.dir/Source/FormantTracker.cpp.o
-lib/libWubForge_SharedCode.a: CMakeFiles/WubForge.dir/Source/FormantTrackerModule.cpp.o
-lib/libWubForge_SharedCode.a: CMakeFiles/WubForge.dir/Source/SpectralMorphingModule.cpp.o
 lib/libWubForge_SharedCode.a: CMakeFiles/WubForge.dir/Source/FractalFilter.cpp.o
-lib/libWubForge_SharedCode.a: CMakeFiles/WubForge.dir/Source/FractalFilterModule.cpp.o
-lib/libWubForge_SharedCode.a: CMakeFiles/WubForge.dir/Source/SpectrogramComponent.cpp.o
-lib/libWubForge_SharedCode.a: CMakeFiles/WubForge.dir/Source/ChowEQModule.cpp.o
 lib/libWubForge_SharedCode.a: CMakeFiles/WubForge.dir/Source/MDASubSynthModuleDirect.cpp.o
-lib/libWubForge_SharedCode.a: CMakeFiles/WubForge.dir/Source/Presets.cpp.o
+lib/libWubForge_SharedCode.a: CMakeFiles/WubForge.dir/Source/ModuleSlotComponent.cpp.o
 lib/libWubForge_SharedCode.a: CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_processors/juce_audio_processors_ara.cpp.o
 lib/libWubForge_SharedCode.a: CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_processors/juce_audio_processors_lv2_libs.cpp.o
 lib/libWubForge_SharedCode.a: CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_processors/juce_audio_processors.mm.o
@@ -688,7 +576,7 @@ lib/libWubForge_SharedCode.a: CMakeFiles/WubForge.dir/chowdsp_utils/modules/dsp/
 lib/libWubForge_SharedCode.a: CMakeFiles/WubForge.dir/chowdsp_utils/modules/dsp/chowdsp_math/chowdsp_math.cpp.o
 lib/libWubForge_SharedCode.a: CMakeFiles/WubForge.dir/build.make
 lib/libWubForge_SharedCode.a: CMakeFiles/WubForge.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Volumes/Harry/WubForge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_39) "Linking CXX static library lib/libWubForge_SharedCode.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Volumes/Harry/WubForge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Linking CXX static library lib/libWubForge_SharedCode.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/WubForge.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/WubForge.dir/link.txt --verbose=$(VERBOSE)
 

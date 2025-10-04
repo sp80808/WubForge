@@ -994,54 +994,6 @@ Source/BitCrusher.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/Source/BitCrusher.cpp.s
 .PHONY : Source/BitCrusher.cpp.s
 
-Source/ChowEQModule.o: Source/ChowEQModule.cpp.o
-.PHONY : Source/ChowEQModule.o
-
-# target to build an object file
-Source/ChowEQModule.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/Source/ChowEQModule.cpp.o
-.PHONY : Source/ChowEQModule.cpp.o
-
-Source/ChowEQModule.i: Source/ChowEQModule.cpp.i
-.PHONY : Source/ChowEQModule.i
-
-# target to preprocess a source file
-Source/ChowEQModule.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/Source/ChowEQModule.cpp.i
-.PHONY : Source/ChowEQModule.cpp.i
-
-Source/ChowEQModule.s: Source/ChowEQModule.cpp.s
-.PHONY : Source/ChowEQModule.s
-
-# target to generate assembly for a file
-Source/ChowEQModule.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/Source/ChowEQModule.cpp.s
-.PHONY : Source/ChowEQModule.cpp.s
-
-Source/CombStack.o: Source/CombStack.cpp.o
-.PHONY : Source/CombStack.o
-
-# target to build an object file
-Source/CombStack.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/Source/CombStack.cpp.o
-.PHONY : Source/CombStack.cpp.o
-
-Source/CombStack.i: Source/CombStack.cpp.i
-.PHONY : Source/CombStack.i
-
-# target to preprocess a source file
-Source/CombStack.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/Source/CombStack.cpp.i
-.PHONY : Source/CombStack.cpp.i
-
-Source/CombStack.s: Source/CombStack.cpp.s
-.PHONY : Source/CombStack.s
-
-# target to generate assembly for a file
-Source/CombStack.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/Source/CombStack.cpp.s
-.PHONY : Source/CombStack.cpp.s
-
 Source/DistortionForge.o: Source/DistortionForge.cpp.o
 .PHONY : Source/DistortionForge.o
 
@@ -1066,54 +1018,6 @@ Source/DistortionForge.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/Source/DistortionForge.cpp.s
 .PHONY : Source/DistortionForge.cpp.s
 
-Source/FormantTracker.o: Source/FormantTracker.cpp.o
-.PHONY : Source/FormantTracker.o
-
-# target to build an object file
-Source/FormantTracker.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/Source/FormantTracker.cpp.o
-.PHONY : Source/FormantTracker.cpp.o
-
-Source/FormantTracker.i: Source/FormantTracker.cpp.i
-.PHONY : Source/FormantTracker.i
-
-# target to preprocess a source file
-Source/FormantTracker.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/Source/FormantTracker.cpp.i
-.PHONY : Source/FormantTracker.cpp.i
-
-Source/FormantTracker.s: Source/FormantTracker.cpp.s
-.PHONY : Source/FormantTracker.s
-
-# target to generate assembly for a file
-Source/FormantTracker.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/Source/FormantTracker.cpp.s
-.PHONY : Source/FormantTracker.cpp.s
-
-Source/FormantTrackerModule.o: Source/FormantTrackerModule.cpp.o
-.PHONY : Source/FormantTrackerModule.o
-
-# target to build an object file
-Source/FormantTrackerModule.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/Source/FormantTrackerModule.cpp.o
-.PHONY : Source/FormantTrackerModule.cpp.o
-
-Source/FormantTrackerModule.i: Source/FormantTrackerModule.cpp.i
-.PHONY : Source/FormantTrackerModule.i
-
-# target to preprocess a source file
-Source/FormantTrackerModule.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/Source/FormantTrackerModule.cpp.i
-.PHONY : Source/FormantTrackerModule.cpp.i
-
-Source/FormantTrackerModule.s: Source/FormantTrackerModule.cpp.s
-.PHONY : Source/FormantTrackerModule.s
-
-# target to generate assembly for a file
-Source/FormantTrackerModule.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/Source/FormantTrackerModule.cpp.s
-.PHONY : Source/FormantTrackerModule.cpp.s
-
 Source/FractalFilter.o: Source/FractalFilter.cpp.o
 .PHONY : Source/FractalFilter.o
 
@@ -1137,30 +1041,6 @@ Source/FractalFilter.s: Source/FractalFilter.cpp.s
 Source/FractalFilter.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/Source/FractalFilter.cpp.s
 .PHONY : Source/FractalFilter.cpp.s
-
-Source/FractalFilterModule.o: Source/FractalFilterModule.cpp.o
-.PHONY : Source/FractalFilterModule.o
-
-# target to build an object file
-Source/FractalFilterModule.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/Source/FractalFilterModule.cpp.o
-.PHONY : Source/FractalFilterModule.cpp.o
-
-Source/FractalFilterModule.i: Source/FractalFilterModule.cpp.i
-.PHONY : Source/FractalFilterModule.i
-
-# target to preprocess a source file
-Source/FractalFilterModule.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/Source/FractalFilterModule.cpp.i
-.PHONY : Source/FractalFilterModule.cpp.i
-
-Source/FractalFilterModule.s: Source/FractalFilterModule.cpp.s
-.PHONY : Source/FractalFilterModule.s
-
-# target to generate assembly for a file
-Source/FractalFilterModule.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/Source/FractalFilterModule.cpp.s
-.PHONY : Source/FractalFilterModule.cpp.s
 
 Source/KeyTracker.o: Source/KeyTracker.cpp.o
 .PHONY : Source/KeyTracker.o
@@ -1210,6 +1090,30 @@ Source/MDASubSynthModuleDirect.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/Source/MDASubSynthModuleDirect.cpp.s
 .PHONY : Source/MDASubSynthModuleDirect.cpp.s
 
+Source/ModuleSlotComponent.o: Source/ModuleSlotComponent.cpp.o
+.PHONY : Source/ModuleSlotComponent.o
+
+# target to build an object file
+Source/ModuleSlotComponent.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/Source/ModuleSlotComponent.cpp.o
+.PHONY : Source/ModuleSlotComponent.cpp.o
+
+Source/ModuleSlotComponent.i: Source/ModuleSlotComponent.cpp.i
+.PHONY : Source/ModuleSlotComponent.i
+
+# target to preprocess a source file
+Source/ModuleSlotComponent.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/Source/ModuleSlotComponent.cpp.i
+.PHONY : Source/ModuleSlotComponent.cpp.i
+
+Source/ModuleSlotComponent.s: Source/ModuleSlotComponent.cpp.s
+.PHONY : Source/ModuleSlotComponent.s
+
+# target to generate assembly for a file
+Source/ModuleSlotComponent.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/Source/ModuleSlotComponent.cpp.s
+.PHONY : Source/ModuleSlotComponent.cpp.s
+
 Source/PluginEditor.o: Source/PluginEditor.cpp.o
 .PHONY : Source/PluginEditor.o
 
@@ -1257,78 +1161,6 @@ Source/PluginProcessor.s: Source/PluginProcessor.cpp.s
 Source/PluginProcessor.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/Source/PluginProcessor.cpp.s
 .PHONY : Source/PluginProcessor.cpp.s
-
-Source/Presets.o: Source/Presets.cpp.o
-.PHONY : Source/Presets.o
-
-# target to build an object file
-Source/Presets.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/Source/Presets.cpp.o
-.PHONY : Source/Presets.cpp.o
-
-Source/Presets.i: Source/Presets.cpp.i
-.PHONY : Source/Presets.i
-
-# target to preprocess a source file
-Source/Presets.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/Source/Presets.cpp.i
-.PHONY : Source/Presets.cpp.i
-
-Source/Presets.s: Source/Presets.cpp.s
-.PHONY : Source/Presets.s
-
-# target to generate assembly for a file
-Source/Presets.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/Source/Presets.cpp.s
-.PHONY : Source/Presets.cpp.s
-
-Source/SpectralMorphingModule.o: Source/SpectralMorphingModule.cpp.o
-.PHONY : Source/SpectralMorphingModule.o
-
-# target to build an object file
-Source/SpectralMorphingModule.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/Source/SpectralMorphingModule.cpp.o
-.PHONY : Source/SpectralMorphingModule.cpp.o
-
-Source/SpectralMorphingModule.i: Source/SpectralMorphingModule.cpp.i
-.PHONY : Source/SpectralMorphingModule.i
-
-# target to preprocess a source file
-Source/SpectralMorphingModule.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/Source/SpectralMorphingModule.cpp.i
-.PHONY : Source/SpectralMorphingModule.cpp.i
-
-Source/SpectralMorphingModule.s: Source/SpectralMorphingModule.cpp.s
-.PHONY : Source/SpectralMorphingModule.s
-
-# target to generate assembly for a file
-Source/SpectralMorphingModule.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/Source/SpectralMorphingModule.cpp.s
-.PHONY : Source/SpectralMorphingModule.cpp.s
-
-Source/SpectrogramComponent.o: Source/SpectrogramComponent.cpp.o
-.PHONY : Source/SpectrogramComponent.o
-
-# target to build an object file
-Source/SpectrogramComponent.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/Source/SpectrogramComponent.cpp.o
-.PHONY : Source/SpectrogramComponent.cpp.o
-
-Source/SpectrogramComponent.i: Source/SpectrogramComponent.cpp.i
-.PHONY : Source/SpectrogramComponent.i
-
-# target to preprocess a source file
-Source/SpectrogramComponent.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/Source/SpectrogramComponent.cpp.i
-.PHONY : Source/SpectrogramComponent.cpp.i
-
-Source/SpectrogramComponent.s: Source/SpectrogramComponent.cpp.s
-.PHONY : Source/SpectrogramComponent.s
-
-# target to generate assembly for a file
-Source/SpectrogramComponent.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/Source/SpectrogramComponent.cpp.s
-.PHONY : Source/SpectrogramComponent.cpp.s
 
 chowdsp_utils/modules/common/chowdsp_core/chowdsp_core.o: chowdsp_utils/modules/common/chowdsp_core/chowdsp_core.cpp.o
 .PHONY : chowdsp_utils/modules/common/chowdsp_core/chowdsp_core.o
@@ -1571,48 +1403,27 @@ help:
 	@echo "... Source/BitCrusher.o"
 	@echo "... Source/BitCrusher.i"
 	@echo "... Source/BitCrusher.s"
-	@echo "... Source/ChowEQModule.o"
-	@echo "... Source/ChowEQModule.i"
-	@echo "... Source/ChowEQModule.s"
-	@echo "... Source/CombStack.o"
-	@echo "... Source/CombStack.i"
-	@echo "... Source/CombStack.s"
 	@echo "... Source/DistortionForge.o"
 	@echo "... Source/DistortionForge.i"
 	@echo "... Source/DistortionForge.s"
-	@echo "... Source/FormantTracker.o"
-	@echo "... Source/FormantTracker.i"
-	@echo "... Source/FormantTracker.s"
-	@echo "... Source/FormantTrackerModule.o"
-	@echo "... Source/FormantTrackerModule.i"
-	@echo "... Source/FormantTrackerModule.s"
 	@echo "... Source/FractalFilter.o"
 	@echo "... Source/FractalFilter.i"
 	@echo "... Source/FractalFilter.s"
-	@echo "... Source/FractalFilterModule.o"
-	@echo "... Source/FractalFilterModule.i"
-	@echo "... Source/FractalFilterModule.s"
 	@echo "... Source/KeyTracker.o"
 	@echo "... Source/KeyTracker.i"
 	@echo "... Source/KeyTracker.s"
 	@echo "... Source/MDASubSynthModuleDirect.o"
 	@echo "... Source/MDASubSynthModuleDirect.i"
 	@echo "... Source/MDASubSynthModuleDirect.s"
+	@echo "... Source/ModuleSlotComponent.o"
+	@echo "... Source/ModuleSlotComponent.i"
+	@echo "... Source/ModuleSlotComponent.s"
 	@echo "... Source/PluginEditor.o"
 	@echo "... Source/PluginEditor.i"
 	@echo "... Source/PluginEditor.s"
 	@echo "... Source/PluginProcessor.o"
 	@echo "... Source/PluginProcessor.i"
 	@echo "... Source/PluginProcessor.s"
-	@echo "... Source/Presets.o"
-	@echo "... Source/Presets.i"
-	@echo "... Source/Presets.s"
-	@echo "... Source/SpectralMorphingModule.o"
-	@echo "... Source/SpectralMorphingModule.i"
-	@echo "... Source/SpectralMorphingModule.s"
-	@echo "... Source/SpectrogramComponent.o"
-	@echo "... Source/SpectrogramComponent.i"
-	@echo "... Source/SpectrogramComponent.s"
 	@echo "... chowdsp_utils/modules/common/chowdsp_core/chowdsp_core.o"
 	@echo "... chowdsp_utils/modules/common/chowdsp_core/chowdsp_core.i"
 	@echo "... chowdsp_utils/modules/common/chowdsp_core/chowdsp_core.s"

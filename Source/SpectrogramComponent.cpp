@@ -189,7 +189,7 @@ void SpectrogramComponent::setColourMap(int mapType)
 void SpectrogramComponent::setUpdateRateHz(int rate)
 {
     updateRateHz = juce::jlimit(5, 60, rate);
-    restartTimer();
+    startTimer(1000 / 60); // 60 FPS refresh rate
 }
 
 void SpectrogramComponent::setEnabled(bool shouldBeEnabled)

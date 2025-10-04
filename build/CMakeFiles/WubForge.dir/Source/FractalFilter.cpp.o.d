@@ -1,6 +1,6 @@
-CMakeFiles/WubForge.dir/Source/FormantTrackerModule.cpp.o: \
-  /Volumes/Harry/WubForge/Source/FormantTrackerModule.cpp \
-  /Volumes/Harry/WubForge/Source/FormantTrackerModule.h \
+CMakeFiles/WubForge.dir/Source/FractalFilter.cpp.o: \
+  /Volumes/Harry/WubForge/Source/FractalFilter.cpp \
+  /Volumes/Harry/WubForge/Source/FractalFilter.h \
   /Volumes/Harry/WubForge/Source/Module.h \
   /Volumes/Harry/WubForge/JUCE/modules/juce_dsp/juce_dsp.h \
   /Volumes/Harry/WubForge/JUCE/modules/juce_audio_basics/juce_audio_basics.h \
@@ -1385,5 +1385,4 @@ CMakeFiles/WubForge.dir/Source/FormantTrackerModule.cpp.o: \
   /Volumes/Harry/WubForge/JUCE/modules/juce_audio_processors/utilities/juce_AudioProcessorValueTreeState.h \
   /Volumes/Harry/WubForge/JUCE/modules/juce_audio_processors/utilities/juce_PluginHostType.h \
   /Volumes/Harry/WubForge/JUCE/modules/juce_audio_processors/utilities/ARA/juce_ARADebug.h \
-  /Volumes/Harry/WubForge/JUCE/modules/juce_audio_processors/utilities/ARA/juce_ARA_utils.h \
-  /Volumes/Harry/WubForge/Source/FormantTracker.h
+  /Volumes/Harry/WubForge/JUCE/modules/juce_audio_processors/utilities/ARA/juce_ARA_utils.h

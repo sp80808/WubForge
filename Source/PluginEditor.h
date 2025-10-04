@@ -34,12 +34,12 @@ private:
 
     // Main layout components
     juce::StretchableLayoutManager layoutManager;
-    juce::StretchableLayoutResizerBar resizerBar1, resizerBar2;
 
     // Header section
     juce::Component header;
     juce::Label titleLabel { {}, "WUBFORGE" };
     juce::Label subtitleLabel { {}, "Professional Spectral Bass Processor" };
+    juce::Label infoLabel { {}, "Spectral Audio Effect\nAlpha Test Build" };
 
     // Left panel - Module chain and routing
     juce::Component leftPanel;

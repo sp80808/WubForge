@@ -43,16 +43,16 @@ private:
     int blockSize = 512;
 
     // FFT processing
-    std::vector<float> inputBuffer;
-    std::vector<float> outputBuffer;
-    std::vector<std::complex<float>> frequencyDomain;
-    std::vector<float> windowBuffer;
+    std::vector<std::vector<float>> inputBuffers;
+    std::vector<std::vector<float>> outputBuffers;
+    std::vector<std::vector<std::complex<float>>> frequencyDomains;
+    std::vector<float> windowBuffer; // Window can be shared across channels
 
     // Spectral snapshots (A and B for morphing)
     struct SpectralSnapshot {
-        std::vector<float> magnitude;
-        std::vector<float> phase;
-        float centroid = 0.0f;
+        std::vector<std::vector<float>> magnitude; // magnitude[channel][bin]
+        std::vector<std::vector<float>> phase;     // phase[channel][bin]
+        float centroid = 0.0f; // Consider if per-channel centroid/flux is needed
         float spectralFlux = 0.0f;
     };
 
@@ -67,14 +67,18 @@ private:
     float spectralWarping = 0.0f;    // Spectral shape modification
     float phasePreservation = 0.8f;  // How much to preserve phase
 
-    // Analysis data
+    // Analysis data (consider if per-channel is needed)
     float currentCentroid = 0.0f;
     float currentSpectralFlux = 0.0f;
 
     // FFT utilities
-    static constexpr int fftSize = 2048;
-    static constexpr int hopSize = 512;
+    static constexpr int fftOrder = 11; // Corresponds to fftSize = 2048
+    static constexpr int fftSize = 1 << fftOrder;
+    static constexpr int hopSize = fftSize / 4; // Example hop size
+
+    std::vector<juce::dsp::FFT> forwardFFTs; // One FFT object per channel
 
     int bufferPosition = 0;
     int windowSize = fftSize;
+    int numChannels = 0; // To store the number of channels
 };

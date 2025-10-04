@@ -1387,4 +1387,6 @@ CMakeFiles/WubForge.dir/Source/PluginEditor.cpp.o: \
   /Volumes/Harry/WubForge/JUCE/modules/juce_dsp/widgets/juce_Chorus.h \
   /Volumes/Harry/WubForge/Source/Module.h \
   /Volumes/Harry/WubForge/Source/KeyTracker.h \
-  /Volumes/Harry/WubForge/Source/Presets.h
+  /Volumes/Harry/WubForge/Source/Presets.h \
+  /Volumes/Harry/WubForge/Source/HarmonicRichFilter.h \
+  /Volumes/Harry/WubForge/Source/SpectrogramComponent.h

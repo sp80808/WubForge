@@ -5,19 +5,8 @@
 //==============================================================================
 SpectralMorphingModule::SpectralMorphingModule()
 {
-    // Initialize buffers
-    inputBuffer.resize(fftSize, 0.0f);
-    outputBuffer.resize(fftSize, 0.0f);
-    frequencyDomain.resize(fftSize / 2 + 1, {0.0f, 0.0f});
-    windowBuffer.resize(fftSize, 0.0f);
-
-    // Initialize spectral snapshots
-    for (auto& snapshot : spectralSnapshots) {
-        snapshot.magnitude.resize(fftSize / 2 + 1, 1.0f);
-        snapshot.phase.resize(fftSize / 2 + 1, 0.0f);
-    }
-
-    // Create Hann window for overlap-add
+    // Create Hann window for overlap-add (shared across channels)
+    windowBuffer.resize(fftSize);
     for (int i = 0; i < fftSize; ++i) {
         windowBuffer[i] = 0.5f * (1.0f - std::cos(2.0f * M_PI * i / (fftSize - 1)));
     }
@@ -27,8 +16,10 @@ void SpectralMorphingModule::prepare(const juce::dsp::ProcessSpec& spec)
 {
     sampleRate = spec.sampleRate;
     blockSize = spec.maximumBlockSize;
+    numChannels = (int)spec.numChannels;
 
     // Adjust FFT size based on sample rate for optimal performance
+    // (Keeping original logic for now, but windowSize should ideally be fftSize constant)
     if (sampleRate >= 88200) {
         windowSize = 4096;
     } else if (sampleRate >= 44100) {
@@ -37,30 +28,41 @@ void SpectralMorphingModule::prepare(const juce::dsp::ProcessSpec& spec)
         windowSize = 1024;
     }
 
-    // Resize buffers if needed
-    if (inputBuffer.size() != windowSize) {
-        inputBuffer.resize(windowSize, 0.0f);
-        outputBuffer.resize(windowSize, 0.0f);
-        frequencyDomain.resize(windowSize / 2 + 1, {0.0f, 0.0f});
-        windowBuffer.resize(windowSize, 0.0f);
+    // Resize per-channel buffers and FFT objects
+    inputBuffers.resize(numChannels);
+    outputBuffers.resize(numChannels);
+    frequencyDomains.resize(numChannels);
+    forwardFFTs.clear(); // Clear existing FFTs
+    forwardFFTs.reserve(numChannels);
 
-        // Recreate window
-        for (int i = 0; i < windowSize; ++i) {
-            windowBuffer[i] = 0.5f * (1.0f - std::cos(2.0f * M_PI * i / (windowSize - 1)));
-        }
+    for (int ch = 0; ch < numChannels; ++ch)
+    {
+        inputBuffers[ch].resize(windowSize, 0.0f);
+        outputBuffers[ch].resize(windowSize, 0.0f);
+        frequencyDomains[ch].resize(windowSize / 2 + 1, {0.0f, 0.0f});
+        forwardFFTs.emplace_back(fftOrder); // Initialize JUCE FFT
+    }
 
-        // Resize snapshots
-        for (auto& snapshot : spectralSnapshots) {
-            snapshot.magnitude.resize(windowSize / 2 + 1, 1.0f);
-            snapshot.phase.resize(windowSize / 2 + 1, 0.0f);
+    // Resize snapshots for each channel
+    for (auto& snapshot : spectralSnapshots)
+    {
+        snapshot.magnitude.resize(numChannels);
+        snapshot.phase.resize(numChannels);
+        for (int ch = 0; ch < numChannels; ++ch)
+        {
+            snapshot.magnitude[ch].resize(windowSize / 2 + 1, 1.0f);
+            snapshot.phase[ch].resize(windowSize / 2 + 1, 0.0f);
         }
     }
 }
 
 void SpectralMorphingModule::reset()
 {
-    std::fill(inputBuffer.begin(), inputBuffer.end(), 0.0f);
-    std::fill(outputBuffer.begin(), outputBuffer.end(), 0.0f);
+    for (int ch = 0; ch < numChannels; ++ch)
+    {
+        std::fill(inputBuffers[ch].begin(), inputBuffers[ch].end(), 0.0f);
+        std::fill(outputBuffers[ch].begin(), outputBuffers[ch].end(), 0.0f);
+    }
     bufferPosition = 0;
 }
 
@@ -72,11 +74,10 @@ void SpectralMorphingModule::process(const juce::dsp::ProcessContextReplacing<fl
 
     for (int sample = 0; sample < numSamples; ++sample)
     {
-        // Accumulate input samples
-        for (size_t ch = 0; ch < inputBlock.getNumChannels(); ++ch)
+        for (int ch = 0; ch < numChannels; ++ch)
         {
             float inputSample = inputBlock.getSample(ch, sample);
-            inputBuffer[bufferPosition] += inputSample; // Mix channels
+            inputBuffers[ch][bufferPosition] = inputSample; // Store per channel
         }
 
         bufferPosition++;
@@ -85,135 +86,105 @@ void SpectralMorphingModule::process(const juce::dsp::ProcessContextReplacing<fl
         if (bufferPosition >= windowSize)
         {
             bufferPosition = 0;
-            performSpectralProcessing();
+            performSpectralProcessing(); // This will now process all channels
         }
 
         // Output processed sample
-        for (size_t ch = 0; ch < outputBlock.getNumChannels(); ++ch)
+        for (int ch = 0; ch < numChannels; ++ch)
         {
-            outputBlock.setSample(ch, sample, outputBuffer[bufferPosition]);
+            outputBlock.setSample(ch, sample, outputBuffers[ch][bufferPosition]);
         }
     }
 }
 
 void SpectralMorphingModule::performSpectralProcessing()
 {
-    // Apply window and copy to frequency domain buffer
-    for (int i = 0; i < windowSize; ++i)
+    for (int ch = 0; ch < numChannels; ++ch)
     {
-        frequencyDomain[i] = std::complex<float>(inputBuffer[i] * windowBuffer[i], 0.0f);
-    }
-
-    // FFT analysis (simplified - would use JUCE FFT in real implementation)
-    performFFT();
-
-    // Extract magnitude and phase
-    std::vector<float> currentMagnitude(frequencyDomain.size());
-    std::vector<float> currentPhase(frequencyDomain.size());
-
-    for (size_t i = 0; i < frequencyDomain.size(); ++i)
-    {
-        currentMagnitude[i] = std::abs(frequencyDomain[i]);
-        currentPhase[i] = std::arg(frequencyDomain[i]);
-    }
-
-    // Update spectral analysis
-    currentCentroid = calculateSpectralCentroid(currentMagnitude);
-    currentSpectralFlux = calculateSpectralFlux(currentMagnitude);
-
-    // Apply spectral morphing
-    updateSpectralMorphing();
-
-    // Reconstruct frequency domain
-    for (size_t i = 0; i < frequencyDomain.size(); ++i)
-    {
-        float magnitude = spectralSnapshots[activeSourceSlot].magnitude[i] * (1.0f - morphAmount) +
-                         spectralSnapshots[activeTargetSlot].magnitude[i] * morphAmount;
-
-        float phase = spectralSnapshots[activeSourceSlot].phase[i] * (1.0f - morphAmount) +
-                     spectralSnapshots[activeTargetSlot].phase[i] * morphAmount;
-
-        // Apply phase preservation
-        phase = currentPhase[i] * phasePreservation + phase * (1.0f - phasePreservation);
-
-        frequencyDomain[i] = std::polar(magnitude, phase);
-    }
-
-    // Apply spectral warping
-    applySpectralWarping();
-
-    // IFFT synthesis (simplified)
-    performIFFT();
-
-    // Apply window and overlap-add
-    for (int i = 0; i < windowSize; ++i)
-    {
-        outputBuffer[i] = outputBuffer[i] * 0.5f + frequencyDomain[i].real() * windowBuffer[i] * 0.5f;
-    }
-}
-
-void SpectralMorphingModule::performFFT()
-{
-    // Simplified FFT - in real implementation, use JUCE FFT class
-    // This is a placeholder for the actual FFT computation
-    int N = (int)frequencyDomain.size() * 2;
-
-    // Basic DFT implementation (for demonstration)
-    std::vector<std::complex<float>> temp(N);
-
-    for (int k = 0; k < N; ++k)
-    {
-        temp[k] = std::complex<float>(0.0f, 0.0f);
-        for (int n = 0; n < N; ++n)
+        // Apply window and copy to frequency domain buffer
+        std::vector<float> fftInput(windowSize);
+        for (int i = 0; i < windowSize; ++i)
         {
-            float angle = -2.0f * M_PI * k * n / N;
-            temp[k] += frequencyDomain[n] * std::complex<float>(std::cos(angle), std::sin(angle));
+            fftInput[i] = inputBuffers[ch][i] * windowBuffer[i];
+        }
+
+        // FFT analysis using JUCE FFT
+        forwardFFTs[ch].performRealOnlyForwardTransform(fftInput.data());
+
+        // Copy to frequencyDomains for magnitude/phase extraction
+        for (int i = 0; i < windowSize / 2 + 1; ++i)
+        {
+            frequencyDomains[ch][i] = std::complex<float>(fftInput[i * 2], fftInput[i * 2 + 1]);
+        }
+
+        // Extract magnitude and phase
+        std::vector<float> currentMagnitude(frequencyDomains[ch].size());
+        std::vector<float> currentPhase(frequencyDomains[ch].size());
+
+        for (size_t i = 0; i < frequencyDomains[ch].size(); ++i)
+        {
+            currentMagnitude[i] = std::abs(frequencyDomains[ch][i]);
+            currentPhase[i] = std::arg(frequencyDomains[ch][i]);
+        }
+
+        // Update spectral analysis (can be per-channel or averaged later)
+        // For now, let's assume these are still calculated for a single channel or averaged
+        currentCentroid = calculateSpectralCentroid(currentMagnitude);
+        currentSpectralFlux = calculateSpectralFlux(currentMagnitude);
+
+        // Apply spectral morphing
+        updateSpectralMorphing(); // This method needs to be updated to handle per-channel snapshots
+
+        // Reconstruct frequency domain
+        for (size_t i = 0; i < frequencyDomains[ch].size(); ++i)
+        {
+            float magnitude = spectralSnapshots[activeSourceSlot].magnitude[ch][i] * (1.0f - morphAmount) +
+                             spectralSnapshots[activeTargetSlot].magnitude[ch][i] * morphAmount;
+
+            float phase = spectralSnapshots[activeSourceSlot].phase[ch][i] * (1.0f - morphAmount) +
+                         spectralSnapshots[activeTargetSlot].phase[ch][i] * morphAmount;
+
+            // Apply phase preservation
+            phase = currentPhase[i] * phasePreservation + phase * (1.0f - phasePreservation);
+
+            frequencyDomains[ch][i] = std::polar(magnitude, phase);
+        }
+
+        // Apply spectral warping
+        applySpectralWarping(); // This method needs to be updated to handle per-channel frequency domains
+
+        // IFFT synthesis using JUCE FFT
+        std::vector<float> ifftOutput(windowSize);
+        for (int i = 0; i < windowSize / 2 + 1; ++i)
+        {
+            ifftOutput[i * 2] = frequencyDomains[ch][i].real();
+            ifftOutput[i * 2 + 1] = frequencyDomains[ch][i].imag();
+        }
+        forwardFFTs[ch].performRealOnlyInverseTransform(ifftOutput.data());
+
+        // Apply window and overlap-add
+        for (int i = 0; i < windowSize; ++i)
+        {
+            outputBuffers[ch][i] = outputBuffers[ch][i] * 0.5f + ifftOutput[i] * windowBuffer[i] * 0.5f;
         }
     }
-
-    // Copy back (in real implementation, this would be in-place)
-    for (int i = 0; i < N / 2 + 1; ++i)
-    {
-        frequencyDomain[i] = temp[i];
-    }
 }
 
-void SpectralMorphingModule::performIFFT()
-{
-    // Simplified IFFT - placeholder for actual implementation
-    int N = (int)frequencyDomain.size() * 2;
 
-    std::vector<std::complex<float>> temp(N);
-
-    for (int n = 0; n < N; ++n)
-    {
-        temp[n] = std::complex<float>(0.0f, 0.0f);
-        for (int k = 0; k < N; ++k)
-        {
-            float angle = 2.0f * M_PI * k * n / N;
-            temp[n] += frequencyDomain[k] * std::complex<float>(std::cos(angle), std::sin(angle));
-        }
-        temp[n] /= N;
-    }
-
-    // Copy back to frequency domain buffer
-    for (int i = 0; i < N; ++i)
-    {
-        if (i < (int)frequencyDomain.size())
-            frequencyDomain[i] = temp[i];
-    }
-}
 
 void SpectralMorphingModule::updateSpectralMorphing()
 {
     // Smooth morph amount changes
     morphAmount = morphAmount + (targetMorphAmount - morphAmount) * morphSpeed;
 
-    // Update snapshot analysis
+    // Update snapshot analysis (per-channel)
     for (auto& snapshot : spectralSnapshots)
     {
-        snapshot.centroid = calculateSpectralCentroid(snapshot.magnitude);
-        snapshot.spectralFlux = calculateSpectralFlux(snapshot.magnitude);
+        for (int ch = 0; ch < numChannels; ++ch)
+        {
+            snapshot.centroid = calculateSpectralCentroid(snapshot.magnitude[ch]);
+            snapshot.spectralFlux = calculateSpectralFlux(snapshot.magnitude[ch]);
+        }
     }
 }
 
@@ -221,18 +192,21 @@ void SpectralMorphingModule::applySpectralWarping()
 {
     if (std::abs(spectralWarping) < 0.01f) return;
 
-    // Apply spectral warping to frequency domain
-    for (size_t i = 1; i < frequencyDomain.size() - 1; ++i)
+    for (int ch = 0; ch < numChannels; ++ch)
     {
-        float normalizedFreq = (float)i / frequencyDomain.size();
-        float warpFactor = 1.0f + spectralWarping * (1.0f - normalizedFreq);
-
-        // Interpolate with neighboring bins
-        size_t warpedIndex = (size_t)(i * warpFactor);
-        if (warpedIndex < frequencyDomain.size())
+        // Apply spectral warping to frequency domain
+        for (size_t i = 1; i < frequencyDomains[ch].size() - 1; ++i)
         {
-            frequencyDomain[i] = frequencyDomain[i] * (1.0f - spectralWarping) +
-                               frequencyDomain[warpedIndex] * spectralWarping;
+            float normalizedFreq = (float)i / frequencyDomains[ch].size();
+            float warpFactor = 1.0f + spectralWarping * (1.0f - normalizedFreq);
+
+            // Interpolate with neighboring bins
+            size_t warpedIndex = (size_t)(i * warpFactor);
+            if (warpedIndex < frequencyDomains[ch].size())
+            {
+                frequencyDomains[ch][i] = frequencyDomains[ch][i] * (1.0f - spectralWarping) +
+                                       frequencyDomains[ch][warpedIndex] * spectralWarping;
+            }
         }
     }
 }
@@ -291,16 +265,25 @@ void SpectralMorphingModule::captureSpectralSnapshot(int slot)
 {
     if (slot < 0 || slot >= 4) return;
 
-    // Copy current spectral data to snapshot
-    spectralSnapshots[slot].magnitude = std::vector<float>(frequencyDomain.size());
-    spectralSnapshots[slot].phase = std::vector<float>(frequencyDomain.size());
+    // Resize snapshot vectors for current number of channels
+    spectralSnapshots[slot].magnitude.resize(numChannels);
+    spectralSnapshots[slot].phase.resize(numChannels);
 
-    for (size_t i = 0; i < frequencyDomain.size(); ++i)
+    for (int ch = 0; ch < numChannels; ++ch)
     {
-        spectralSnapshots[slot].magnitude[i] = std::abs(frequencyDomain[i]);
-        spectralSnapshots[slot].phase[i] = std::arg(frequencyDomain[i]);
+        // Copy current spectral data to snapshot for each channel
+        spectralSnapshots[slot].magnitude[ch].resize(frequencyDomains[ch].size());
+        spectralSnapshots[slot].phase[ch].resize(frequencyDomains[ch].size());
+
+        for (size_t i = 0; i < frequencyDomains[ch].size(); ++i)
+        {
+            spectralSnapshots[slot].magnitude[ch][i] = std::abs(frequencyDomains[ch][i]);
+            spectralSnapshots[slot].phase[ch][i] = std::arg(frequencyDomains[ch][i]);
+        }
     }
 
+    // Centroid and spectral flux might need to be per-channel or averaged,
+    // keeping as is for now, assuming they are calculated from a single channel or averaged.
     spectralSnapshots[slot].centroid = currentCentroid;
     spectralSnapshots[slot].spectralFlux = currentSpectralFlux;
 }
