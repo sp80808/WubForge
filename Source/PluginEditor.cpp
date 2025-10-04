@@ -208,7 +208,15 @@ void WobbleForgeAudioProcessorEditor::timerCallback()
     updateSlotButtonAppearance();
     updateControlVisibility();
 
-    spectrogramComponent.repaint();
+    // Feed spectrum data to the spectrogram component
+    constexpr int spectrumSize = 512;
+    static float spectrumBuffer[spectrumSize];
+
+    if (audioProcessor.getCurrentSpectrumData(spectrumBuffer, spectrumSize))
+    {
+        spectrogramComponent.pushSpectrumData(spectrumBuffer, spectrumSize, audioProcessor.getSampleRate());
+    }
+
     xyPad.repaint();
 }
 

@@ -161,6 +161,11 @@ private:
     std::unique_ptr<SliderAttachment> fmRatioAttachment;
     std::unique_ptr<SliderAttachment> fmIndexAttachment;
 
+    // Rat Distortion attachments
+    std::unique_ptr<SliderAttachment> ratDriveAttachment;
+    std::unique_ptr<SliderAttachment> ratToneAttachment;
+    std::unique_ptr<SliderAttachment> ratLevelAttachment;
+
     // Routing attachments
     std::unique_ptr<SliderAttachment> feedbackAmountAttachment;
     std::unique_ptr<SliderAttachment> feedbackDampingAttachment;

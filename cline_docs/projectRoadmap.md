@@ -7,8 +7,8 @@ WubForge is a spectral bass processor VST plugin using JUCE framework. The proje
 - [x] Implement basic spectral morphing engine
 - [x] Create fractal filtering system with golden ratio scaling
 - [x] Add key-tracked processing capabilities
-- [ ] Implement full GUI with real-time visual feedback
-- [ ] Add spectrograph visualization component
+- [x] Implement full GUI with real-time visual feedback
+- [x] Add spectrograph visualization component
 - [ ] Complete modular processing chain
 - [ ] Polish user interface and UX
 
@@ -40,7 +40,7 @@ WubForge is a spectral bass processor VST plugin using JUCE framework. The proje
 - [ ] FM Distort
 
 ### User Interface Features
-- [ ] Real-time spectrograph visualization
+- [x] Real-time spectrograph visualization
 - [ ] XY pad control for spectral morphing
 - [ ] Modular chain visualization
 - [ ] Routing matrix interface
