@@ -25,7 +25,7 @@ private:
     //==============================================================================
     WubForgeAudioProcessor& audioProcessor;
 
-    juce::i titleLabel;
+    juce::Label titleLabel;
     juce::Label infoLabel;
 
     //==============================================================================
