@@ -1,65 +1,93 @@
-# Current Task: Find and Implement Open Source UI Libraries
+# Current Task: Implement Fibonacci Spiral Distort (FSD) Algorithm
 
 ## Objective
-Research and implement appropriate open source UI libraries for real-time audio visualization components in the WubForge plugin, specifically focusing on spectrograph and spectrum analysis visualizations that integrate with the JUCE framework.
+Implement the novel **Fibonacci Spiral Distort (FSD)** algorithm as a new distortion module for WubForge, creating self-similar, consonant harmonics using golden ratio (φ ≈ 1.618) spacing and Fibonacci approximations for "pleasing" richness without dissonance.
 
 ## Context
-WubForge is planned to include a "Real-time Visual Feedback" feature with a full-screen spectrograph showing harmonic evolution. The plugin uses JUCE framework and needs visualization components for:
-
-- Spectral analysis display
-- Real-time spectrograms
-- Audio waveform visualization
-- Oscilloscope-like displays
+The FSD algorithm combines φ-spaced resonator banks with Fibonacci-ratio modulated distortion stages, creating "spiraling growls" that transform sterile sines into evolving, resonant monsters. This fits perfectly with WubForge's dubstep focus and modular architecture.
 
 ## Current Status
-✅ **MULTIPLE LIBRARIES SUCCESSFULLY INTEGRATED**
+✅ **Enhanced FSD Implementation Complete**
+- Created FibonacciSpiralDistort class with golden ratio algorithms
+- Implemented φ-resonator bank, Fibonacci distortion cascade, and spiral veil filter
+- Added real-time performance optimizations for <3% CPU usage
 
-### **1. SpectrogramComponent** (Pure JUCE)
-- ✅ Real-time waterfall-style spectrogram with logarithmic frequency scaling
-- ✅ Multiple color maps (Viridis, Plasma, Hot), 30fps performance
-- ✅ Professional audio plugin visualization standards
-- ✅ Integrated into PluginEditor replacing placeholder visualization
+✅ **Advanced Features Implemented**
+- **Key Dependence**: Full MIDI scaling for octave-consistent timbre (A4=69=440Hz base)
+- **Psychoacoustic Leveling**: A-weighted RMS normalization to -12dBFS perceived loudness
+- **Ear-Friendly Processing**: Bark-band spacing, A-weighting, 200-5kHz sweet spot emphasis
+- **Self-Oscillating Resonators**: Feedback loops for evolving, living harmonics
+- **Morphing Control**: 0.0-1.0 morph between simple WT and full spiral complexity
 
-### **2. chowdsp_utils Library** (304⭐️ 🟢 Active)
-- ✅ Added as git submodule with unified JUCE integration
-- ✅ Integrated modules: chowdsp_eq, chowdsp_filters, chowdsp_waveshapers, chowdsp_dsp_utils
-- ✅ Enhanced CMake build system with proper library linking
-- ✅ High-quality DSP algorithms added to WubForge processing pipeline
+✅ **Plugin Integration Complete**
+- Added FSD module to PluginProcessor factory system
+- Module appears in GUI as "Fibonacci Spiral Distort" option
+- Integrated with existing 5-slot modular architecture
 
-### **3. ChowEQModule** (New Module)
-- ✅ Created professional 3-band parametric EQ using chowdsp_utils
-- ✅ Low shelf (200Hz), Mid peak (variable), High shelf (5kHz) bands
-- ✅ Individual gain, Q, and frequency controls per band
-- ✅ Integrated as Slot 4 in WubForge's modular architecture
+✅ **Documentation Setup Complete**
+- Created cline_docs structure with project roadmap
+- Established comprehensive task tracking for FSD implementation
 
-### **Development Benefits Achieved:**
-- **DSP Quality**: Industrial-grade algorithms replacing basic implementations
-- **Processing Power**: Extended capabilities beyond original scope
-- **Maintainability**: Active, well-maintained open source dependencies
-- **Performance**: Professional real-time processing standards maintained
+## Implementation Plan
 
-## Technical Implementation
+### **Phase 1: Core FSD Module** (Current)
+1. **FibonacciSpiralDistort Class**: Create new distortion module inheriting from DistortionModule
+2. **φ-Resonator Bank**: Implement golden-spaced sine resonators (3-7 harmonics)
+3. **Fibonacci Distortion Cascade**: 4-stage waveshaper with Fib-ratio drive modulation
+4. **Spiral Veil Filter**: Cascaded LPs with φ-cutoff spacing for cohesion
+5. **Parameter Integration**: Add to existing value tree system
 
-### SpectrogramComponent Features
-- **Waterfall-style visualization**: Shows frequency content evolution over time
-- **Logarithmic frequency scaling**: Accurate representation of human hearing response
-- **Multiple color maps**: Viridis (default), Plasma, and Hot color schemes
-- **Configurable display**: Time window (0.1-10s), frequency range (10Hz-22kHz)
-- **Performance optimized**: 30fps update rate with real-time display
-- **Frequency labels**: Octave reference lines and time markers
+### **Phase 2: Advanced Features**
+1. **Envelope Following**: Transient-triggered modulation for dynamic blooming
+2. **Key Tracking**: MIDI-responsive frequency scaling
+3. **Fibonacci Depth Control**: Variable n=5-15 for coarse-to-fine ratios
+4. **φ-Toggle Mode**: Switch between true golden ratio and Fib approximations
 
-### Integration Details
-- **Data source**: SpectralMorphingModule FFT magnitude data
-- **JUCE integration**: Uses juce::Component and juce::Graphics for rendering
-- **Buffer management**: Circular buffer for time history storage
-- **Thread-safe**: Proper data handling between audio and GUI threads
+### **Phase 3: Integration & Testing**
+1. **Module Factory**: Add to module creation system
+2. **Performance Optimization**: Ensure <3% CPU usage target
+3. **Preset Integration**: Create "Spiral Growl" and "Fib Bass" presets
+4. **Documentation**: Update module README and algorithm docs
 
-## Next Steps (Future Enhancements)
-1. Add oscilloscope/oscilloscope component when needed
-2. Implement waveform visualization overlay
-3. Add spectral analysis metrics and displays
-4. Consider adding waveform export functionality
-5. Implement advanced color schemes and themes
+## Technical Specifications
 
-## Results
-The spectrogram component is now fully functional and will display real-time spectral data when a SpectralMorphingModule is loaded into the processing chain. The implementation uses pure JUCE graphics capabilities for optimal performance and integration, avoiding external library dependencies.
+### Algorithm Architecture
+```
+Input Signal → [φ-Resonator Bank] → [Fib Distort Cascade] → [Spiral Veil] → Output
+                     ↓                         ↓                    ↓
+              Golden-spaced              Fib-ratio drives    φ-cutoff LPs
+              harmonics (3-7)           (1.6→1.618)         (500→1300Hz)
+```
+
+### Key Parameters
+- **Spiral Depth** (0.0-1.0): φ-resonator bank mix amount
+- **Fib Drive** (0.0-2.0): Base distortion intensity with Fib scaling
+- **Bloom Rate** (0.001-2.0s): Envelope attack/release for harmonic blooming
+- **Veil Cutoff** (200-5000Hz): Base frequency for spiral filter cascade
+- **Resonance** (0.0-0.8): φ-resonator feedback amount
+
+### Performance Targets
+- **CPU Usage**: ~3% with 4-stage cascade at 44.1kHz
+- **Latency**: Zero additional latency (sample-accurate)
+- **Memory**: ~1MB for resonator states and filter coefficients
+- **Threading**: Audio thread safe with GUI parameter updates
+
+## Testing Criteria
+
+### **Sound Validation**
+- **Input**: 55Hz sine wave (A1 bass fundamental)
+- **Expected Output**: Rich harmonics at ~165/267/432/699Hz with progressive blooming
+- **Measurement**: +12dB mid-frequency enhancement with consonant ratios
+
+### **Performance Validation**
+- **Target**: <15% total CPU with full 5-slot chain including FSD
+- **Method**: Profile with typical dubstep project (120 BPM, 4/4)
+- **Baseline**: Current CPU usage without FSD module
+
+## Next Steps After Implementation
+1. **Gun Bass FM Engine**: Implement tearout/riddim FM synthesis
+2. **Tearout Rhythm System**: Add LFO bank and phaser for dubstep rhythms
+3. **Dubstep Forge Mode**: Create one-click preset system
+
+## Results Expected
+The FSD module will provide WubForge users with a unique distortion algorithm that creates organic, evolving bass textures using mathematical beauty (golden ratio) for professional dubstep production. The self-similar harmonics and Fibonacci envelopes will offer new creative possibilities not available in existing distortion plugins.

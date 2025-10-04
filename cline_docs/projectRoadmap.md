@@ -1,83 +1,35 @@
 # WubForge Project Roadmap
 
-## Overview
-WubForge is a spectral bass processor VST plugin using JUCE framework. The project focuses on implementing innovative spectral processing techniques for bass sound manipulation.
+## High-Level Goals
+- **Transform WubForge into a "Dubstep Forge"** with Serum 2-style sample morphing, gun bass FM synthesis, tearout rhythm modulation, and enhanced filtering techniques
+- **Maintain modular architecture** and <15% CPU performance target
+- **Integrate novel DSP algorithms** like Fibonacci Spiral Distort for unique bass processing capabilities
 
-## Core Goals
-- [x] Implement basic spectral morphing engine
-- [x] Create fractal filtering system with golden ratio scaling
-- [x] Add key-tracked processing capabilities
-- [x] Implement full GUI with real-time visual feedback
-- [x] Add spectrograph visualization component
-- [x] Integrate professional open source DSP libraries
-- [x] Enhance processing capabilities with industrial-grade algorithms
-- [ ] Complete modular processing chain
-- [ ] Polish user interface and UX
+## Key Features & Modules
 
-## High-Level Features
+### ✅ Completed
+- **SampleMorpher Module**: Granular sample-to-bass processing with drag-and-drop .wav support
+- **Modular Architecture**: 5-slot processing chain with professional DSP integration
 
-### Core Processing Features
-- [x] Spectral morphing using FFT-based real-time processing
-- [x] Fractal filtering with self-similar harmonic structures
-- [x] Key-tracking for all frequency-dependent parameters
-- [x] Dual filter types (LPF and BPF variants)
-- [x] **Professional EQ system** using chowdsp_utils (3-band parametric)
-- [x] **Advanced distortion algorithms** from chowdsp_waveshapers
-- [x] Modular 4-slot processing chain
-- [ ] Advanced routing matrix (Serial/Parallel/Mid-Side/Feedback)
+### 🚧 In Progress
+- **Fibonacci Spiral Distort (FSD)**: Novel hybrid filter-distortion using golden ratio spacing for self-similar harmonics
 
-### Module Library
-#### Filter Modules
-- [x] Fractal Filter (LPF)
-- [x] Bandpass Fractal Filter
-- [x] **ChowEQModule** - Professional 3-band parametric EQ
-- [ ] Classic Ladder Filter
-- [ ] State Variable Filter (via chowdsp_utils)
-- [ ] Formant Bank Filter
-- [ ] Spectral Notches Filter
-- [ ] Karplus-Strong Pluck Filter
-
-#### Distortion Modules
-- [x] DistortionForge (Wavefolder, Clipper, Bitcrusher)
-- [x] FormantTracker
-- [x] **chowdsp_waveshapers** - West Coast folder, Wave Multiplier
-- [ ] Dynamic Alkane
-- [ ] Ohmicide Swarm
-- [ ] FM Distort
-
-### User Interface Features
-- [x] Real-time spectrograph visualization
-- [ ] XY pad control for spectral morphing
-- [ ] Modular chain visualization
-- [ ] Routing matrix interface
-- [ ] "Magic Forge" randomization button
-- [ ] Preset management system
-
-### Open Source Library Integrations
-- [x] **chowdsp_utils** (304⭐️) - Professional DSP algorithms
-- [x] **SpectrogramComponent** - Custom JUCE-based real-time visualization
-- [ ] chowdsp_filters - Advanced filter collection (Butterworth, Chebyshev, Elliptic)
-- [ ] JUMP - Professional metering and UI utilities
-
-### Advanced Features
-- [ ] Auto-harmonic enhancement
-- [ ] Adaptive EQ for mix clarity
-- [ ] Stereo widening
-- [ ] MIDI-controlled parameter modulation
-
-## Current Focus: UI Implementation
-Looking for appropriate open source UI libraries to implement the planned spectrograph and visualization components.
+### 📋 Planned Enhancements
+- **Gun Bass FM Engine**: Tearout/riddim FM synthesis with 8-voice unison
+- **Tearout Rhythm System**: LFO bank and phaser system for dubstep rhythms
+- **Enhanced Filtering**: Gaussian Bin-Shave LP with spectral smoothing
+- **Dubstep Forge Mode**: One-click preset for tearout bass production
 
 ## Completion Criteria
-- All core spectral processing features functional
-- Intuitive and responsive UI
-- Real-time performance (<5ms latency)
-- Professional sound quality
-- Comprehensive module library
+- **Performance**: <15% CPU usage with full 5-slot chain
+- **Sound Quality**: Professional-grade dubstep bass synthesis
+- **Usability**: Intuitive controls for both beginners and experts
+- **Novelty**: Unique algorithms that differentiate from existing plugins
 
-## Future Scalability Considerations
-- Expand module library with community contributions
-- Add cloud-based preset sharing
-- Implement advanced morphing techniques
-- Support for sidechain and external modulation
-- Hardware acceleration for real-time processing
+## Progress Tracker
+- [x] SampleMorpher Module (100%)
+- [ ] Fibonacci Spiral Distort (0%)
+- [ ] Gun Bass FM Engine (0%)
+- [ ] Tearout Rhythm System (0%)
+- [ ] Enhanced Filtering (0%)
+- [ ] Dubstep Forge Mode (0%)

@@ -8,9 +8,11 @@
 #include "Module.h"
 #include "KeyTracker.h"
 #include "Presets.h"
+#include "HarmonicRichFilter.h"
 
 //==============================================================================
-class WubForgeAudioProcessor : public juce::AudioProcessor
+class WubForgeAudioProcessor : public juce::AudioProcessor,
+                               public juce::AudioProcessorValueTreeState::Listener
 {
 public:
     //==============================================================================
@@ -88,6 +90,9 @@ private:
     //==============================================================================
     juce::AudioProcessorValueTreeState::ParameterLayout createParameterLayout();
     void updateDSPParameters();
+
+    // Parameter change callback
+    void parameterChanged(const juce::String& parameterID, float newValue) override;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (WubForgeAudioProcessor)
 };

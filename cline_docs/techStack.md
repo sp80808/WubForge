@@ -1,74 +1,51 @@
-# WubForge Technical Stack
+# WubForge Technology Stack
 
-## Primary Framework
-- **JUCE**: Cross-platform C++ framework for audio applications and plugins
-  - Version: Latest (managed via CMake submodule)
-  - Focus: VST3/AU plugin development, GUI components, DSP utilities
+## Core Technologies
+- **JUCE 7.x**: Cross-platform audio plugin framework
+- **C++17**: Modern C++ standard for performance and features
+- **CMake**: Build system for cross-platform compilation
 
-## Build System
-- **CMake**: Cross-platform build configuration
-  - Minimum version: 3.15+
-  - Configuration: Release builds with JUCE auto-download
+## Audio Processing Libraries
+- **ChowDSP Utils**: Professional DSP components (EQ, filters, dynamics)
+- **JUCE DSP**: Built-in audio processing utilities (FFT, IIR, FIR)
+- **Custom DSP**: Novel algorithms (Fibonacci Spiral Distort, Fractal Filters)
 
-## Programming Language
-- **C++17**: Core development language
-  - Standard: C++17 compatible compiler required
-  - Focus: High-performance audio processing
-
-## Core DSP Libraries
-- **JUCE DSP Module**: Built-in FFT, filtering, and audio utilities
-- **Eigen** (planned): High-performance linear algebra library for spectral processing
-- **Custom FFT Implementation**: Real-time spectral morphing engine
-
-## Audio Plugin Formats
-- **VST3**: Primary target format
-- **AU**: macOS AudioUnit support
-- Support for other formats through JUCE
-
-## UI Framework
-- **JUCE Graphics**: Core UI rendering and components
-- **SpectrogramComponent**: Custom real-time spectrum visualization (Pure JUCE)
-  - Real-time waterfall-style spectrogram with logarithmic frequency scaling
-  - Multiple color maps (Viridis, Plasma, Hot), 30fps performance
-  - Professional audio plugin standards
-
-## Advanced DSP Libraries
-
-### chowdsp_utils (Added - 304⭐️ 🟢 Active)
-**Purpose**: Large collection of high-quality DSP utilities for professional audio processing
-**Modules Integrated**:
-- **chowdsp_eq**: Professional parametric EQ with multiple bands (low/mid/high shelf + peak)
-- **chowdsp_filters**: Advanced filter collection (Butterworth, Chebyshev, Elliptic)
-- **chowdsp_waveshapers**: Professional distortion algorithms (West Coast folder, Wave Multiplier)
-- **chowdsp_dsp_utils**: Utility classes for convolution, resampling, ring buffers
-
-**Benefits for WubForge**:
-- High-quality EQ processing (replaces basic filters)
-- Additional waveforms distortion algorithms
-- Professional-grade DSP implementations
-- Extends processing capabilities beyond basic audio effects
-
-### ChowEQModule (New)
-**Created**: Professional 3-band parametric EQ using chowdsp_utils
-- Low shelf filter (200Hz), Mid peak filter (variable 200-8000Hz), High shelf filter (5kHz)
-- Individual gain, Q, and frequency controls
-- Integrated into WubForge's modular architecture as Slot 4
+## Architecture Patterns
+- **Modular Design**: 5-slot processing chain with factory pattern
+- **MVP Architecture**: Model-View-Processor for GUI separation
+- **Observer Pattern**: Parameter changes and real-time updates
+- **RAII**: Resource management for audio buffers and states
 
 ## Development Tools
-- **CMake**: Build configuration and dependency management
-- **Git**: Version control with submodules for JUCE
-- **CLion/CLion-based IDEs**: C++ development environment
+- **CLion/Cursor**: Primary IDE for development
+- **Valgrind**: Memory leak detection and profiling
+- **JUCE Projucer**: GUI layout and resource management
+- **Git**: Version control with GitHub integration
 
-## Testing and Quality Assurance
-- **JUCE UnitTestRunner**: Built-in testing framework (planned)
-- **Manual testing**: Audio quality and performance validation
+## Audio Specifications
+- **Sample Rates**: 44.1kHz - 192kHz support
+- **Buffer Sizes**: 32 - 4096 samples
+- **Latency**: Zero-latency design where possible
+- **CPU Target**: <15% per plugin instance
 
-## Performance Requirements
-- **Latency**: <5ms end-to-end processing latency
-- **Real-time**: 60fps minimum for GUI updates
-- **CPU**: Optimized for real-time spectral processing
+## Plugin Formats
+- **VST3**: Primary target format
+- **AU**: macOS Audio Units support
+- **AAX**: Pro Tools compatibility (planned)
 
-## Future Technology Considerations
-- **UI Libraries**: Research and integrate open source visualization components
-- **Hardware Acceleration**: Potential GPU acceleration for FFT operations
-- **Machine Learning**: Future AI-assisted parameter optimization
+## Testing Framework
+- **JUCE Unit Tests**: Built-in testing framework
+- **Audio Validation**: Spectral analysis for algorithm verification
+- **Performance Profiling**: CPU and memory usage monitoring
+
+## Novel DSP Algorithms
+- **Fibonacci Spiral Distort**: Golden ratio harmonic processing
+- **Fractal Filters**: Self-similar filtering algorithms
+- **Sample Morphing**: Granular synthesis for bass transformation
+- **Spectral Processing**: FFT-based effects and analysis
+
+## Performance Optimizations
+- **Lock-Free Parameters**: Thread-safe real-time parameter updates
+- **Buffer Management**: Efficient audio buffer pooling
+- **SIMD Operations**: Vectorized processing where beneficial
+- **Memory Alignment**: Cache-friendly data structures
