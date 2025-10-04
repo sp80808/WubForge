@@ -9,9 +9,14 @@
 #include "Presets.h"
 
 //==============================================================================
-class WubForgeAudioProcessor : public juce::AudioProcessor
+class WubForgeAudioProcessor : public foleys::MagicProcessor
 {
 public:
+    //==============================================================================
+    // --- Factory Methods for Modules ---
+    static juce::StringArray getAvailableModules();
+    static std::unique_ptr<AudioModule> createModuleFromName(const juce::String& name);
+
     //==============================================================================
     WubForgeAudioProcessor();
     ~WubForgeAudioProcessor() override;

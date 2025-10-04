@@ -6,26 +6,49 @@
 #include "MDASubSynthModuleDirect.h"
 #include <juce_dsp/juce_dsp.h>
 
+juce::StringArray WubForgeAudioProcessor::getAvailableModules()
+{
+    return {
+        "Universal Filter",
+        "Universal Distortion",
+        "Chow EQ",
+        "MDA SubSynth"
+    };
+}
+
+std::unique_ptr<AudioModule> WubForgeAudioProcessor::createModuleFromName(const juce::String& name)
+{
+    if (name == "Universal Filter") return std::make_unique<UniversalFilterModule>();
+    if (name == "Universal Distortion") return std::make_unique<UniversalDistortionModule>();
+    if (name == "Chow EQ") return std::make_unique<ChowEQModule>();
+    if (name == "MDA SubSynth") return std::make_unique<MDASubSynthModuleDirect>();
+    
+    return nullptr;
+}
+
 //==============================================================================
 WubForgeAudioProcessor::WubForgeAudioProcessor()
-     : AudioProcessor (BusesProperties()
+     : foleys::MagicProcessor (BusesProperties()
                      .withInput  ("Input",  juce::AudioChannelSet::stereo(), true)
                      .withOutput ("Output", juce::AudioChannelSet::stereo(), true))
 {
-    // Initialize module slots - only using modules that exist
-    moduleSlots[0] = std::make_unique<UniversalFilterModule>();     // Basic filter
-    moduleSlots[1] = std::make_unique<UniversalDistortionModule>(); // Basic distortion
-    moduleSlots[2] = std::make_unique<ChowEQModule>();              // Professional EQ
-    moduleSlots[3] = std::make_unique<DistortionForge>();           // Our new distortion
-    moduleSlots[4] = std::make_unique<MDASubSynthModuleDirect>();   // MDA SubSynth
+    magicState.addBackgroundProcessing (this);
+    magicState.createAndAddParameters (createParameterLayout());
 
-    // Setup key tracker for modules that need it
+    // Initialize module slots using the factory
+    moduleSlots[0] = createModuleFromName("Universal Filter");
+    moduleSlots[1] = createModuleFromName("Universal Distortion");
+    moduleSlots[2] = nullptr;
+    moduleSlots[3] = nullptr;
+    moduleSlots[4] = nullptr;
+
+    // Provide global components to modules that need them
     for (auto& slot : moduleSlots)
     {
         if (slot != nullptr)
             slot->setKeyTracker (&keyTracker);
     }
-
+    
     keyTracker.prepareToPlay (44100.0, 512);
 }
 

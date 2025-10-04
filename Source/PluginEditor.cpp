@@ -6,7 +6,7 @@ WubForgeAudioProcessorEditor::WubForgeAudioProcessorEditor (WubForgeAudioProcess
 {
     setSize (800, 600);
 
-    // Simple text label for now
+    // Simple text labels for alpha testing
     addAndMakeVisible (titleLabel);
     titleLabel.setText ("WUBFORGE ALPHA", juce::dontSendNotification);
     titleLabel.setFont (titleLabel.getFont().withHeight (24.0f));
@@ -17,9 +17,7 @@ WubForgeAudioProcessorEditor::WubForgeAudioProcessorEditor (WubForgeAudioProcess
     infoLabel.setJustificationType (juce::Justification::centred);
 }
 
-WubForgeAudioProcessorEditor::~WubForgeAudioProcessorEditor()
-{
-}
+WubForgeAudioProcessorEditor::~WubForgeAudioProcessorEditor() = default;
 
 //==============================================================================
 void WubForgeAudioProcessorEditor::paint (juce::Graphics& g)
