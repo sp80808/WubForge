@@ -46,6 +46,7 @@ void UniversalFilterModule::process(const juce::dsp::ProcessContextReplacing<flo
         case Model::Pluck:     processPluck(context);     break;
         case Model::Formant:   processFormant(context);   break;
         case Model::Comb:      processComb(context);      break;
+        case Model::Shaper:    processShaper(context);    break;
     }
 }
 
@@ -78,8 +79,49 @@ void UniversalFilterModule::setCombFeedback(float fb) { combFeedback = fb; }
 void UniversalFilterModule::setCombLfoRate(float r) { combLfoRate = r; }
 void UniversalFilterModule::setCombLfoDepth(float d) { combLfoDepth = d; }
 
+void UniversalFilterModule::setShaperCutoff(float c) { shaperCutoff = c; }
+void UniversalFilterModule::setShaperResonance(float r) { shaperResonance = r; }
+void UniversalFilterModule::setShaperDrive(float d) { shaperDrive = d; }
+
 //==============================================================================
 // --- Internal Processing & Helper Functions ---
+
+void UniversalFilterModule::processShaper(const juce::dsp::ProcessContextReplacing<float>& context)
+{
+    auto& block = context.getOutputBlock();
+    auto numSamples = block.getNumSamples();
+    auto numChannels = block.getNumChannels();
+
+    // Calculate filter coefficients from parameters
+    float f = 2.0f * std::sin(juce::MathConstants<float>::pi * shaperCutoff / (float)sampleRate);
+    float q = 1.0f - shaperResonance;
+    q = juce::jlimit(0.01f, 1.0f, q);
+
+    for (size_t ch = 0; ch < numChannels; ++ch)
+    {
+        auto* samples = block.getChannelPointer(ch);
+        for (size_t i = 0; i < numSamples; ++i)
+        {
+            float input = samples[i];
+
+            // Standard state-variable filter topology
+            float low = s2 + f * s1;
+            float high = input - low - q * s1;
+            float band = f * high + s1;
+
+            // --- The non-linear part ---
+            // Apply drive and waveshaper to the bandpass output before feeding it back
+            float shapedBand = std::tanh(band * (1.0f + shaperDrive * 5.0f));
+
+            // Update state variables using the shaped signal
+            s1 = f * high + shapedBand;
+            s2 = low;
+
+            // Output the low-pass signal
+            samples[i] = low;
+        }
+    }
+}
 
 void UniversalFilterModule::updateFilters()
 {

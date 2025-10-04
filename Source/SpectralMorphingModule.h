@@ -1,114 +1,80 @@
 #pragma once
 
 #include "Module.h"
-#include <juce_dsp/juce_dsp.h>
+#include <vector>
+#include <array>
+#include <complex>
 
 //==============================================================================
 /**
-    SpectralMorphingModule - Core spectral morphing system for WubForge
-
-    Provides real-time spectral morphing between source and target spectra:
-    - FFT-based analysis and reconstruction for <5ms latency
-    - XY morphing control (source→target morphing)
-    - Formant preservation during morphing
-    - Key-tracked spectral response
-    - Optimized for bass processing and creative sound design
+    Advanced spectral morphing engine inspired by Xfer Serum 2 and Vital.
+    Enables real-time morphing between spectral snapshots with phase preservation
+    for natural-sounding transitions between bass timbres.
 */
-class SpectralMorphingModule : public AudioModule
+class SpectralMorphingModule : public FilterModule
 {
 public:
     SpectralMorphingModule();
-    ~SpectralMorphingModule() override = default;
 
-    //==============================================================================
     void prepare (const juce::dsp::ProcessSpec& spec) override;
     void process (const juce::dsp::ProcessContextReplacing<float>& context) override;
     void reset() override;
 
-    //==============================================================================
-    const juce::String getName() const override { return "Spectral Morphing"; }
-    ModuleType getType() const override { return ModuleType::Filter; }
+    const juce::String getName() const override { return "Spectral Morpher"; }
 
     //==============================================================================
-    // Core morphing controls
-    void setMorphPosition (float x, float y);  // XY morphing control
-    void setMorphTime (float timeMs);          // Morph transition time
-    void setSpectralRange (float range);       // 0=full, 1=high, 2=mid, 3=low
-    void setWetDryMix (float mix);
+    // Spectral Morphing Parameters
+    void setMorphAmount (float amount);        // 0.0 = Source A, 1.0 = Source B
+    void setMorphSpeed (float speed);          // Transition speed (0.0 to 1.0)
+    void setSpectralWarping (float warp);      // Spectral shape modification
+    void setPhasePreservation (float preserve); // 0.0 = Free phase, 1.0 = Preserve phase
 
-    //==============================================================================
-    // Advanced spectral controls
-    void setFFTSize (int size);                // 256, 512, 1024, 2048
-    void setOverlapFactor (float overlap);     // 0.25, 0.5, 0.75
-    void setFormantPreservation (float amount); // 0-1
-    void setSpectralSmoothing (float smoothing); // 0-1
-
-    //==============================================================================
-    // Key tracking integration
-    void setCurrentFreq (double freq);
-
-    //==============================================================================
-    // Getters for visualization
-    float getCurrentMorphX() const { return morphX; }
-    float getCurrentMorphY() const { return morphY; }
-    int getCurrentFFTSize() const { return fftSize; }
-    float getCurrentLatency() const;
-
-    //==============================================================================
-    // Spectral data access for spectrogram
-    const std::vector<float>& getCurrentMagnitudeBuffer() const { return magnitudeBuffer; }
+    // Spectral snapshot management
+    void captureSpectralSnapshot (int slot);   // Capture current spectral state
+    void setActiveSnapshots (int sourceSlot, int targetSlot);
 
 private:
-    //==============================================================================
-    void updateFFTSize();
-    void analyzeInputSpectrum();
-    void applySpectralMorphing();
-    void reconstructOutput();
+    void performFFT();
+    void performIFFT();
+    void updateSpectralMorphing();
+    void applySpectralWarping();
 
-    //==============================================================================
-    // FFT processing components
-    std::unique_ptr<juce::dsp::FFT> fft;
-    std::unique_ptr<juce::dsp::FFT> ifft;
+    double sampleRate = 44100.0;
+    int blockSize = 512;
 
-    // Windowing for overlap-add
-    std::vector<float> windowBuffer;
-
-    // Spectral data buffers
+    // FFT processing
     std::vector<float> inputBuffer;
     std::vector<float> outputBuffer;
-    std::vector<float> spectralBuffer;
-    std::vector<float> magnitudeBuffer;
-    std::vector<float> phaseBuffer;
+    std::vector<std::complex<float>> frequencyDomain;
+    std::vector<float> windowBuffer;
 
-    // Morphing state
-    std::vector<float> sourceSpectrum;
-    std::vector<float> targetSpectrum;
-    std::vector<float> currentSpectrum;
+    // Spectral snapshots (A and B for morphing)
+    struct SpectralSnapshot {
+        std::vector<float> magnitude;
+        std::vector<float> phase;
+        float centroid = 0.0f;
+        float spectralFlux = 0.0f;
+    };
 
-    // Parameters
-    float morphX = 0.0f;           // X position in morph space
-    float morphY = 0.0f;           // Y position in morph space
-    float morphTime = 100.0f;      // Morph transition time in ms
-    float spectralRange = 0.0f;    // Spectral range focus
-    float wetDryMix = 1.0f;        // Wet/dry mix
+    std::array<SpectralSnapshot, 4> spectralSnapshots; // 4 snapshot slots
+    int activeSourceSlot = 0;
+    int activeTargetSlot = 1;
 
-    // Advanced parameters
-    int fftSize = 512;             // FFT size for latency control
-    float overlapFactor = 0.5f;    // Overlap for smooth processing
-    float formantPreservation = 0.8f; // Formant preservation amount
-    float spectralSmoothing = 0.3f;   // Spectral smoothing factor
+    // Morphing parameters
+    float morphAmount = 0.0f;        // Current morph position
+    float targetMorphAmount = 0.0f;  // Target morph position
+    float morphSpeed = 0.1f;         // Morph transition speed
+    float spectralWarping = 0.0f;    // Spectral shape modification
+    float phasePreservation = 0.8f;  // How much to preserve phase
 
-    // State
-    double sampleRate = 44100.0;
-    int hopSize = 256;             // Hop size for overlap-add
+    // Analysis data
+    float currentCentroid = 0.0f;
+    float currentSpectralFlux = 0.0f;
+
+    // FFT utilities
+    static constexpr int fftSize = 2048;
+    static constexpr int hopSize = 512;
+
     int bufferPosition = 0;
-    double currentFreq = 100.0;    // Current MIDI note frequency
-
-    //==============================================================================
-    void initializeBuffers();
-    void applyWindowing();
-    void removeWindowing();
-    void updateMorphing();
-
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (SpectralMorphingModule)
+    int windowSize = fftSize;
 };

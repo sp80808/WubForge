@@ -61,7 +61,7 @@ private:
     float baseFrequency = 100.0f;  // Lower base for bass processing
     float q = 0.707f;              // Butterworth Q for musical response
     int depth = 4;
-    float ratio = PHI;             // Default to golden ratio
+    float ratio = 1.618f;          // Default to golden ratio approximation
     FractalPattern currentPattern = FractalPattern::GoldenRatio;
 
     // Advanced features

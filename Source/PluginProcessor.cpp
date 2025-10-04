@@ -22,19 +22,17 @@ std::unique_ptr<AudioModule> WubForgeAudioProcessor::createModuleFromName(const 
     if (name == "Universal Distortion") return std::make_unique<UniversalDistortionModule>();
     if (name == "Chow EQ") return std::make_unique<ChowEQModule>();
     if (name == "MDA SubSynth") return std::make_unique<MDASubSynthModuleDirect>();
-    
+
     return nullptr;
 }
 
 //==============================================================================
 WubForgeAudioProcessor::WubForgeAudioProcessor()
-     : foleys::MagicProcessor (BusesProperties()
+     : AudioProcessor (BusesProperties()
                      .withInput  ("Input",  juce::AudioChannelSet::stereo(), true)
-                     .withOutput ("Output", juce::AudioChannelSet::stereo(), true))
+                     .withOutput ("Output", juce::AudioChannelSet::stereo(), true)),
+       valueTreeState (*this, nullptr, juce::Identifier("WubForge"), createParameterLayout())
 {
-    magicState.addBackgroundProcessing (this);
-    magicState.createAndAddParameters (createParameterLayout());
-
     // Initialize module slots using the factory
     moduleSlots[0] = createModuleFromName("Universal Filter");
     moduleSlots[1] = createModuleFromName("Universal Distortion");
@@ -48,7 +46,7 @@ WubForgeAudioProcessor::WubForgeAudioProcessor()
         if (slot != nullptr)
             slot->setKeyTracker (&keyTracker);
     }
-    
+
     keyTracker.prepareToPlay (44100.0, 512);
 }
 
@@ -103,12 +101,6 @@ void WubForgeAudioProcessor::reset()
 }
 
 //==============================================================================
-bool WubForgeAudioProcessor::isBusesLayoutSupported (const BusesLayout& layouts) const
-{
-    // Accept mono or stereo
-    return layouts.getMainOutputChannelSet() == juce::AudioChannelSet::stereo()
-        || layouts.getMainOutputChannelSet() == juce::AudioChannelSet::mono();
-}
 
 //==============================================================================
 void WubForgeAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juce::MidiBuffer& midiMessages)
@@ -139,32 +131,10 @@ void WubForgeAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juc
 }
 
 //==============================================================================
-const juce::String WubForgeAudioProcessor::getName() const { return JucePlugin_Name; }
-bool WubForgeAudioProcessor::acceptsMidi() const { return true; }
-bool WubForgeAudioProcessor::producesMidi() const { return false; }
-bool WubForgeAudioProcessor::isMidiEffect() const { return false; }
-double WubForgeAudioProcessor::getTailLengthSeconds() const { return 0.0; }
 
 //==============================================================================
-int WubForgeAudioProcessor::getNumPrograms() { return 0; }
-int WubForgeAudioProcessor::getCurrentProgram() { return 0; }
-void WubForgeAudioProcessor::setCurrentProgram (int index) {}
-const juce::String WubForgeAudioProcessor::getProgramName (int index) { return {}; }
-void WubForgeAudioProcessor::changeProgramName (int index, const juce::String& newName) {}
 
-void WubForgeAudioProcessor::getStateInformation (juce::MemoryBlock& destData)
-{
-    // Simple state saving for alpha
-    juce::MemoryOutputStream stream (destData, false);
-    stream.writeFloat (static_cast<float>(currentSampleRate));
-}
 
-void WubForgeAudioProcessor::setStateInformation (const void* data, int sizeInBytes)
-{
-    // Simple state loading for alpha
-    juce::MemoryInputStream stream (data, static_cast<size_t>(sizeInBytes), false);
-    currentSampleRate = stream.readDouble();
-}
 
 //==============================================================================
 AudioModule* WubForgeAudioProcessor::getModuleInSlot (int slotIndex) const

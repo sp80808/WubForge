@@ -1,6 +1,7 @@
 #pragma once
 
 #include <juce_dsp/juce_dsp.h>
+#include <juce_audio_processors/juce_audio_processors.h>
 
 #include <array>
 #include <memory>
@@ -9,7 +10,7 @@
 #include "Presets.h"
 
 //==============================================================================
-class WubForgeAudioProcessor : public foleys::MagicProcessor
+class WubForgeAudioProcessor : public juce::AudioProcessor
 {
 public:
     //==============================================================================
@@ -74,10 +75,11 @@ private:
     //==============================================================================
     void runMagicForge();
 
-    
+
 
     // Parameter management
     std::unique_ptr<Presets> presets;
+    juce::AudioProcessorValueTreeState valueTreeState;
 
     // State
     double currentSampleRate = 44100.0;
