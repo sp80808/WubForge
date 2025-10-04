@@ -173,37 +173,401 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named WobbleForge
+# Target rules for targets named WubForge
 
 # Build rule for target.
-WobbleForge: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 WobbleForge
-.PHONY : WobbleForge
+WubForge: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 WubForge
+.PHONY : WubForge
 
 # fast build rule for target.
-WobbleForge/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WobbleForge.dir/build.make CMakeFiles/WobbleForge.dir/build
-.PHONY : WobbleForge/fast
+WubForge/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/build
+.PHONY : WubForge/fast
 
 #=============================================================================
-# Target rules for targets named WobbleForge_All
+# Target rules for targets named WubForge_All
 
 # Build rule for target.
-WobbleForge_All: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 WobbleForge_All
-.PHONY : WobbleForge_All
+WubForge_All: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 WubForge_All
+.PHONY : WubForge_All
 
 # fast build rule for target.
-WobbleForge_All/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WobbleForge_All.dir/build.make CMakeFiles/WobbleForge_All.dir/build
-.PHONY : WobbleForge_All/fast
+WubForge_All/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge_All.dir/build.make CMakeFiles/WubForge_All.dir/build
+.PHONY : WubForge_All/fast
+
+#=============================================================================
+# Target rules for targets named Experimental
+
+# Build rule for target.
+Experimental: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Experimental
+.PHONY : Experimental
+
+# fast build rule for target.
+Experimental/fast:
+	$(MAKE) $(MAKESILENT) -f chowdsp_utils/CMakeFiles/Experimental.dir/build.make chowdsp_utils/CMakeFiles/Experimental.dir/build
+.PHONY : Experimental/fast
+
+#=============================================================================
+# Target rules for targets named Nightly
+
+# Build rule for target.
+Nightly: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Nightly
+.PHONY : Nightly
+
+# fast build rule for target.
+Nightly/fast:
+	$(MAKE) $(MAKESILENT) -f chowdsp_utils/CMakeFiles/Nightly.dir/build.make chowdsp_utils/CMakeFiles/Nightly.dir/build
+.PHONY : Nightly/fast
+
+#=============================================================================
+# Target rules for targets named Continuous
+
+# Build rule for target.
+Continuous: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Continuous
+.PHONY : Continuous
+
+# fast build rule for target.
+Continuous/fast:
+	$(MAKE) $(MAKESILENT) -f chowdsp_utils/CMakeFiles/Continuous.dir/build.make chowdsp_utils/CMakeFiles/Continuous.dir/build
+.PHONY : Continuous/fast
+
+#=============================================================================
+# Target rules for targets named NightlyMemoryCheck
+
+# Build rule for target.
+NightlyMemoryCheck: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 NightlyMemoryCheck
+.PHONY : NightlyMemoryCheck
+
+# fast build rule for target.
+NightlyMemoryCheck/fast:
+	$(MAKE) $(MAKESILENT) -f chowdsp_utils/CMakeFiles/NightlyMemoryCheck.dir/build.make chowdsp_utils/CMakeFiles/NightlyMemoryCheck.dir/build
+.PHONY : NightlyMemoryCheck/fast
+
+#=============================================================================
+# Target rules for targets named NightlyStart
+
+# Build rule for target.
+NightlyStart: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 NightlyStart
+.PHONY : NightlyStart
+
+# fast build rule for target.
+NightlyStart/fast:
+	$(MAKE) $(MAKESILENT) -f chowdsp_utils/CMakeFiles/NightlyStart.dir/build.make chowdsp_utils/CMakeFiles/NightlyStart.dir/build
+.PHONY : NightlyStart/fast
+
+#=============================================================================
+# Target rules for targets named NightlyUpdate
+
+# Build rule for target.
+NightlyUpdate: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 NightlyUpdate
+.PHONY : NightlyUpdate
+
+# fast build rule for target.
+NightlyUpdate/fast:
+	$(MAKE) $(MAKESILENT) -f chowdsp_utils/CMakeFiles/NightlyUpdate.dir/build.make chowdsp_utils/CMakeFiles/NightlyUpdate.dir/build
+.PHONY : NightlyUpdate/fast
+
+#=============================================================================
+# Target rules for targets named NightlyConfigure
+
+# Build rule for target.
+NightlyConfigure: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 NightlyConfigure
+.PHONY : NightlyConfigure
+
+# fast build rule for target.
+NightlyConfigure/fast:
+	$(MAKE) $(MAKESILENT) -f chowdsp_utils/CMakeFiles/NightlyConfigure.dir/build.make chowdsp_utils/CMakeFiles/NightlyConfigure.dir/build
+.PHONY : NightlyConfigure/fast
+
+#=============================================================================
+# Target rules for targets named NightlyBuild
+
+# Build rule for target.
+NightlyBuild: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 NightlyBuild
+.PHONY : NightlyBuild
+
+# fast build rule for target.
+NightlyBuild/fast:
+	$(MAKE) $(MAKESILENT) -f chowdsp_utils/CMakeFiles/NightlyBuild.dir/build.make chowdsp_utils/CMakeFiles/NightlyBuild.dir/build
+.PHONY : NightlyBuild/fast
+
+#=============================================================================
+# Target rules for targets named NightlyTest
+
+# Build rule for target.
+NightlyTest: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 NightlyTest
+.PHONY : NightlyTest
+
+# fast build rule for target.
+NightlyTest/fast:
+	$(MAKE) $(MAKESILENT) -f chowdsp_utils/CMakeFiles/NightlyTest.dir/build.make chowdsp_utils/CMakeFiles/NightlyTest.dir/build
+.PHONY : NightlyTest/fast
+
+#=============================================================================
+# Target rules for targets named NightlyCoverage
+
+# Build rule for target.
+NightlyCoverage: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 NightlyCoverage
+.PHONY : NightlyCoverage
+
+# fast build rule for target.
+NightlyCoverage/fast:
+	$(MAKE) $(MAKESILENT) -f chowdsp_utils/CMakeFiles/NightlyCoverage.dir/build.make chowdsp_utils/CMakeFiles/NightlyCoverage.dir/build
+.PHONY : NightlyCoverage/fast
+
+#=============================================================================
+# Target rules for targets named NightlyMemCheck
+
+# Build rule for target.
+NightlyMemCheck: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 NightlyMemCheck
+.PHONY : NightlyMemCheck
+
+# fast build rule for target.
+NightlyMemCheck/fast:
+	$(MAKE) $(MAKESILENT) -f chowdsp_utils/CMakeFiles/NightlyMemCheck.dir/build.make chowdsp_utils/CMakeFiles/NightlyMemCheck.dir/build
+.PHONY : NightlyMemCheck/fast
+
+#=============================================================================
+# Target rules for targets named NightlySubmit
+
+# Build rule for target.
+NightlySubmit: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 NightlySubmit
+.PHONY : NightlySubmit
+
+# fast build rule for target.
+NightlySubmit/fast:
+	$(MAKE) $(MAKESILENT) -f chowdsp_utils/CMakeFiles/NightlySubmit.dir/build.make chowdsp_utils/CMakeFiles/NightlySubmit.dir/build
+.PHONY : NightlySubmit/fast
+
+#=============================================================================
+# Target rules for targets named ExperimentalStart
+
+# Build rule for target.
+ExperimentalStart: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ExperimentalStart
+.PHONY : ExperimentalStart
+
+# fast build rule for target.
+ExperimentalStart/fast:
+	$(MAKE) $(MAKESILENT) -f chowdsp_utils/CMakeFiles/ExperimentalStart.dir/build.make chowdsp_utils/CMakeFiles/ExperimentalStart.dir/build
+.PHONY : ExperimentalStart/fast
+
+#=============================================================================
+# Target rules for targets named ExperimentalUpdate
+
+# Build rule for target.
+ExperimentalUpdate: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ExperimentalUpdate
+.PHONY : ExperimentalUpdate
+
+# fast build rule for target.
+ExperimentalUpdate/fast:
+	$(MAKE) $(MAKESILENT) -f chowdsp_utils/CMakeFiles/ExperimentalUpdate.dir/build.make chowdsp_utils/CMakeFiles/ExperimentalUpdate.dir/build
+.PHONY : ExperimentalUpdate/fast
+
+#=============================================================================
+# Target rules for targets named ExperimentalConfigure
+
+# Build rule for target.
+ExperimentalConfigure: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ExperimentalConfigure
+.PHONY : ExperimentalConfigure
+
+# fast build rule for target.
+ExperimentalConfigure/fast:
+	$(MAKE) $(MAKESILENT) -f chowdsp_utils/CMakeFiles/ExperimentalConfigure.dir/build.make chowdsp_utils/CMakeFiles/ExperimentalConfigure.dir/build
+.PHONY : ExperimentalConfigure/fast
+
+#=============================================================================
+# Target rules for targets named ExperimentalBuild
+
+# Build rule for target.
+ExperimentalBuild: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ExperimentalBuild
+.PHONY : ExperimentalBuild
+
+# fast build rule for target.
+ExperimentalBuild/fast:
+	$(MAKE) $(MAKESILENT) -f chowdsp_utils/CMakeFiles/ExperimentalBuild.dir/build.make chowdsp_utils/CMakeFiles/ExperimentalBuild.dir/build
+.PHONY : ExperimentalBuild/fast
+
+#=============================================================================
+# Target rules for targets named ExperimentalTest
+
+# Build rule for target.
+ExperimentalTest: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ExperimentalTest
+.PHONY : ExperimentalTest
+
+# fast build rule for target.
+ExperimentalTest/fast:
+	$(MAKE) $(MAKESILENT) -f chowdsp_utils/CMakeFiles/ExperimentalTest.dir/build.make chowdsp_utils/CMakeFiles/ExperimentalTest.dir/build
+.PHONY : ExperimentalTest/fast
+
+#=============================================================================
+# Target rules for targets named ExperimentalCoverage
+
+# Build rule for target.
+ExperimentalCoverage: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ExperimentalCoverage
+.PHONY : ExperimentalCoverage
+
+# fast build rule for target.
+ExperimentalCoverage/fast:
+	$(MAKE) $(MAKESILENT) -f chowdsp_utils/CMakeFiles/ExperimentalCoverage.dir/build.make chowdsp_utils/CMakeFiles/ExperimentalCoverage.dir/build
+.PHONY : ExperimentalCoverage/fast
+
+#=============================================================================
+# Target rules for targets named ExperimentalMemCheck
+
+# Build rule for target.
+ExperimentalMemCheck: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ExperimentalMemCheck
+.PHONY : ExperimentalMemCheck
+
+# fast build rule for target.
+ExperimentalMemCheck/fast:
+	$(MAKE) $(MAKESILENT) -f chowdsp_utils/CMakeFiles/ExperimentalMemCheck.dir/build.make chowdsp_utils/CMakeFiles/ExperimentalMemCheck.dir/build
+.PHONY : ExperimentalMemCheck/fast
+
+#=============================================================================
+# Target rules for targets named ExperimentalSubmit
+
+# Build rule for target.
+ExperimentalSubmit: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ExperimentalSubmit
+.PHONY : ExperimentalSubmit
+
+# fast build rule for target.
+ExperimentalSubmit/fast:
+	$(MAKE) $(MAKESILENT) -f chowdsp_utils/CMakeFiles/ExperimentalSubmit.dir/build.make chowdsp_utils/CMakeFiles/ExperimentalSubmit.dir/build
+.PHONY : ExperimentalSubmit/fast
+
+#=============================================================================
+# Target rules for targets named ContinuousStart
+
+# Build rule for target.
+ContinuousStart: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ContinuousStart
+.PHONY : ContinuousStart
+
+# fast build rule for target.
+ContinuousStart/fast:
+	$(MAKE) $(MAKESILENT) -f chowdsp_utils/CMakeFiles/ContinuousStart.dir/build.make chowdsp_utils/CMakeFiles/ContinuousStart.dir/build
+.PHONY : ContinuousStart/fast
+
+#=============================================================================
+# Target rules for targets named ContinuousUpdate
+
+# Build rule for target.
+ContinuousUpdate: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ContinuousUpdate
+.PHONY : ContinuousUpdate
+
+# fast build rule for target.
+ContinuousUpdate/fast:
+	$(MAKE) $(MAKESILENT) -f chowdsp_utils/CMakeFiles/ContinuousUpdate.dir/build.make chowdsp_utils/CMakeFiles/ContinuousUpdate.dir/build
+.PHONY : ContinuousUpdate/fast
+
+#=============================================================================
+# Target rules for targets named ContinuousConfigure
+
+# Build rule for target.
+ContinuousConfigure: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ContinuousConfigure
+.PHONY : ContinuousConfigure
+
+# fast build rule for target.
+ContinuousConfigure/fast:
+	$(MAKE) $(MAKESILENT) -f chowdsp_utils/CMakeFiles/ContinuousConfigure.dir/build.make chowdsp_utils/CMakeFiles/ContinuousConfigure.dir/build
+.PHONY : ContinuousConfigure/fast
+
+#=============================================================================
+# Target rules for targets named ContinuousBuild
+
+# Build rule for target.
+ContinuousBuild: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ContinuousBuild
+.PHONY : ContinuousBuild
+
+# fast build rule for target.
+ContinuousBuild/fast:
+	$(MAKE) $(MAKESILENT) -f chowdsp_utils/CMakeFiles/ContinuousBuild.dir/build.make chowdsp_utils/CMakeFiles/ContinuousBuild.dir/build
+.PHONY : ContinuousBuild/fast
+
+#=============================================================================
+# Target rules for targets named ContinuousTest
+
+# Build rule for target.
+ContinuousTest: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ContinuousTest
+.PHONY : ContinuousTest
+
+# fast build rule for target.
+ContinuousTest/fast:
+	$(MAKE) $(MAKESILENT) -f chowdsp_utils/CMakeFiles/ContinuousTest.dir/build.make chowdsp_utils/CMakeFiles/ContinuousTest.dir/build
+.PHONY : ContinuousTest/fast
+
+#=============================================================================
+# Target rules for targets named ContinuousCoverage
+
+# Build rule for target.
+ContinuousCoverage: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ContinuousCoverage
+.PHONY : ContinuousCoverage
+
+# fast build rule for target.
+ContinuousCoverage/fast:
+	$(MAKE) $(MAKESILENT) -f chowdsp_utils/CMakeFiles/ContinuousCoverage.dir/build.make chowdsp_utils/CMakeFiles/ContinuousCoverage.dir/build
+.PHONY : ContinuousCoverage/fast
+
+#=============================================================================
+# Target rules for targets named ContinuousMemCheck
+
+# Build rule for target.
+ContinuousMemCheck: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ContinuousMemCheck
+.PHONY : ContinuousMemCheck
+
+# fast build rule for target.
+ContinuousMemCheck/fast:
+	$(MAKE) $(MAKESILENT) -f chowdsp_utils/CMakeFiles/ContinuousMemCheck.dir/build.make chowdsp_utils/CMakeFiles/ContinuousMemCheck.dir/build
+.PHONY : ContinuousMemCheck/fast
+
+#=============================================================================
+# Target rules for targets named ContinuousSubmit
+
+# Build rule for target.
+ContinuousSubmit: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ContinuousSubmit
+.PHONY : ContinuousSubmit
+
+# fast build rule for target.
+ContinuousSubmit/fast:
+	$(MAKE) $(MAKESILENT) -f chowdsp_utils/CMakeFiles/ContinuousSubmit.dir/build.make chowdsp_utils/CMakeFiles/ContinuousSubmit.dir/build
+.PHONY : ContinuousSubmit/fast
 
 JUCE/modules/juce_audio_basics/juce_audio_basics.o: JUCE/modules/juce_audio_basics/juce_audio_basics.mm.o
 .PHONY : JUCE/modules/juce_audio_basics/juce_audio_basics.o
 
 # target to build an object file
 JUCE/modules/juce_audio_basics/juce_audio_basics.mm.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WobbleForge.dir/build.make CMakeFiles/WobbleForge.dir/JUCE/modules/juce_audio_basics/juce_audio_basics.mm.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_basics/juce_audio_basics.mm.o
 .PHONY : JUCE/modules/juce_audio_basics/juce_audio_basics.mm.o
 
 JUCE/modules/juce_audio_basics/juce_audio_basics.i: JUCE/modules/juce_audio_basics/juce_audio_basics.mm.i
@@ -211,7 +575,7 @@ JUCE/modules/juce_audio_basics/juce_audio_basics.i: JUCE/modules/juce_audio_basi
 
 # target to preprocess a source file
 JUCE/modules/juce_audio_basics/juce_audio_basics.mm.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WobbleForge.dir/build.make CMakeFiles/WobbleForge.dir/JUCE/modules/juce_audio_basics/juce_audio_basics.mm.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_basics/juce_audio_basics.mm.i
 .PHONY : JUCE/modules/juce_audio_basics/juce_audio_basics.mm.i
 
 JUCE/modules/juce_audio_basics/juce_audio_basics.s: JUCE/modules/juce_audio_basics/juce_audio_basics.mm.s
@@ -219,7 +583,7 @@ JUCE/modules/juce_audio_basics/juce_audio_basics.s: JUCE/modules/juce_audio_basi
 
 # target to generate assembly for a file
 JUCE/modules/juce_audio_basics/juce_audio_basics.mm.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WobbleForge.dir/build.make CMakeFiles/WobbleForge.dir/JUCE/modules/juce_audio_basics/juce_audio_basics.mm.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_basics/juce_audio_basics.mm.s
 .PHONY : JUCE/modules/juce_audio_basics/juce_audio_basics.mm.s
 
 JUCE/modules/juce_audio_devices/juce_audio_devices.o: JUCE/modules/juce_audio_devices/juce_audio_devices.mm.o
@@ -227,7 +591,7 @@ JUCE/modules/juce_audio_devices/juce_audio_devices.o: JUCE/modules/juce_audio_de
 
 # target to build an object file
 JUCE/modules/juce_audio_devices/juce_audio_devices.mm.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WobbleForge.dir/build.make CMakeFiles/WobbleForge.dir/JUCE/modules/juce_audio_devices/juce_audio_devices.mm.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_devices/juce_audio_devices.mm.o
 .PHONY : JUCE/modules/juce_audio_devices/juce_audio_devices.mm.o
 
 JUCE/modules/juce_audio_devices/juce_audio_devices.i: JUCE/modules/juce_audio_devices/juce_audio_devices.mm.i
@@ -235,7 +599,7 @@ JUCE/modules/juce_audio_devices/juce_audio_devices.i: JUCE/modules/juce_audio_de
 
 # target to preprocess a source file
 JUCE/modules/juce_audio_devices/juce_audio_devices.mm.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WobbleForge.dir/build.make CMakeFiles/WobbleForge.dir/JUCE/modules/juce_audio_devices/juce_audio_devices.mm.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_devices/juce_audio_devices.mm.i
 .PHONY : JUCE/modules/juce_audio_devices/juce_audio_devices.mm.i
 
 JUCE/modules/juce_audio_devices/juce_audio_devices.s: JUCE/modules/juce_audio_devices/juce_audio_devices.mm.s
@@ -243,7 +607,7 @@ JUCE/modules/juce_audio_devices/juce_audio_devices.s: JUCE/modules/juce_audio_de
 
 # target to generate assembly for a file
 JUCE/modules/juce_audio_devices/juce_audio_devices.mm.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WobbleForge.dir/build.make CMakeFiles/WobbleForge.dir/JUCE/modules/juce_audio_devices/juce_audio_devices.mm.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_devices/juce_audio_devices.mm.s
 .PHONY : JUCE/modules/juce_audio_devices/juce_audio_devices.mm.s
 
 JUCE/modules/juce_audio_formats/juce_audio_formats.o: JUCE/modules/juce_audio_formats/juce_audio_formats.mm.o
@@ -251,7 +615,7 @@ JUCE/modules/juce_audio_formats/juce_audio_formats.o: JUCE/modules/juce_audio_fo
 
 # target to build an object file
 JUCE/modules/juce_audio_formats/juce_audio_formats.mm.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WobbleForge.dir/build.make CMakeFiles/WobbleForge.dir/JUCE/modules/juce_audio_formats/juce_audio_formats.mm.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_formats/juce_audio_formats.mm.o
 .PHONY : JUCE/modules/juce_audio_formats/juce_audio_formats.mm.o
 
 JUCE/modules/juce_audio_formats/juce_audio_formats.i: JUCE/modules/juce_audio_formats/juce_audio_formats.mm.i
@@ -259,7 +623,7 @@ JUCE/modules/juce_audio_formats/juce_audio_formats.i: JUCE/modules/juce_audio_fo
 
 # target to preprocess a source file
 JUCE/modules/juce_audio_formats/juce_audio_formats.mm.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WobbleForge.dir/build.make CMakeFiles/WobbleForge.dir/JUCE/modules/juce_audio_formats/juce_audio_formats.mm.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_formats/juce_audio_formats.mm.i
 .PHONY : JUCE/modules/juce_audio_formats/juce_audio_formats.mm.i
 
 JUCE/modules/juce_audio_formats/juce_audio_formats.s: JUCE/modules/juce_audio_formats/juce_audio_formats.mm.s
@@ -267,7 +631,7 @@ JUCE/modules/juce_audio_formats/juce_audio_formats.s: JUCE/modules/juce_audio_fo
 
 # target to generate assembly for a file
 JUCE/modules/juce_audio_formats/juce_audio_formats.mm.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WobbleForge.dir/build.make CMakeFiles/WobbleForge.dir/JUCE/modules/juce_audio_formats/juce_audio_formats.mm.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_formats/juce_audio_formats.mm.s
 .PHONY : JUCE/modules/juce_audio_formats/juce_audio_formats.mm.s
 
 JUCE/modules/juce_audio_processors/juce_audio_processors.o: JUCE/modules/juce_audio_processors/juce_audio_processors.mm.o
@@ -275,7 +639,7 @@ JUCE/modules/juce_audio_processors/juce_audio_processors.o: JUCE/modules/juce_au
 
 # target to build an object file
 JUCE/modules/juce_audio_processors/juce_audio_processors.mm.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WobbleForge.dir/build.make CMakeFiles/WobbleForge.dir/JUCE/modules/juce_audio_processors/juce_audio_processors.mm.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_processors/juce_audio_processors.mm.o
 .PHONY : JUCE/modules/juce_audio_processors/juce_audio_processors.mm.o
 
 JUCE/modules/juce_audio_processors/juce_audio_processors.i: JUCE/modules/juce_audio_processors/juce_audio_processors.mm.i
@@ -283,7 +647,7 @@ JUCE/modules/juce_audio_processors/juce_audio_processors.i: JUCE/modules/juce_au
 
 # target to preprocess a source file
 JUCE/modules/juce_audio_processors/juce_audio_processors.mm.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WobbleForge.dir/build.make CMakeFiles/WobbleForge.dir/JUCE/modules/juce_audio_processors/juce_audio_processors.mm.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_processors/juce_audio_processors.mm.i
 .PHONY : JUCE/modules/juce_audio_processors/juce_audio_processors.mm.i
 
 JUCE/modules/juce_audio_processors/juce_audio_processors.s: JUCE/modules/juce_audio_processors/juce_audio_processors.mm.s
@@ -291,7 +655,7 @@ JUCE/modules/juce_audio_processors/juce_audio_processors.s: JUCE/modules/juce_au
 
 # target to generate assembly for a file
 JUCE/modules/juce_audio_processors/juce_audio_processors.mm.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WobbleForge.dir/build.make CMakeFiles/WobbleForge.dir/JUCE/modules/juce_audio_processors/juce_audio_processors.mm.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_processors/juce_audio_processors.mm.s
 .PHONY : JUCE/modules/juce_audio_processors/juce_audio_processors.mm.s
 
 JUCE/modules/juce_audio_processors/juce_audio_processors_ara.o: JUCE/modules/juce_audio_processors/juce_audio_processors_ara.cpp.o
@@ -299,7 +663,7 @@ JUCE/modules/juce_audio_processors/juce_audio_processors_ara.o: JUCE/modules/juc
 
 # target to build an object file
 JUCE/modules/juce_audio_processors/juce_audio_processors_ara.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WobbleForge.dir/build.make CMakeFiles/WobbleForge.dir/JUCE/modules/juce_audio_processors/juce_audio_processors_ara.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_processors/juce_audio_processors_ara.cpp.o
 .PHONY : JUCE/modules/juce_audio_processors/juce_audio_processors_ara.cpp.o
 
 JUCE/modules/juce_audio_processors/juce_audio_processors_ara.i: JUCE/modules/juce_audio_processors/juce_audio_processors_ara.cpp.i
@@ -307,7 +671,7 @@ JUCE/modules/juce_audio_processors/juce_audio_processors_ara.i: JUCE/modules/juc
 
 # target to preprocess a source file
 JUCE/modules/juce_audio_processors/juce_audio_processors_ara.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WobbleForge.dir/build.make CMakeFiles/WobbleForge.dir/JUCE/modules/juce_audio_processors/juce_audio_processors_ara.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_processors/juce_audio_processors_ara.cpp.i
 .PHONY : JUCE/modules/juce_audio_processors/juce_audio_processors_ara.cpp.i
 
 JUCE/modules/juce_audio_processors/juce_audio_processors_ara.s: JUCE/modules/juce_audio_processors/juce_audio_processors_ara.cpp.s
@@ -315,7 +679,7 @@ JUCE/modules/juce_audio_processors/juce_audio_processors_ara.s: JUCE/modules/juc
 
 # target to generate assembly for a file
 JUCE/modules/juce_audio_processors/juce_audio_processors_ara.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WobbleForge.dir/build.make CMakeFiles/WobbleForge.dir/JUCE/modules/juce_audio_processors/juce_audio_processors_ara.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_processors/juce_audio_processors_ara.cpp.s
 .PHONY : JUCE/modules/juce_audio_processors/juce_audio_processors_ara.cpp.s
 
 JUCE/modules/juce_audio_processors/juce_audio_processors_lv2_libs.o: JUCE/modules/juce_audio_processors/juce_audio_processors_lv2_libs.cpp.o
@@ -323,7 +687,7 @@ JUCE/modules/juce_audio_processors/juce_audio_processors_lv2_libs.o: JUCE/module
 
 # target to build an object file
 JUCE/modules/juce_audio_processors/juce_audio_processors_lv2_libs.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WobbleForge.dir/build.make CMakeFiles/WobbleForge.dir/JUCE/modules/juce_audio_processors/juce_audio_processors_lv2_libs.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_processors/juce_audio_processors_lv2_libs.cpp.o
 .PHONY : JUCE/modules/juce_audio_processors/juce_audio_processors_lv2_libs.cpp.o
 
 JUCE/modules/juce_audio_processors/juce_audio_processors_lv2_libs.i: JUCE/modules/juce_audio_processors/juce_audio_processors_lv2_libs.cpp.i
@@ -331,7 +695,7 @@ JUCE/modules/juce_audio_processors/juce_audio_processors_lv2_libs.i: JUCE/module
 
 # target to preprocess a source file
 JUCE/modules/juce_audio_processors/juce_audio_processors_lv2_libs.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WobbleForge.dir/build.make CMakeFiles/WobbleForge.dir/JUCE/modules/juce_audio_processors/juce_audio_processors_lv2_libs.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_processors/juce_audio_processors_lv2_libs.cpp.i
 .PHONY : JUCE/modules/juce_audio_processors/juce_audio_processors_lv2_libs.cpp.i
 
 JUCE/modules/juce_audio_processors/juce_audio_processors_lv2_libs.s: JUCE/modules/juce_audio_processors/juce_audio_processors_lv2_libs.cpp.s
@@ -339,7 +703,7 @@ JUCE/modules/juce_audio_processors/juce_audio_processors_lv2_libs.s: JUCE/module
 
 # target to generate assembly for a file
 JUCE/modules/juce_audio_processors/juce_audio_processors_lv2_libs.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WobbleForge.dir/build.make CMakeFiles/WobbleForge.dir/JUCE/modules/juce_audio_processors/juce_audio_processors_lv2_libs.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_processors/juce_audio_processors_lv2_libs.cpp.s
 .PHONY : JUCE/modules/juce_audio_processors/juce_audio_processors_lv2_libs.cpp.s
 
 JUCE/modules/juce_audio_utils/juce_audio_utils.o: JUCE/modules/juce_audio_utils/juce_audio_utils.mm.o
@@ -347,7 +711,7 @@ JUCE/modules/juce_audio_utils/juce_audio_utils.o: JUCE/modules/juce_audio_utils/
 
 # target to build an object file
 JUCE/modules/juce_audio_utils/juce_audio_utils.mm.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WobbleForge.dir/build.make CMakeFiles/WobbleForge.dir/JUCE/modules/juce_audio_utils/juce_audio_utils.mm.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_utils/juce_audio_utils.mm.o
 .PHONY : JUCE/modules/juce_audio_utils/juce_audio_utils.mm.o
 
 JUCE/modules/juce_audio_utils/juce_audio_utils.i: JUCE/modules/juce_audio_utils/juce_audio_utils.mm.i
@@ -355,7 +719,7 @@ JUCE/modules/juce_audio_utils/juce_audio_utils.i: JUCE/modules/juce_audio_utils/
 
 # target to preprocess a source file
 JUCE/modules/juce_audio_utils/juce_audio_utils.mm.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WobbleForge.dir/build.make CMakeFiles/WobbleForge.dir/JUCE/modules/juce_audio_utils/juce_audio_utils.mm.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_utils/juce_audio_utils.mm.i
 .PHONY : JUCE/modules/juce_audio_utils/juce_audio_utils.mm.i
 
 JUCE/modules/juce_audio_utils/juce_audio_utils.s: JUCE/modules/juce_audio_utils/juce_audio_utils.mm.s
@@ -363,7 +727,7 @@ JUCE/modules/juce_audio_utils/juce_audio_utils.s: JUCE/modules/juce_audio_utils/
 
 # target to generate assembly for a file
 JUCE/modules/juce_audio_utils/juce_audio_utils.mm.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WobbleForge.dir/build.make CMakeFiles/WobbleForge.dir/JUCE/modules/juce_audio_utils/juce_audio_utils.mm.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/JUCE/modules/juce_audio_utils/juce_audio_utils.mm.s
 .PHONY : JUCE/modules/juce_audio_utils/juce_audio_utils.mm.s
 
 JUCE/modules/juce_core/juce_core.o: JUCE/modules/juce_core/juce_core.mm.o
@@ -371,7 +735,7 @@ JUCE/modules/juce_core/juce_core.o: JUCE/modules/juce_core/juce_core.mm.o
 
 # target to build an object file
 JUCE/modules/juce_core/juce_core.mm.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WobbleForge.dir/build.make CMakeFiles/WobbleForge.dir/JUCE/modules/juce_core/juce_core.mm.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/JUCE/modules/juce_core/juce_core.mm.o
 .PHONY : JUCE/modules/juce_core/juce_core.mm.o
 
 JUCE/modules/juce_core/juce_core.i: JUCE/modules/juce_core/juce_core.mm.i
@@ -379,7 +743,7 @@ JUCE/modules/juce_core/juce_core.i: JUCE/modules/juce_core/juce_core.mm.i
 
 # target to preprocess a source file
 JUCE/modules/juce_core/juce_core.mm.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WobbleForge.dir/build.make CMakeFiles/WobbleForge.dir/JUCE/modules/juce_core/juce_core.mm.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/JUCE/modules/juce_core/juce_core.mm.i
 .PHONY : JUCE/modules/juce_core/juce_core.mm.i
 
 JUCE/modules/juce_core/juce_core.s: JUCE/modules/juce_core/juce_core.mm.s
@@ -387,7 +751,7 @@ JUCE/modules/juce_core/juce_core.s: JUCE/modules/juce_core/juce_core.mm.s
 
 # target to generate assembly for a file
 JUCE/modules/juce_core/juce_core.mm.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WobbleForge.dir/build.make CMakeFiles/WobbleForge.dir/JUCE/modules/juce_core/juce_core.mm.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/JUCE/modules/juce_core/juce_core.mm.s
 .PHONY : JUCE/modules/juce_core/juce_core.mm.s
 
 JUCE/modules/juce_core/juce_core_CompilationTime.o: JUCE/modules/juce_core/juce_core_CompilationTime.cpp.o
@@ -395,7 +759,7 @@ JUCE/modules/juce_core/juce_core_CompilationTime.o: JUCE/modules/juce_core/juce_
 
 # target to build an object file
 JUCE/modules/juce_core/juce_core_CompilationTime.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WobbleForge.dir/build.make CMakeFiles/WobbleForge.dir/JUCE/modules/juce_core/juce_core_CompilationTime.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/JUCE/modules/juce_core/juce_core_CompilationTime.cpp.o
 .PHONY : JUCE/modules/juce_core/juce_core_CompilationTime.cpp.o
 
 JUCE/modules/juce_core/juce_core_CompilationTime.i: JUCE/modules/juce_core/juce_core_CompilationTime.cpp.i
@@ -403,7 +767,7 @@ JUCE/modules/juce_core/juce_core_CompilationTime.i: JUCE/modules/juce_core/juce_
 
 # target to preprocess a source file
 JUCE/modules/juce_core/juce_core_CompilationTime.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WobbleForge.dir/build.make CMakeFiles/WobbleForge.dir/JUCE/modules/juce_core/juce_core_CompilationTime.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/JUCE/modules/juce_core/juce_core_CompilationTime.cpp.i
 .PHONY : JUCE/modules/juce_core/juce_core_CompilationTime.cpp.i
 
 JUCE/modules/juce_core/juce_core_CompilationTime.s: JUCE/modules/juce_core/juce_core_CompilationTime.cpp.s
@@ -411,7 +775,7 @@ JUCE/modules/juce_core/juce_core_CompilationTime.s: JUCE/modules/juce_core/juce_
 
 # target to generate assembly for a file
 JUCE/modules/juce_core/juce_core_CompilationTime.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WobbleForge.dir/build.make CMakeFiles/WobbleForge.dir/JUCE/modules/juce_core/juce_core_CompilationTime.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/JUCE/modules/juce_core/juce_core_CompilationTime.cpp.s
 .PHONY : JUCE/modules/juce_core/juce_core_CompilationTime.cpp.s
 
 JUCE/modules/juce_data_structures/juce_data_structures.o: JUCE/modules/juce_data_structures/juce_data_structures.mm.o
@@ -419,7 +783,7 @@ JUCE/modules/juce_data_structures/juce_data_structures.o: JUCE/modules/juce_data
 
 # target to build an object file
 JUCE/modules/juce_data_structures/juce_data_structures.mm.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WobbleForge.dir/build.make CMakeFiles/WobbleForge.dir/JUCE/modules/juce_data_structures/juce_data_structures.mm.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/JUCE/modules/juce_data_structures/juce_data_structures.mm.o
 .PHONY : JUCE/modules/juce_data_structures/juce_data_structures.mm.o
 
 JUCE/modules/juce_data_structures/juce_data_structures.i: JUCE/modules/juce_data_structures/juce_data_structures.mm.i
@@ -427,7 +791,7 @@ JUCE/modules/juce_data_structures/juce_data_structures.i: JUCE/modules/juce_data
 
 # target to preprocess a source file
 JUCE/modules/juce_data_structures/juce_data_structures.mm.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WobbleForge.dir/build.make CMakeFiles/WobbleForge.dir/JUCE/modules/juce_data_structures/juce_data_structures.mm.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/JUCE/modules/juce_data_structures/juce_data_structures.mm.i
 .PHONY : JUCE/modules/juce_data_structures/juce_data_structures.mm.i
 
 JUCE/modules/juce_data_structures/juce_data_structures.s: JUCE/modules/juce_data_structures/juce_data_structures.mm.s
@@ -435,7 +799,7 @@ JUCE/modules/juce_data_structures/juce_data_structures.s: JUCE/modules/juce_data
 
 # target to generate assembly for a file
 JUCE/modules/juce_data_structures/juce_data_structures.mm.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WobbleForge.dir/build.make CMakeFiles/WobbleForge.dir/JUCE/modules/juce_data_structures/juce_data_structures.mm.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/JUCE/modules/juce_data_structures/juce_data_structures.mm.s
 .PHONY : JUCE/modules/juce_data_structures/juce_data_structures.mm.s
 
 JUCE/modules/juce_dsp/juce_dsp.o: JUCE/modules/juce_dsp/juce_dsp.mm.o
@@ -443,7 +807,7 @@ JUCE/modules/juce_dsp/juce_dsp.o: JUCE/modules/juce_dsp/juce_dsp.mm.o
 
 # target to build an object file
 JUCE/modules/juce_dsp/juce_dsp.mm.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WobbleForge.dir/build.make CMakeFiles/WobbleForge.dir/JUCE/modules/juce_dsp/juce_dsp.mm.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/JUCE/modules/juce_dsp/juce_dsp.mm.o
 .PHONY : JUCE/modules/juce_dsp/juce_dsp.mm.o
 
 JUCE/modules/juce_dsp/juce_dsp.i: JUCE/modules/juce_dsp/juce_dsp.mm.i
@@ -451,7 +815,7 @@ JUCE/modules/juce_dsp/juce_dsp.i: JUCE/modules/juce_dsp/juce_dsp.mm.i
 
 # target to preprocess a source file
 JUCE/modules/juce_dsp/juce_dsp.mm.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WobbleForge.dir/build.make CMakeFiles/WobbleForge.dir/JUCE/modules/juce_dsp/juce_dsp.mm.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/JUCE/modules/juce_dsp/juce_dsp.mm.i
 .PHONY : JUCE/modules/juce_dsp/juce_dsp.mm.i
 
 JUCE/modules/juce_dsp/juce_dsp.s: JUCE/modules/juce_dsp/juce_dsp.mm.s
@@ -459,7 +823,7 @@ JUCE/modules/juce_dsp/juce_dsp.s: JUCE/modules/juce_dsp/juce_dsp.mm.s
 
 # target to generate assembly for a file
 JUCE/modules/juce_dsp/juce_dsp.mm.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WobbleForge.dir/build.make CMakeFiles/WobbleForge.dir/JUCE/modules/juce_dsp/juce_dsp.mm.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/JUCE/modules/juce_dsp/juce_dsp.mm.s
 .PHONY : JUCE/modules/juce_dsp/juce_dsp.mm.s
 
 JUCE/modules/juce_events/juce_events.o: JUCE/modules/juce_events/juce_events.mm.o
@@ -467,7 +831,7 @@ JUCE/modules/juce_events/juce_events.o: JUCE/modules/juce_events/juce_events.mm.
 
 # target to build an object file
 JUCE/modules/juce_events/juce_events.mm.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WobbleForge.dir/build.make CMakeFiles/WobbleForge.dir/JUCE/modules/juce_events/juce_events.mm.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/JUCE/modules/juce_events/juce_events.mm.o
 .PHONY : JUCE/modules/juce_events/juce_events.mm.o
 
 JUCE/modules/juce_events/juce_events.i: JUCE/modules/juce_events/juce_events.mm.i
@@ -475,7 +839,7 @@ JUCE/modules/juce_events/juce_events.i: JUCE/modules/juce_events/juce_events.mm.
 
 # target to preprocess a source file
 JUCE/modules/juce_events/juce_events.mm.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WobbleForge.dir/build.make CMakeFiles/WobbleForge.dir/JUCE/modules/juce_events/juce_events.mm.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/JUCE/modules/juce_events/juce_events.mm.i
 .PHONY : JUCE/modules/juce_events/juce_events.mm.i
 
 JUCE/modules/juce_events/juce_events.s: JUCE/modules/juce_events/juce_events.mm.s
@@ -483,7 +847,7 @@ JUCE/modules/juce_events/juce_events.s: JUCE/modules/juce_events/juce_events.mm.
 
 # target to generate assembly for a file
 JUCE/modules/juce_events/juce_events.mm.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WobbleForge.dir/build.make CMakeFiles/WobbleForge.dir/JUCE/modules/juce_events/juce_events.mm.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/JUCE/modules/juce_events/juce_events.mm.s
 .PHONY : JUCE/modules/juce_events/juce_events.mm.s
 
 JUCE/modules/juce_graphics/juce_graphics.o: JUCE/modules/juce_graphics/juce_graphics.mm.o
@@ -491,7 +855,7 @@ JUCE/modules/juce_graphics/juce_graphics.o: JUCE/modules/juce_graphics/juce_grap
 
 # target to build an object file
 JUCE/modules/juce_graphics/juce_graphics.mm.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WobbleForge.dir/build.make CMakeFiles/WobbleForge.dir/JUCE/modules/juce_graphics/juce_graphics.mm.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/JUCE/modules/juce_graphics/juce_graphics.mm.o
 .PHONY : JUCE/modules/juce_graphics/juce_graphics.mm.o
 
 JUCE/modules/juce_graphics/juce_graphics.i: JUCE/modules/juce_graphics/juce_graphics.mm.i
@@ -499,7 +863,7 @@ JUCE/modules/juce_graphics/juce_graphics.i: JUCE/modules/juce_graphics/juce_grap
 
 # target to preprocess a source file
 JUCE/modules/juce_graphics/juce_graphics.mm.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WobbleForge.dir/build.make CMakeFiles/WobbleForge.dir/JUCE/modules/juce_graphics/juce_graphics.mm.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/JUCE/modules/juce_graphics/juce_graphics.mm.i
 .PHONY : JUCE/modules/juce_graphics/juce_graphics.mm.i
 
 JUCE/modules/juce_graphics/juce_graphics.s: JUCE/modules/juce_graphics/juce_graphics.mm.s
@@ -507,7 +871,7 @@ JUCE/modules/juce_graphics/juce_graphics.s: JUCE/modules/juce_graphics/juce_grap
 
 # target to generate assembly for a file
 JUCE/modules/juce_graphics/juce_graphics.mm.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WobbleForge.dir/build.make CMakeFiles/WobbleForge.dir/JUCE/modules/juce_graphics/juce_graphics.mm.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/JUCE/modules/juce_graphics/juce_graphics.mm.s
 .PHONY : JUCE/modules/juce_graphics/juce_graphics.mm.s
 
 JUCE/modules/juce_graphics/juce_graphics_Harfbuzz.o: JUCE/modules/juce_graphics/juce_graphics_Harfbuzz.cpp.o
@@ -515,7 +879,7 @@ JUCE/modules/juce_graphics/juce_graphics_Harfbuzz.o: JUCE/modules/juce_graphics/
 
 # target to build an object file
 JUCE/modules/juce_graphics/juce_graphics_Harfbuzz.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WobbleForge.dir/build.make CMakeFiles/WobbleForge.dir/JUCE/modules/juce_graphics/juce_graphics_Harfbuzz.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/JUCE/modules/juce_graphics/juce_graphics_Harfbuzz.cpp.o
 .PHONY : JUCE/modules/juce_graphics/juce_graphics_Harfbuzz.cpp.o
 
 JUCE/modules/juce_graphics/juce_graphics_Harfbuzz.i: JUCE/modules/juce_graphics/juce_graphics_Harfbuzz.cpp.i
@@ -523,7 +887,7 @@ JUCE/modules/juce_graphics/juce_graphics_Harfbuzz.i: JUCE/modules/juce_graphics/
 
 # target to preprocess a source file
 JUCE/modules/juce_graphics/juce_graphics_Harfbuzz.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WobbleForge.dir/build.make CMakeFiles/WobbleForge.dir/JUCE/modules/juce_graphics/juce_graphics_Harfbuzz.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/JUCE/modules/juce_graphics/juce_graphics_Harfbuzz.cpp.i
 .PHONY : JUCE/modules/juce_graphics/juce_graphics_Harfbuzz.cpp.i
 
 JUCE/modules/juce_graphics/juce_graphics_Harfbuzz.s: JUCE/modules/juce_graphics/juce_graphics_Harfbuzz.cpp.s
@@ -531,7 +895,7 @@ JUCE/modules/juce_graphics/juce_graphics_Harfbuzz.s: JUCE/modules/juce_graphics/
 
 # target to generate assembly for a file
 JUCE/modules/juce_graphics/juce_graphics_Harfbuzz.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WobbleForge.dir/build.make CMakeFiles/WobbleForge.dir/JUCE/modules/juce_graphics/juce_graphics_Harfbuzz.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/JUCE/modules/juce_graphics/juce_graphics_Harfbuzz.cpp.s
 .PHONY : JUCE/modules/juce_graphics/juce_graphics_Harfbuzz.cpp.s
 
 JUCE/modules/juce_graphics/juce_graphics_Sheenbidi.o: JUCE/modules/juce_graphics/juce_graphics_Sheenbidi.c.o
@@ -539,7 +903,7 @@ JUCE/modules/juce_graphics/juce_graphics_Sheenbidi.o: JUCE/modules/juce_graphics
 
 # target to build an object file
 JUCE/modules/juce_graphics/juce_graphics_Sheenbidi.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WobbleForge.dir/build.make CMakeFiles/WobbleForge.dir/JUCE/modules/juce_graphics/juce_graphics_Sheenbidi.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/JUCE/modules/juce_graphics/juce_graphics_Sheenbidi.c.o
 .PHONY : JUCE/modules/juce_graphics/juce_graphics_Sheenbidi.c.o
 
 JUCE/modules/juce_graphics/juce_graphics_Sheenbidi.i: JUCE/modules/juce_graphics/juce_graphics_Sheenbidi.c.i
@@ -547,7 +911,7 @@ JUCE/modules/juce_graphics/juce_graphics_Sheenbidi.i: JUCE/modules/juce_graphics
 
 # target to preprocess a source file
 JUCE/modules/juce_graphics/juce_graphics_Sheenbidi.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WobbleForge.dir/build.make CMakeFiles/WobbleForge.dir/JUCE/modules/juce_graphics/juce_graphics_Sheenbidi.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/JUCE/modules/juce_graphics/juce_graphics_Sheenbidi.c.i
 .PHONY : JUCE/modules/juce_graphics/juce_graphics_Sheenbidi.c.i
 
 JUCE/modules/juce_graphics/juce_graphics_Sheenbidi.s: JUCE/modules/juce_graphics/juce_graphics_Sheenbidi.c.s
@@ -555,7 +919,7 @@ JUCE/modules/juce_graphics/juce_graphics_Sheenbidi.s: JUCE/modules/juce_graphics
 
 # target to generate assembly for a file
 JUCE/modules/juce_graphics/juce_graphics_Sheenbidi.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WobbleForge.dir/build.make CMakeFiles/WobbleForge.dir/JUCE/modules/juce_graphics/juce_graphics_Sheenbidi.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/JUCE/modules/juce_graphics/juce_graphics_Sheenbidi.c.s
 .PHONY : JUCE/modules/juce_graphics/juce_graphics_Sheenbidi.c.s
 
 JUCE/modules/juce_gui_basics/juce_gui_basics.o: JUCE/modules/juce_gui_basics/juce_gui_basics.mm.o
@@ -563,7 +927,7 @@ JUCE/modules/juce_gui_basics/juce_gui_basics.o: JUCE/modules/juce_gui_basics/juc
 
 # target to build an object file
 JUCE/modules/juce_gui_basics/juce_gui_basics.mm.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WobbleForge.dir/build.make CMakeFiles/WobbleForge.dir/JUCE/modules/juce_gui_basics/juce_gui_basics.mm.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/JUCE/modules/juce_gui_basics/juce_gui_basics.mm.o
 .PHONY : JUCE/modules/juce_gui_basics/juce_gui_basics.mm.o
 
 JUCE/modules/juce_gui_basics/juce_gui_basics.i: JUCE/modules/juce_gui_basics/juce_gui_basics.mm.i
@@ -571,7 +935,7 @@ JUCE/modules/juce_gui_basics/juce_gui_basics.i: JUCE/modules/juce_gui_basics/juc
 
 # target to preprocess a source file
 JUCE/modules/juce_gui_basics/juce_gui_basics.mm.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WobbleForge.dir/build.make CMakeFiles/WobbleForge.dir/JUCE/modules/juce_gui_basics/juce_gui_basics.mm.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/JUCE/modules/juce_gui_basics/juce_gui_basics.mm.i
 .PHONY : JUCE/modules/juce_gui_basics/juce_gui_basics.mm.i
 
 JUCE/modules/juce_gui_basics/juce_gui_basics.s: JUCE/modules/juce_gui_basics/juce_gui_basics.mm.s
@@ -579,7 +943,7 @@ JUCE/modules/juce_gui_basics/juce_gui_basics.s: JUCE/modules/juce_gui_basics/juc
 
 # target to generate assembly for a file
 JUCE/modules/juce_gui_basics/juce_gui_basics.mm.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WobbleForge.dir/build.make CMakeFiles/WobbleForge.dir/JUCE/modules/juce_gui_basics/juce_gui_basics.mm.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/JUCE/modules/juce_gui_basics/juce_gui_basics.mm.s
 .PHONY : JUCE/modules/juce_gui_basics/juce_gui_basics.mm.s
 
 JUCE/modules/juce_gui_extra/juce_gui_extra.o: JUCE/modules/juce_gui_extra/juce_gui_extra.mm.o
@@ -587,7 +951,7 @@ JUCE/modules/juce_gui_extra/juce_gui_extra.o: JUCE/modules/juce_gui_extra/juce_g
 
 # target to build an object file
 JUCE/modules/juce_gui_extra/juce_gui_extra.mm.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WobbleForge.dir/build.make CMakeFiles/WobbleForge.dir/JUCE/modules/juce_gui_extra/juce_gui_extra.mm.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/JUCE/modules/juce_gui_extra/juce_gui_extra.mm.o
 .PHONY : JUCE/modules/juce_gui_extra/juce_gui_extra.mm.o
 
 JUCE/modules/juce_gui_extra/juce_gui_extra.i: JUCE/modules/juce_gui_extra/juce_gui_extra.mm.i
@@ -595,7 +959,7 @@ JUCE/modules/juce_gui_extra/juce_gui_extra.i: JUCE/modules/juce_gui_extra/juce_g
 
 # target to preprocess a source file
 JUCE/modules/juce_gui_extra/juce_gui_extra.mm.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WobbleForge.dir/build.make CMakeFiles/WobbleForge.dir/JUCE/modules/juce_gui_extra/juce_gui_extra.mm.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/JUCE/modules/juce_gui_extra/juce_gui_extra.mm.i
 .PHONY : JUCE/modules/juce_gui_extra/juce_gui_extra.mm.i
 
 JUCE/modules/juce_gui_extra/juce_gui_extra.s: JUCE/modules/juce_gui_extra/juce_gui_extra.mm.s
@@ -603,15 +967,63 @@ JUCE/modules/juce_gui_extra/juce_gui_extra.s: JUCE/modules/juce_gui_extra/juce_g
 
 # target to generate assembly for a file
 JUCE/modules/juce_gui_extra/juce_gui_extra.mm.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WobbleForge.dir/build.make CMakeFiles/WobbleForge.dir/JUCE/modules/juce_gui_extra/juce_gui_extra.mm.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/JUCE/modules/juce_gui_extra/juce_gui_extra.mm.s
 .PHONY : JUCE/modules/juce_gui_extra/juce_gui_extra.mm.s
+
+Source/BitCrusher.o: Source/BitCrusher.cpp.o
+.PHONY : Source/BitCrusher.o
+
+# target to build an object file
+Source/BitCrusher.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/Source/BitCrusher.cpp.o
+.PHONY : Source/BitCrusher.cpp.o
+
+Source/BitCrusher.i: Source/BitCrusher.cpp.i
+.PHONY : Source/BitCrusher.i
+
+# target to preprocess a source file
+Source/BitCrusher.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/Source/BitCrusher.cpp.i
+.PHONY : Source/BitCrusher.cpp.i
+
+Source/BitCrusher.s: Source/BitCrusher.cpp.s
+.PHONY : Source/BitCrusher.s
+
+# target to generate assembly for a file
+Source/BitCrusher.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/Source/BitCrusher.cpp.s
+.PHONY : Source/BitCrusher.cpp.s
+
+Source/ChowEQModule.o: Source/ChowEQModule.cpp.o
+.PHONY : Source/ChowEQModule.o
+
+# target to build an object file
+Source/ChowEQModule.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/Source/ChowEQModule.cpp.o
+.PHONY : Source/ChowEQModule.cpp.o
+
+Source/ChowEQModule.i: Source/ChowEQModule.cpp.i
+.PHONY : Source/ChowEQModule.i
+
+# target to preprocess a source file
+Source/ChowEQModule.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/Source/ChowEQModule.cpp.i
+.PHONY : Source/ChowEQModule.cpp.i
+
+Source/ChowEQModule.s: Source/ChowEQModule.cpp.s
+.PHONY : Source/ChowEQModule.s
+
+# target to generate assembly for a file
+Source/ChowEQModule.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/Source/ChowEQModule.cpp.s
+.PHONY : Source/ChowEQModule.cpp.s
 
 Source/CombStack.o: Source/CombStack.cpp.o
 .PHONY : Source/CombStack.o
 
 # target to build an object file
 Source/CombStack.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WobbleForge.dir/build.make CMakeFiles/WobbleForge.dir/Source/CombStack.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/Source/CombStack.cpp.o
 .PHONY : Source/CombStack.cpp.o
 
 Source/CombStack.i: Source/CombStack.cpp.i
@@ -619,7 +1031,7 @@ Source/CombStack.i: Source/CombStack.cpp.i
 
 # target to preprocess a source file
 Source/CombStack.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WobbleForge.dir/build.make CMakeFiles/WobbleForge.dir/Source/CombStack.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/Source/CombStack.cpp.i
 .PHONY : Source/CombStack.cpp.i
 
 Source/CombStack.s: Source/CombStack.cpp.s
@@ -627,7 +1039,7 @@ Source/CombStack.s: Source/CombStack.cpp.s
 
 # target to generate assembly for a file
 Source/CombStack.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WobbleForge.dir/build.make CMakeFiles/WobbleForge.dir/Source/CombStack.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/Source/CombStack.cpp.s
 .PHONY : Source/CombStack.cpp.s
 
 Source/DistortionForge.o: Source/DistortionForge.cpp.o
@@ -635,7 +1047,7 @@ Source/DistortionForge.o: Source/DistortionForge.cpp.o
 
 # target to build an object file
 Source/DistortionForge.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WobbleForge.dir/build.make CMakeFiles/WobbleForge.dir/Source/DistortionForge.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/Source/DistortionForge.cpp.o
 .PHONY : Source/DistortionForge.cpp.o
 
 Source/DistortionForge.i: Source/DistortionForge.cpp.i
@@ -643,7 +1055,7 @@ Source/DistortionForge.i: Source/DistortionForge.cpp.i
 
 # target to preprocess a source file
 Source/DistortionForge.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WobbleForge.dir/build.make CMakeFiles/WobbleForge.dir/Source/DistortionForge.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/Source/DistortionForge.cpp.i
 .PHONY : Source/DistortionForge.cpp.i
 
 Source/DistortionForge.s: Source/DistortionForge.cpp.s
@@ -651,7 +1063,7 @@ Source/DistortionForge.s: Source/DistortionForge.cpp.s
 
 # target to generate assembly for a file
 Source/DistortionForge.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WobbleForge.dir/build.make CMakeFiles/WobbleForge.dir/Source/DistortionForge.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/Source/DistortionForge.cpp.s
 .PHONY : Source/DistortionForge.cpp.s
 
 Source/FormantTracker.o: Source/FormantTracker.cpp.o
@@ -659,7 +1071,7 @@ Source/FormantTracker.o: Source/FormantTracker.cpp.o
 
 # target to build an object file
 Source/FormantTracker.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WobbleForge.dir/build.make CMakeFiles/WobbleForge.dir/Source/FormantTracker.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/Source/FormantTracker.cpp.o
 .PHONY : Source/FormantTracker.cpp.o
 
 Source/FormantTracker.i: Source/FormantTracker.cpp.i
@@ -667,7 +1079,7 @@ Source/FormantTracker.i: Source/FormantTracker.cpp.i
 
 # target to preprocess a source file
 Source/FormantTracker.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WobbleForge.dir/build.make CMakeFiles/WobbleForge.dir/Source/FormantTracker.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/Source/FormantTracker.cpp.i
 .PHONY : Source/FormantTracker.cpp.i
 
 Source/FormantTracker.s: Source/FormantTracker.cpp.s
@@ -675,7 +1087,7 @@ Source/FormantTracker.s: Source/FormantTracker.cpp.s
 
 # target to generate assembly for a file
 Source/FormantTracker.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WobbleForge.dir/build.make CMakeFiles/WobbleForge.dir/Source/FormantTracker.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/Source/FormantTracker.cpp.s
 .PHONY : Source/FormantTracker.cpp.s
 
 Source/FormantTrackerModule.o: Source/FormantTrackerModule.cpp.o
@@ -683,7 +1095,7 @@ Source/FormantTrackerModule.o: Source/FormantTrackerModule.cpp.o
 
 # target to build an object file
 Source/FormantTrackerModule.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WobbleForge.dir/build.make CMakeFiles/WobbleForge.dir/Source/FormantTrackerModule.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/Source/FormantTrackerModule.cpp.o
 .PHONY : Source/FormantTrackerModule.cpp.o
 
 Source/FormantTrackerModule.i: Source/FormantTrackerModule.cpp.i
@@ -691,7 +1103,7 @@ Source/FormantTrackerModule.i: Source/FormantTrackerModule.cpp.i
 
 # target to preprocess a source file
 Source/FormantTrackerModule.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WobbleForge.dir/build.make CMakeFiles/WobbleForge.dir/Source/FormantTrackerModule.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/Source/FormantTrackerModule.cpp.i
 .PHONY : Source/FormantTrackerModule.cpp.i
 
 Source/FormantTrackerModule.s: Source/FormantTrackerModule.cpp.s
@@ -699,7 +1111,7 @@ Source/FormantTrackerModule.s: Source/FormantTrackerModule.cpp.s
 
 # target to generate assembly for a file
 Source/FormantTrackerModule.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WobbleForge.dir/build.make CMakeFiles/WobbleForge.dir/Source/FormantTrackerModule.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/Source/FormantTrackerModule.cpp.s
 .PHONY : Source/FormantTrackerModule.cpp.s
 
 Source/FractalFilter.o: Source/FractalFilter.cpp.o
@@ -707,7 +1119,7 @@ Source/FractalFilter.o: Source/FractalFilter.cpp.o
 
 # target to build an object file
 Source/FractalFilter.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WobbleForge.dir/build.make CMakeFiles/WobbleForge.dir/Source/FractalFilter.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/Source/FractalFilter.cpp.o
 .PHONY : Source/FractalFilter.cpp.o
 
 Source/FractalFilter.i: Source/FractalFilter.cpp.i
@@ -715,7 +1127,7 @@ Source/FractalFilter.i: Source/FractalFilter.cpp.i
 
 # target to preprocess a source file
 Source/FractalFilter.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WobbleForge.dir/build.make CMakeFiles/WobbleForge.dir/Source/FractalFilter.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/Source/FractalFilter.cpp.i
 .PHONY : Source/FractalFilter.cpp.i
 
 Source/FractalFilter.s: Source/FractalFilter.cpp.s
@@ -723,7 +1135,7 @@ Source/FractalFilter.s: Source/FractalFilter.cpp.s
 
 # target to generate assembly for a file
 Source/FractalFilter.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WobbleForge.dir/build.make CMakeFiles/WobbleForge.dir/Source/FractalFilter.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/Source/FractalFilter.cpp.s
 .PHONY : Source/FractalFilter.cpp.s
 
 Source/FractalFilterModule.o: Source/FractalFilterModule.cpp.o
@@ -731,7 +1143,7 @@ Source/FractalFilterModule.o: Source/FractalFilterModule.cpp.o
 
 # target to build an object file
 Source/FractalFilterModule.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WobbleForge.dir/build.make CMakeFiles/WobbleForge.dir/Source/FractalFilterModule.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/Source/FractalFilterModule.cpp.o
 .PHONY : Source/FractalFilterModule.cpp.o
 
 Source/FractalFilterModule.i: Source/FractalFilterModule.cpp.i
@@ -739,7 +1151,7 @@ Source/FractalFilterModule.i: Source/FractalFilterModule.cpp.i
 
 # target to preprocess a source file
 Source/FractalFilterModule.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WobbleForge.dir/build.make CMakeFiles/WobbleForge.dir/Source/FractalFilterModule.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/Source/FractalFilterModule.cpp.i
 .PHONY : Source/FractalFilterModule.cpp.i
 
 Source/FractalFilterModule.s: Source/FractalFilterModule.cpp.s
@@ -747,7 +1159,7 @@ Source/FractalFilterModule.s: Source/FractalFilterModule.cpp.s
 
 # target to generate assembly for a file
 Source/FractalFilterModule.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WobbleForge.dir/build.make CMakeFiles/WobbleForge.dir/Source/FractalFilterModule.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/Source/FractalFilterModule.cpp.s
 .PHONY : Source/FractalFilterModule.cpp.s
 
 Source/KeyTracker.o: Source/KeyTracker.cpp.o
@@ -755,7 +1167,7 @@ Source/KeyTracker.o: Source/KeyTracker.cpp.o
 
 # target to build an object file
 Source/KeyTracker.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WobbleForge.dir/build.make CMakeFiles/WobbleForge.dir/Source/KeyTracker.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/Source/KeyTracker.cpp.o
 .PHONY : Source/KeyTracker.cpp.o
 
 Source/KeyTracker.i: Source/KeyTracker.cpp.i
@@ -763,7 +1175,7 @@ Source/KeyTracker.i: Source/KeyTracker.cpp.i
 
 # target to preprocess a source file
 Source/KeyTracker.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WobbleForge.dir/build.make CMakeFiles/WobbleForge.dir/Source/KeyTracker.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/Source/KeyTracker.cpp.i
 .PHONY : Source/KeyTracker.cpp.i
 
 Source/KeyTracker.s: Source/KeyTracker.cpp.s
@@ -771,15 +1183,39 @@ Source/KeyTracker.s: Source/KeyTracker.cpp.s
 
 # target to generate assembly for a file
 Source/KeyTracker.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WobbleForge.dir/build.make CMakeFiles/WobbleForge.dir/Source/KeyTracker.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/Source/KeyTracker.cpp.s
 .PHONY : Source/KeyTracker.cpp.s
+
+Source/MDASubSynthModuleDirect.o: Source/MDASubSynthModuleDirect.cpp.o
+.PHONY : Source/MDASubSynthModuleDirect.o
+
+# target to build an object file
+Source/MDASubSynthModuleDirect.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/Source/MDASubSynthModuleDirect.cpp.o
+.PHONY : Source/MDASubSynthModuleDirect.cpp.o
+
+Source/MDASubSynthModuleDirect.i: Source/MDASubSynthModuleDirect.cpp.i
+.PHONY : Source/MDASubSynthModuleDirect.i
+
+# target to preprocess a source file
+Source/MDASubSynthModuleDirect.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/Source/MDASubSynthModuleDirect.cpp.i
+.PHONY : Source/MDASubSynthModuleDirect.cpp.i
+
+Source/MDASubSynthModuleDirect.s: Source/MDASubSynthModuleDirect.cpp.s
+.PHONY : Source/MDASubSynthModuleDirect.s
+
+# target to generate assembly for a file
+Source/MDASubSynthModuleDirect.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/Source/MDASubSynthModuleDirect.cpp.s
+.PHONY : Source/MDASubSynthModuleDirect.cpp.s
 
 Source/PluginEditor.o: Source/PluginEditor.cpp.o
 .PHONY : Source/PluginEditor.o
 
 # target to build an object file
 Source/PluginEditor.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WobbleForge.dir/build.make CMakeFiles/WobbleForge.dir/Source/PluginEditor.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/Source/PluginEditor.cpp.o
 .PHONY : Source/PluginEditor.cpp.o
 
 Source/PluginEditor.i: Source/PluginEditor.cpp.i
@@ -787,7 +1223,7 @@ Source/PluginEditor.i: Source/PluginEditor.cpp.i
 
 # target to preprocess a source file
 Source/PluginEditor.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WobbleForge.dir/build.make CMakeFiles/WobbleForge.dir/Source/PluginEditor.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/Source/PluginEditor.cpp.i
 .PHONY : Source/PluginEditor.cpp.i
 
 Source/PluginEditor.s: Source/PluginEditor.cpp.s
@@ -795,7 +1231,7 @@ Source/PluginEditor.s: Source/PluginEditor.cpp.s
 
 # target to generate assembly for a file
 Source/PluginEditor.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WobbleForge.dir/build.make CMakeFiles/WobbleForge.dir/Source/PluginEditor.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/Source/PluginEditor.cpp.s
 .PHONY : Source/PluginEditor.cpp.s
 
 Source/PluginProcessor.o: Source/PluginProcessor.cpp.o
@@ -803,7 +1239,7 @@ Source/PluginProcessor.o: Source/PluginProcessor.cpp.o
 
 # target to build an object file
 Source/PluginProcessor.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WobbleForge.dir/build.make CMakeFiles/WobbleForge.dir/Source/PluginProcessor.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/Source/PluginProcessor.cpp.o
 .PHONY : Source/PluginProcessor.cpp.o
 
 Source/PluginProcessor.i: Source/PluginProcessor.cpp.i
@@ -811,7 +1247,7 @@ Source/PluginProcessor.i: Source/PluginProcessor.cpp.i
 
 # target to preprocess a source file
 Source/PluginProcessor.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WobbleForge.dir/build.make CMakeFiles/WobbleForge.dir/Source/PluginProcessor.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/Source/PluginProcessor.cpp.i
 .PHONY : Source/PluginProcessor.cpp.i
 
 Source/PluginProcessor.s: Source/PluginProcessor.cpp.s
@@ -819,7 +1255,7 @@ Source/PluginProcessor.s: Source/PluginProcessor.cpp.s
 
 # target to generate assembly for a file
 Source/PluginProcessor.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WobbleForge.dir/build.make CMakeFiles/WobbleForge.dir/Source/PluginProcessor.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/Source/PluginProcessor.cpp.s
 .PHONY : Source/PluginProcessor.cpp.s
 
 Source/Presets.o: Source/Presets.cpp.o
@@ -827,7 +1263,7 @@ Source/Presets.o: Source/Presets.cpp.o
 
 # target to build an object file
 Source/Presets.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WobbleForge.dir/build.make CMakeFiles/WobbleForge.dir/Source/Presets.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/Source/Presets.cpp.o
 .PHONY : Source/Presets.cpp.o
 
 Source/Presets.i: Source/Presets.cpp.i
@@ -835,7 +1271,7 @@ Source/Presets.i: Source/Presets.cpp.i
 
 # target to preprocess a source file
 Source/Presets.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WobbleForge.dir/build.make CMakeFiles/WobbleForge.dir/Source/Presets.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/Source/Presets.cpp.i
 .PHONY : Source/Presets.cpp.i
 
 Source/Presets.s: Source/Presets.cpp.s
@@ -843,8 +1279,200 @@ Source/Presets.s: Source/Presets.cpp.s
 
 # target to generate assembly for a file
 Source/Presets.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WobbleForge.dir/build.make CMakeFiles/WobbleForge.dir/Source/Presets.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/Source/Presets.cpp.s
 .PHONY : Source/Presets.cpp.s
+
+Source/SpectralMorphingModule.o: Source/SpectralMorphingModule.cpp.o
+.PHONY : Source/SpectralMorphingModule.o
+
+# target to build an object file
+Source/SpectralMorphingModule.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/Source/SpectralMorphingModule.cpp.o
+.PHONY : Source/SpectralMorphingModule.cpp.o
+
+Source/SpectralMorphingModule.i: Source/SpectralMorphingModule.cpp.i
+.PHONY : Source/SpectralMorphingModule.i
+
+# target to preprocess a source file
+Source/SpectralMorphingModule.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/Source/SpectralMorphingModule.cpp.i
+.PHONY : Source/SpectralMorphingModule.cpp.i
+
+Source/SpectralMorphingModule.s: Source/SpectralMorphingModule.cpp.s
+.PHONY : Source/SpectralMorphingModule.s
+
+# target to generate assembly for a file
+Source/SpectralMorphingModule.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/Source/SpectralMorphingModule.cpp.s
+.PHONY : Source/SpectralMorphingModule.cpp.s
+
+Source/SpectrogramComponent.o: Source/SpectrogramComponent.cpp.o
+.PHONY : Source/SpectrogramComponent.o
+
+# target to build an object file
+Source/SpectrogramComponent.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/Source/SpectrogramComponent.cpp.o
+.PHONY : Source/SpectrogramComponent.cpp.o
+
+Source/SpectrogramComponent.i: Source/SpectrogramComponent.cpp.i
+.PHONY : Source/SpectrogramComponent.i
+
+# target to preprocess a source file
+Source/SpectrogramComponent.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/Source/SpectrogramComponent.cpp.i
+.PHONY : Source/SpectrogramComponent.cpp.i
+
+Source/SpectrogramComponent.s: Source/SpectrogramComponent.cpp.s
+.PHONY : Source/SpectrogramComponent.s
+
+# target to generate assembly for a file
+Source/SpectrogramComponent.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/Source/SpectrogramComponent.cpp.s
+.PHONY : Source/SpectrogramComponent.cpp.s
+
+chowdsp_utils/modules/common/chowdsp_core/chowdsp_core.o: chowdsp_utils/modules/common/chowdsp_core/chowdsp_core.cpp.o
+.PHONY : chowdsp_utils/modules/common/chowdsp_core/chowdsp_core.o
+
+# target to build an object file
+chowdsp_utils/modules/common/chowdsp_core/chowdsp_core.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/chowdsp_utils/modules/common/chowdsp_core/chowdsp_core.cpp.o
+.PHONY : chowdsp_utils/modules/common/chowdsp_core/chowdsp_core.cpp.o
+
+chowdsp_utils/modules/common/chowdsp_core/chowdsp_core.i: chowdsp_utils/modules/common/chowdsp_core/chowdsp_core.cpp.i
+.PHONY : chowdsp_utils/modules/common/chowdsp_core/chowdsp_core.i
+
+# target to preprocess a source file
+chowdsp_utils/modules/common/chowdsp_core/chowdsp_core.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/chowdsp_utils/modules/common/chowdsp_core/chowdsp_core.cpp.i
+.PHONY : chowdsp_utils/modules/common/chowdsp_core/chowdsp_core.cpp.i
+
+chowdsp_utils/modules/common/chowdsp_core/chowdsp_core.s: chowdsp_utils/modules/common/chowdsp_core/chowdsp_core.cpp.s
+.PHONY : chowdsp_utils/modules/common/chowdsp_core/chowdsp_core.s
+
+# target to generate assembly for a file
+chowdsp_utils/modules/common/chowdsp_core/chowdsp_core.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/chowdsp_utils/modules/common/chowdsp_core/chowdsp_core.cpp.s
+.PHONY : chowdsp_utils/modules/common/chowdsp_core/chowdsp_core.cpp.s
+
+chowdsp_utils/modules/dsp/chowdsp_buffers/chowdsp_buffers.o: chowdsp_utils/modules/dsp/chowdsp_buffers/chowdsp_buffers.cpp.o
+.PHONY : chowdsp_utils/modules/dsp/chowdsp_buffers/chowdsp_buffers.o
+
+# target to build an object file
+chowdsp_utils/modules/dsp/chowdsp_buffers/chowdsp_buffers.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/chowdsp_utils/modules/dsp/chowdsp_buffers/chowdsp_buffers.cpp.o
+.PHONY : chowdsp_utils/modules/dsp/chowdsp_buffers/chowdsp_buffers.cpp.o
+
+chowdsp_utils/modules/dsp/chowdsp_buffers/chowdsp_buffers.i: chowdsp_utils/modules/dsp/chowdsp_buffers/chowdsp_buffers.cpp.i
+.PHONY : chowdsp_utils/modules/dsp/chowdsp_buffers/chowdsp_buffers.i
+
+# target to preprocess a source file
+chowdsp_utils/modules/dsp/chowdsp_buffers/chowdsp_buffers.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/chowdsp_utils/modules/dsp/chowdsp_buffers/chowdsp_buffers.cpp.i
+.PHONY : chowdsp_utils/modules/dsp/chowdsp_buffers/chowdsp_buffers.cpp.i
+
+chowdsp_utils/modules/dsp/chowdsp_buffers/chowdsp_buffers.s: chowdsp_utils/modules/dsp/chowdsp_buffers/chowdsp_buffers.cpp.s
+.PHONY : chowdsp_utils/modules/dsp/chowdsp_buffers/chowdsp_buffers.s
+
+# target to generate assembly for a file
+chowdsp_utils/modules/dsp/chowdsp_buffers/chowdsp_buffers.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/chowdsp_utils/modules/dsp/chowdsp_buffers/chowdsp_buffers.cpp.s
+.PHONY : chowdsp_utils/modules/dsp/chowdsp_buffers/chowdsp_buffers.cpp.s
+
+chowdsp_utils/modules/dsp/chowdsp_dsp_data_structures/chowdsp_dsp_data_structures.o: chowdsp_utils/modules/dsp/chowdsp_dsp_data_structures/chowdsp_dsp_data_structures.cpp.o
+.PHONY : chowdsp_utils/modules/dsp/chowdsp_dsp_data_structures/chowdsp_dsp_data_structures.o
+
+# target to build an object file
+chowdsp_utils/modules/dsp/chowdsp_dsp_data_structures/chowdsp_dsp_data_structures.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/chowdsp_utils/modules/dsp/chowdsp_dsp_data_structures/chowdsp_dsp_data_structures.cpp.o
+.PHONY : chowdsp_utils/modules/dsp/chowdsp_dsp_data_structures/chowdsp_dsp_data_structures.cpp.o
+
+chowdsp_utils/modules/dsp/chowdsp_dsp_data_structures/chowdsp_dsp_data_structures.i: chowdsp_utils/modules/dsp/chowdsp_dsp_data_structures/chowdsp_dsp_data_structures.cpp.i
+.PHONY : chowdsp_utils/modules/dsp/chowdsp_dsp_data_structures/chowdsp_dsp_data_structures.i
+
+# target to preprocess a source file
+chowdsp_utils/modules/dsp/chowdsp_dsp_data_structures/chowdsp_dsp_data_structures.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/chowdsp_utils/modules/dsp/chowdsp_dsp_data_structures/chowdsp_dsp_data_structures.cpp.i
+.PHONY : chowdsp_utils/modules/dsp/chowdsp_dsp_data_structures/chowdsp_dsp_data_structures.cpp.i
+
+chowdsp_utils/modules/dsp/chowdsp_dsp_data_structures/chowdsp_dsp_data_structures.s: chowdsp_utils/modules/dsp/chowdsp_dsp_data_structures/chowdsp_dsp_data_structures.cpp.s
+.PHONY : chowdsp_utils/modules/dsp/chowdsp_dsp_data_structures/chowdsp_dsp_data_structures.s
+
+# target to generate assembly for a file
+chowdsp_utils/modules/dsp/chowdsp_dsp_data_structures/chowdsp_dsp_data_structures.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/chowdsp_utils/modules/dsp/chowdsp_dsp_data_structures/chowdsp_dsp_data_structures.cpp.s
+.PHONY : chowdsp_utils/modules/dsp/chowdsp_dsp_data_structures/chowdsp_dsp_data_structures.cpp.s
+
+chowdsp_utils/modules/dsp/chowdsp_dsp_utils/chowdsp_dsp_utils.o: chowdsp_utils/modules/dsp/chowdsp_dsp_utils/chowdsp_dsp_utils.cpp.o
+.PHONY : chowdsp_utils/modules/dsp/chowdsp_dsp_utils/chowdsp_dsp_utils.o
+
+# target to build an object file
+chowdsp_utils/modules/dsp/chowdsp_dsp_utils/chowdsp_dsp_utils.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/chowdsp_utils/modules/dsp/chowdsp_dsp_utils/chowdsp_dsp_utils.cpp.o
+.PHONY : chowdsp_utils/modules/dsp/chowdsp_dsp_utils/chowdsp_dsp_utils.cpp.o
+
+chowdsp_utils/modules/dsp/chowdsp_dsp_utils/chowdsp_dsp_utils.i: chowdsp_utils/modules/dsp/chowdsp_dsp_utils/chowdsp_dsp_utils.cpp.i
+.PHONY : chowdsp_utils/modules/dsp/chowdsp_dsp_utils/chowdsp_dsp_utils.i
+
+# target to preprocess a source file
+chowdsp_utils/modules/dsp/chowdsp_dsp_utils/chowdsp_dsp_utils.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/chowdsp_utils/modules/dsp/chowdsp_dsp_utils/chowdsp_dsp_utils.cpp.i
+.PHONY : chowdsp_utils/modules/dsp/chowdsp_dsp_utils/chowdsp_dsp_utils.cpp.i
+
+chowdsp_utils/modules/dsp/chowdsp_dsp_utils/chowdsp_dsp_utils.s: chowdsp_utils/modules/dsp/chowdsp_dsp_utils/chowdsp_dsp_utils.cpp.s
+.PHONY : chowdsp_utils/modules/dsp/chowdsp_dsp_utils/chowdsp_dsp_utils.s
+
+# target to generate assembly for a file
+chowdsp_utils/modules/dsp/chowdsp_dsp_utils/chowdsp_dsp_utils.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/chowdsp_utils/modules/dsp/chowdsp_dsp_utils/chowdsp_dsp_utils.cpp.s
+.PHONY : chowdsp_utils/modules/dsp/chowdsp_dsp_utils/chowdsp_dsp_utils.cpp.s
+
+chowdsp_utils/modules/dsp/chowdsp_filters/chowdsp_filters.o: chowdsp_utils/modules/dsp/chowdsp_filters/chowdsp_filters.cpp.o
+.PHONY : chowdsp_utils/modules/dsp/chowdsp_filters/chowdsp_filters.o
+
+# target to build an object file
+chowdsp_utils/modules/dsp/chowdsp_filters/chowdsp_filters.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/chowdsp_utils/modules/dsp/chowdsp_filters/chowdsp_filters.cpp.o
+.PHONY : chowdsp_utils/modules/dsp/chowdsp_filters/chowdsp_filters.cpp.o
+
+chowdsp_utils/modules/dsp/chowdsp_filters/chowdsp_filters.i: chowdsp_utils/modules/dsp/chowdsp_filters/chowdsp_filters.cpp.i
+.PHONY : chowdsp_utils/modules/dsp/chowdsp_filters/chowdsp_filters.i
+
+# target to preprocess a source file
+chowdsp_utils/modules/dsp/chowdsp_filters/chowdsp_filters.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/chowdsp_utils/modules/dsp/chowdsp_filters/chowdsp_filters.cpp.i
+.PHONY : chowdsp_utils/modules/dsp/chowdsp_filters/chowdsp_filters.cpp.i
+
+chowdsp_utils/modules/dsp/chowdsp_filters/chowdsp_filters.s: chowdsp_utils/modules/dsp/chowdsp_filters/chowdsp_filters.cpp.s
+.PHONY : chowdsp_utils/modules/dsp/chowdsp_filters/chowdsp_filters.s
+
+# target to generate assembly for a file
+chowdsp_utils/modules/dsp/chowdsp_filters/chowdsp_filters.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/chowdsp_utils/modules/dsp/chowdsp_filters/chowdsp_filters.cpp.s
+.PHONY : chowdsp_utils/modules/dsp/chowdsp_filters/chowdsp_filters.cpp.s
+
+chowdsp_utils/modules/dsp/chowdsp_math/chowdsp_math.o: chowdsp_utils/modules/dsp/chowdsp_math/chowdsp_math.cpp.o
+.PHONY : chowdsp_utils/modules/dsp/chowdsp_math/chowdsp_math.o
+
+# target to build an object file
+chowdsp_utils/modules/dsp/chowdsp_math/chowdsp_math.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/chowdsp_utils/modules/dsp/chowdsp_math/chowdsp_math.cpp.o
+.PHONY : chowdsp_utils/modules/dsp/chowdsp_math/chowdsp_math.cpp.o
+
+chowdsp_utils/modules/dsp/chowdsp_math/chowdsp_math.i: chowdsp_utils/modules/dsp/chowdsp_math/chowdsp_math.cpp.i
+.PHONY : chowdsp_utils/modules/dsp/chowdsp_math/chowdsp_math.i
+
+# target to preprocess a source file
+chowdsp_utils/modules/dsp/chowdsp_math/chowdsp_math.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/chowdsp_utils/modules/dsp/chowdsp_math/chowdsp_math.cpp.i
+.PHONY : chowdsp_utils/modules/dsp/chowdsp_math/chowdsp_math.cpp.i
+
+chowdsp_utils/modules/dsp/chowdsp_math/chowdsp_math.s: chowdsp_utils/modules/dsp/chowdsp_math/chowdsp_math.cpp.s
+.PHONY : chowdsp_utils/modules/dsp/chowdsp_math/chowdsp_math.s
+
+# target to generate assembly for a file
+chowdsp_utils/modules/dsp/chowdsp_math/chowdsp_math.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WubForge.dir/build.make CMakeFiles/WubForge.dir/chowdsp_utils/modules/dsp/chowdsp_math/chowdsp_math.cpp.s
+.PHONY : chowdsp_utils/modules/dsp/chowdsp_math/chowdsp_math.cpp.s
 
 # Help Target
 help:
@@ -859,8 +1487,36 @@ help:
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... test"
-	@echo "... WobbleForge_All"
-	@echo "... WobbleForge"
+	@echo "... Continuous"
+	@echo "... ContinuousBuild"
+	@echo "... ContinuousConfigure"
+	@echo "... ContinuousCoverage"
+	@echo "... ContinuousMemCheck"
+	@echo "... ContinuousStart"
+	@echo "... ContinuousSubmit"
+	@echo "... ContinuousTest"
+	@echo "... ContinuousUpdate"
+	@echo "... Experimental"
+	@echo "... ExperimentalBuild"
+	@echo "... ExperimentalConfigure"
+	@echo "... ExperimentalCoverage"
+	@echo "... ExperimentalMemCheck"
+	@echo "... ExperimentalStart"
+	@echo "... ExperimentalSubmit"
+	@echo "... ExperimentalTest"
+	@echo "... ExperimentalUpdate"
+	@echo "... Nightly"
+	@echo "... NightlyBuild"
+	@echo "... NightlyConfigure"
+	@echo "... NightlyCoverage"
+	@echo "... NightlyMemCheck"
+	@echo "... NightlyMemoryCheck"
+	@echo "... NightlyStart"
+	@echo "... NightlySubmit"
+	@echo "... NightlyTest"
+	@echo "... NightlyUpdate"
+	@echo "... WubForge_All"
+	@echo "... WubForge"
 	@echo "... JUCE/modules/juce_audio_basics/juce_audio_basics.o"
 	@echo "... JUCE/modules/juce_audio_basics/juce_audio_basics.i"
 	@echo "... JUCE/modules/juce_audio_basics/juce_audio_basics.s"
@@ -912,6 +1568,12 @@ help:
 	@echo "... JUCE/modules/juce_gui_extra/juce_gui_extra.o"
 	@echo "... JUCE/modules/juce_gui_extra/juce_gui_extra.i"
 	@echo "... JUCE/modules/juce_gui_extra/juce_gui_extra.s"
+	@echo "... Source/BitCrusher.o"
+	@echo "... Source/BitCrusher.i"
+	@echo "... Source/BitCrusher.s"
+	@echo "... Source/ChowEQModule.o"
+	@echo "... Source/ChowEQModule.i"
+	@echo "... Source/ChowEQModule.s"
 	@echo "... Source/CombStack.o"
 	@echo "... Source/CombStack.i"
 	@echo "... Source/CombStack.s"
@@ -933,6 +1595,9 @@ help:
 	@echo "... Source/KeyTracker.o"
 	@echo "... Source/KeyTracker.i"
 	@echo "... Source/KeyTracker.s"
+	@echo "... Source/MDASubSynthModuleDirect.o"
+	@echo "... Source/MDASubSynthModuleDirect.i"
+	@echo "... Source/MDASubSynthModuleDirect.s"
 	@echo "... Source/PluginEditor.o"
 	@echo "... Source/PluginEditor.i"
 	@echo "... Source/PluginEditor.s"
@@ -942,6 +1607,30 @@ help:
 	@echo "... Source/Presets.o"
 	@echo "... Source/Presets.i"
 	@echo "... Source/Presets.s"
+	@echo "... Source/SpectralMorphingModule.o"
+	@echo "... Source/SpectralMorphingModule.i"
+	@echo "... Source/SpectralMorphingModule.s"
+	@echo "... Source/SpectrogramComponent.o"
+	@echo "... Source/SpectrogramComponent.i"
+	@echo "... Source/SpectrogramComponent.s"
+	@echo "... chowdsp_utils/modules/common/chowdsp_core/chowdsp_core.o"
+	@echo "... chowdsp_utils/modules/common/chowdsp_core/chowdsp_core.i"
+	@echo "... chowdsp_utils/modules/common/chowdsp_core/chowdsp_core.s"
+	@echo "... chowdsp_utils/modules/dsp/chowdsp_buffers/chowdsp_buffers.o"
+	@echo "... chowdsp_utils/modules/dsp/chowdsp_buffers/chowdsp_buffers.i"
+	@echo "... chowdsp_utils/modules/dsp/chowdsp_buffers/chowdsp_buffers.s"
+	@echo "... chowdsp_utils/modules/dsp/chowdsp_dsp_data_structures/chowdsp_dsp_data_structures.o"
+	@echo "... chowdsp_utils/modules/dsp/chowdsp_dsp_data_structures/chowdsp_dsp_data_structures.i"
+	@echo "... chowdsp_utils/modules/dsp/chowdsp_dsp_data_structures/chowdsp_dsp_data_structures.s"
+	@echo "... chowdsp_utils/modules/dsp/chowdsp_dsp_utils/chowdsp_dsp_utils.o"
+	@echo "... chowdsp_utils/modules/dsp/chowdsp_dsp_utils/chowdsp_dsp_utils.i"
+	@echo "... chowdsp_utils/modules/dsp/chowdsp_dsp_utils/chowdsp_dsp_utils.s"
+	@echo "... chowdsp_utils/modules/dsp/chowdsp_filters/chowdsp_filters.o"
+	@echo "... chowdsp_utils/modules/dsp/chowdsp_filters/chowdsp_filters.i"
+	@echo "... chowdsp_utils/modules/dsp/chowdsp_filters/chowdsp_filters.s"
+	@echo "... chowdsp_utils/modules/dsp/chowdsp_math/chowdsp_math.o"
+	@echo "... chowdsp_utils/modules/dsp/chowdsp_math/chowdsp_math.i"
+	@echo "... chowdsp_utils/modules/dsp/chowdsp_math/chowdsp_math.s"
 .PHONY : help
 
 

@@ -3,246 +3,303 @@
 //==============================================================================
 DistortionForge::DistortionForge()
 {
-}
+    // Initialize DSP components
+    inputGain.setRampDurationSeconds(0.05);   // Smooth parameter changes
+    outputGain.setRampDurationSeconds(0.05);
+    // Note: DryWetMixer doesn't have setRampDurationSeconds in this JUCE version
 
-DistortionForge::~DistortionForge()
-{
+    // Set initial gain staging
+    updateGainStaging();
 }
 
 //==============================================================================
-void DistortionForge::prepareToPlay (double sampleRate, int samplesPerBlock)
+void DistortionForge::prepare (const juce::dsp::ProcessSpec& spec)
 {
-    this->sampleRate = sampleRate;
+    sampleRate = spec.sampleRate;
 
-    juce::dsp::ProcessSpec spec { sampleRate, static_cast<juce::uint32>(samplesPerBlock), 1 };
+    // Prepare all DSP components
+    hardClipper.prepare(spec.numChannels);
+    tanhClipper.prepare(spec.numChannels);
+    softClipper.prepare(spec.numChannels);
+    wavefolder.prepare(spec.numChannels);
 
-    // Prepare formant filter
-    auto formantCoeffs = juce::dsp::IIR::Coefficients<float>::makeBandPass (sampleRate, formantFreq, 0.5f);
-    formantFilter.prepare (spec);
-    formantFilter.reset();
-    *formantFilter.state = *formantCoeffs;
+    // Prepare tone filter
+    toneFilter.prepare(spec);
 
-    // Prepare gain stages
-    inputGain.prepare (spec);
-    inputGain.setRampDurationSeconds (0.05);
-    inputGain.setGainLinear (1.0f);
+    // Prepare gain staging
+    inputGain.prepare(spec);
+    outputGain.prepare(spec);
+    dryWetMixer.prepare(spec);
 
-    outputGain.prepare (spec);
-    outputGain.setRampDurationSeconds (0.05);
-    outputGain.setGainLinear (1.0f);
+    // Initialize bit crush buffer
+    bitCrushBuffer.resize(spec.maximumBlockSize);
 
+    // Reset to ensure clean state
     reset();
-    updateFormantFilter();
+
+    // Update filters and gain staging with current parameters
+    updateFilters();
+    updateGainStaging();
+}
+
+void DistortionForge::process (const juce::dsp::ProcessContextReplacing<float>& context)
+{
+    // Apply input gain for drive control
+    auto inputContext = context;
+    inputGain.process(inputContext);
+
+    // Route to appropriate distortion algorithm
+    switch (currentAlgorithm)
+    {
+        case Algorithm::Tanh:
+            processTanh(inputContext);
+            break;
+        case Algorithm::HardClip:
+            processHardClip(inputContext);
+            break;
+        case Algorithm::SoftClip:
+            processSoftClip(inputContext);
+            break;
+        case Algorithm::Wavefold:
+            processWavefold(inputContext);
+            break;
+        case Algorithm::BitCrush:
+            processBitCrush(inputContext);
+            break;
+    }
+
+    // Apply tone filtering
+    toneFilter.process(inputContext);
+
+    // Apply output gain compensation
+    outputGain.process(inputContext);
+
+    // Apply dry/wet mixing
+    dryWetMixer.pushDrySamples(context.getInputBlock());
+    dryWetMixer.mixWetSamples(inputContext.getOutputBlock());
 }
 
 void DistortionForge::reset()
 {
-    formantFilter.reset();
+    hardClipper.reset();
+    tanhClipper.reset();
+    softClipper.reset();
+    wavefolder.reset();
+    toneFilter.reset();
     inputGain.reset();
     outputGain.reset();
-    currentFormantFreq = formantFreq;
-    lastFormantFreq = formantFreq;
-    hammerCounter = 0;
+    dryWetMixer.reset();
+
+    bitCrushCounter = 0;
+    bitCrushPhase = 0.0f;
 }
 
 //==============================================================================
-void DistortionForge::process (juce::dsp::ProcessContextReplacing<float>& context)
+// Parameter Setters
+void DistortionForge::setAlgorithm (Algorithm algorithm)
 {
-    auto& inputBlock = context.getInputBlock();
-    auto& outputBlock = context.getOutputBlock();
-    auto numSamples = outputBlock.getNumSamples();
-    auto numChannels = outputBlock.getNumChannels();
+    currentAlgorithm = algorithm;
+}
 
-    // Handle hammer mode randomization
-    if (hammerMode)
+void DistortionForge::setDrive (float driveDB)
+{
+    this->driveDB = juce::jlimit(-20.0f, 40.0f, driveDB);
+    updateGainStaging();
+}
+
+void DistortionForge::setTone (float toneFreqHz)
+{
+    this->toneFreqHz = juce::jlimit(200.0f, 8000.0f, toneFreqHz);
+    updateFilters();
+}
+
+void DistortionForge::setMix (float wetMix)
+{
+    this->wetMix = juce::jlimit(0.0f, 1.0f, wetMix);
+    dryWetMixer.setWetMixProportion(wetMix);
+}
+
+void DistortionForge::setBias (float biasAmount)
+{
+    this->biasAmount = juce::jlimit(-1.0f, 1.0f, biasAmount);
+}
+
+void DistortionForge::setBitDepth (float bitDepth)
+{
+    this->bitDepth = juce::jlimit(1.0f, 16.0f, bitDepth);
+}
+
+void DistortionForge::setSampleRateReduction (float reduction)
+{
+    this->sampleRateReduction = juce::jlimit(0.01f, 1.0f, reduction);
+}
+
+//==============================================================================
+// Distortion Algorithm Implementations
+
+void DistortionForge::processTanh (const juce::dsp::ProcessContextReplacing<float>& context)
+{
+    auto block = context.getOutputBlock();
+
+    for (size_t ch = 0; ch < block.getNumChannels(); ++ch)
     {
-        hammerCounter++;
-        if (hammerCounter >= hammerInterval)
+        auto* channelData = block.getChannelPointer(ch);
+
+        for (size_t i = 0; i < block.getNumSamples(); ++i)
         {
-            hammerCounter = 0;
-            // Randomize distortion parameters slightly for chaotic effect
-            wavefoldAmount += (static_cast<float>(std::rand()) / RAND_MAX - 0.5f) * 0.1f;
-            clipAmount += (static_cast<float>(std::rand()) / RAND_MAX - 0.5f) * 0.1f;
-            wavefoldAmount = juce::jlimit (0.0f, 1.0f, wavefoldAmount);
-            clipAmount = juce::jlimit (0.0f, 1.0f, clipAmount);
+            // Apply DC bias for asymmetric distortion
+            float input = channelData[i] + biasAmount;
+
+            // Apply tanh distortion with drive scaling
+            float drive = std::pow(10.0f, driveDB / 20.0f);
+            channelData[i] = std::tanh(input * drive);
         }
     }
+}
 
-    for (int sample = 0; sample < numSamples; ++sample)
+void DistortionForge::processHardClip (const juce::dsp::ProcessContextReplacing<float>& context)
+{
+    auto block = context.getOutputBlock();
+
+    for (size_t ch = 0; ch < block.getNumChannels(); ++ch)
     {
-        float processedSample = 0.0f;
+        auto* channelData = block.getChannelPointer(ch);
 
-        // Sum input channels
-        for (size_t channel = 0; channel < numChannels; ++channel)
+        for (size_t i = 0; i < block.getNumSamples(); ++i)
         {
-            processedSample += inputBlock.getSample (channel, sample);
-        }
-        processedSample /= static_cast<float>(numChannels);
+            // Apply DC bias and drive scaling
+            float input = channelData[i] + biasAmount;
+            float drive = std::pow(10.0f, driveDB / 20.0f);
 
-        // Apply distortion chain
-        processedSample = processWavefolding (processedSample);
-        processedSample = processAsymmetricClipping (processedSample);
-        processedSample = processBitCrushing (processedSample);
-
-        // Apply mode blend (0 = full wobble, 1 = full forge)
-        float blendFactor = modeBlend;
-        processedSample *= blendFactor;
-
-        // Write to all output channels
-        for (size_t channel = 0; channel < numChannels; ++channel)
-        {
-            float inputSample = inputBlock.getSample (channel, sample);
-            float outputSample = inputSample * (1.0f - blendFactor) + processedSample;
-            outputBlock.setSample (channel, sample, outputSample);
+            // Apply hard clipping with ADAA
+            channelData[i] = hardClipper.processSample(input * drive, ch);
         }
     }
 }
 
+void DistortionForge::processSoftClip (const juce::dsp::ProcessContextReplacing<float>& context)
+{
+    auto block = context.getOutputBlock();
+
+    for (size_t ch = 0; ch < block.getNumChannels(); ++ch)
+    {
+        auto* channelData = block.getChannelPointer(ch);
+
+        for (size_t i = 0; i < block.getNumSamples(); ++i)
+        {
+            // Apply DC bias and drive scaling
+            float input = channelData[i] + biasAmount;
+            float drive = std::pow(10.0f, driveDB / 20.0f);
+
+            // Apply soft clipping with ADAA
+            channelData[i] = softClipper.processSample(input * drive, ch);
+        }
+    }
+}
+
+void DistortionForge::processWavefold (const juce::dsp::ProcessContextReplacing<float>& context)
+{
+    auto block = context.getOutputBlock();
+
+    for (size_t ch = 0; ch < block.getNumChannels(); ++ch)
+    {
+        auto* channelData = block.getChannelPointer(ch);
+
+        for (size_t i = 0; i < block.getNumSamples(); ++i)
+        {
+            // Apply DC bias and drive scaling
+            float input = channelData[i] + biasAmount;
+            float drive = std::pow(10.0f, driveDB / 20.0f);
+
+            // Apply wavefolding
+            channelData[i] = wavefolder.processSample(input * drive, ch);
+        }
+    }
+}
+
+void DistortionForge::processBitCrush (const juce::dsp::ProcessContextReplacing<float>& context)
+{
+    auto block = context.getOutputBlock();
+    auto numSamples = block.getNumSamples();
+
+    for (size_t ch = 0; ch < block.getNumChannels(); ++ch)
+    {
+        auto* channelData = block.getChannelPointer(ch);
+
+        for (size_t i = 0; i < numSamples; ++i)
+        {
+            // Sample rate reduction
+            float reductionFactor = sampleRateReduction;
+            if (reductionFactor < 1.0f)
+            {
+                bitCrushPhase += reductionFactor;
+
+                if (bitCrushPhase >= 1.0f)
+                {
+                    bitCrushPhase -= 1.0f;
+                    bitCrushBuffer[ch] = channelData[i];
+                }
+
+                channelData[i] = bitCrushBuffer[ch];
+            }
+
+            // Bit depth reduction
+            if (bitDepth < 16.0f)
+            {
+                float steps = std::pow(2.0f, bitDepth) - 1.0f;
+                float scale = 1.0f / steps;
+
+                // Quantize to bit depth
+                channelData[i] = std::round(channelData[i] / scale) * scale;
+            }
+        }
+    }
+}
+
 //==============================================================================
-void DistortionForge::setWavefoldAmount (float amount)
+// Internal Helper Functions
+
+void DistortionForge::updateFilters()
 {
-    wavefoldAmount = juce::jlimit (0.0f, 1.0f, amount);
+    // Update tone filter coefficients
+    auto toneCoeffs = juce::dsp::IIR::Coefficients<float>::makeLowPass(sampleRate, toneFreqHz);
+    *toneFilter.state = *toneCoeffs;
 }
 
-void DistortionForge::setClipAmount (float amount)
+void DistortionForge::updateGainStaging()
 {
-    clipAmount = juce::jlimit (0.0f, 1.0f, amount);
-}
+    // Calculate input gain from drive parameter
+    float inputGainLinear = std::pow(10.0f, driveDB / 20.0f);
+    inputGain.setGainLinear(inputGainLinear);
 
-void DistortionForge::setBitCrushAmount (float amount)
-{
-    bitCrushAmount = juce::jlimit (0.0f, 1.0f, amount);
-}
+    // Calculate output gain compensation based on distortion algorithm
+    float outputGainDB = 0.0f;
 
-void DistortionForge::setFormantFreq (float freqHz)
-{
-    formantFreq = juce::jlimit (100.0f, 2000.0f, freqHz);
-    updateFormantFilter();
-}
-
-void DistortionForge::setHammerMode (bool enabled)
-{
-    hammerMode = enabled;
-}
-
-void DistortionForge::setModeBlend (float blend)
-{
-    modeBlend = juce::jlimit (0.0f, 1.0f, blend);
-}
-
-//==============================================================================
-void DistortionForge::setKeyTrackFrequency (float frequency)
-{
-    keyTrackFrequency = std::max (20.0f, frequency);  // Minimum 20 Hz
-}
-
-void DistortionForge::setKeyTrackAmount (float amount)
-{
-    keyTrackAmount = std::clamp (amount, 0.0f, 1.0f);
-}
-
-//==============================================================================
-float DistortionForge::processWavefolding (float input)
-{
-    if (wavefoldAmount <= 0.0f)
-        return input;
-
-    float threshold = 0.5f + wavefoldAmount * 0.5f;
-    float gain = 1.0f + wavefoldAmount * 2.0f;
-
-    float amplified = input * gain;
-
-    // Wavefolding algorithm
-    float folded = 0.0f;
-    if (std::abs (amplified) > threshold)
+    switch (currentAlgorithm)
     {
-        float excess = std::abs (amplified) - threshold;
-        float foldedExcess = threshold - excess;
-        folded = (amplified > 0) ? foldedExcess : -foldedExcess;
-    }
-    else
-    {
-        folded = amplified;
+        case Algorithm::Tanh:
+            // Tanh naturally reduces output level, compensate accordingly
+            outputGainDB = -driveDB * 0.3f;
+            break;
+        case Algorithm::HardClip:
+            // Hard clipping can maintain or increase level
+            outputGainDB = -driveDB * 0.1f;
+            break;
+        case Algorithm::SoftClip:
+            // Soft clipping reduces output level
+            outputGainDB = -driveDB * 0.2f;
+            break;
+        case Algorithm::Wavefold:
+            // Wavefolding can significantly increase level
+            outputGainDB = -driveDB * 0.4f;
+            break;
+        case Algorithm::BitCrush:
+            // Bit crushing generally maintains level
+            outputGainDB = 0.0f;
+            break;
     }
 
-    // Mix between dry and folded signal
-    return input * (1.0f - wavefoldAmount) + folded * wavefoldAmount;
-}
-
-float DistortionForge::processAsymmetricClipping (float input)
-{
-    if (clipAmount <= 0.0f)
-        return input;
-
-    float thresholdPos = 0.7f + clipAmount * 0.3f;  // Positive threshold
-    float thresholdNeg = -0.5f - clipAmount * 0.3f; // Negative threshold (more aggressive)
-
-    float output = input;
-
-    // Asymmetric clipping
-    if (output > thresholdPos)
-    {
-        output = thresholdPos + (output - thresholdPos) * 0.3f; // Soft clip positive
-    }
-    else if (output < thresholdNeg)
-    {
-        output = thresholdNeg + (output - thresholdNeg) * 0.1f; // Hard clip negative
-    }
-
-    // Mix between dry and clipped signal
-    return input * (1.0f - clipAmount) + output * clipAmount;
-}
-
-float DistortionForge::processBitCrushing (float input)
-{
-    if (bitCrushAmount <= 0.0f)
-        return input;
-
-    // Bit crushing reduces bit depth
-    int bitDepth = static_cast<int>(16 - bitCrushAmount * 12); // 16 to 4 bits
-    bitDepth = juce::jlimit (4, 16, bitDepth);
-
-    float scale = static_cast<float>(1 << bitDepth);
-    float crushed = std::round (input * scale) / scale;
-
-    // Mix between dry and crushed signal
-    return input * (1.0f - bitCrushAmount) + crushed * bitCrushAmount;
-}
-
-void DistortionForge::updateFormantFilter()
-{
-    // Calculate key-tracked formant frequency
-    float keyTrackedFormantFreq = formantFreq;
-
-    if (keyTrackAmount > 0.0f)
-    {
-        // Calculate pitch ratio relative to A4 (440 Hz)
-        float pitchRatio = keyTrackFrequency / 440.0f;
-
-        // Apply logarithmic scaling for more natural formant shifting
-        // Higher notes = higher formant frequencies (more "brightness")
-        float keyTrackedFreq = formantFreq * pitchRatio;
-
-        // Blend between base formant frequency and key-tracked frequency
-        keyTrackedFormantFreq = keyTrackedFreq * keyTrackAmount + formantFreq * (1.0f - keyTrackAmount);
-    }
-
-    // Smooth formant frequency changes
-    float slewRate = 10.0f; // Hz per sample
-    float freqDiff = keyTrackedFormantFreq - lastFormantFreq;
-
-    if (std::abs (freqDiff) > slewRate)
-    {
-        currentFormantFreq = lastFormantFreq + (freqDiff > 0 ? slewRate : -slewRate);
-    }
-    else
-    {
-        currentFormantFreq = keyTrackedFormantFreq;
-    }
-
-    lastFormantFreq = currentFormantFreq;
-
-    // Update filter coefficients
-    auto formantCoeffs = juce::dsp::IIR::Coefficients<float>::makeBandPass (sampleRate, currentFormantFreq, 0.5f);
-    *formantFilter.state = *formantCoeffs;
+    // Apply output gain compensation
+    float outputGainLinear = std::pow(10.0f, outputGainDB / 20.0f);
+    outputGain.setGainLinear(outputGainLinear);
 }

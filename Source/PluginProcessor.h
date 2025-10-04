@@ -1,6 +1,6 @@
 #pragma once
 
-#include <juce_audio_processors/juce_audio_processors.h>
+//#include <foleys_gui_magic/foleys_gui_magic.h> // Temporarily commented out due to build issues
 #include <juce_dsp/juce_dsp.h>
 #include <array>
 #include <memory>
@@ -25,10 +25,10 @@ public:
 
     void processBlock (juce::AudioBuffer<float>&, juce::MidiBuffer&) override;
 
-    //==============================================================================
     juce::AudioProcessorEditor* createEditor() override;
-    bool hasEditor() const override;
+    bool hasEditor() const override { return true; }
 
+    //==============================================================================
     //==============================================================================
     const juce::String getName() const override;
     bool acceptsMidi() const override;
@@ -43,13 +43,10 @@ public:
     const juce::String getProgramName (int index) override;
     void changeProgramName (int index, const juce::String& newName) override;
 
-    //==============================================================================
     void getStateInformation (juce::MemoryBlock& destData) override;
     void setStateInformation (const void* data, int sizeInBytes) override;
 
     //==============================================================================
-    // Parameters
-    juce::AudioProcessorValueTreeState& getValueTreeState() { return valueTreeState; }
 
     //==============================================================================
     // Modular System Access
@@ -62,7 +59,7 @@ public:
 private:
     //==============================================================================
     // Modular DSP Components
-    static constexpr int numModuleSlots = 4;
+    static constexpr int numModuleSlots = 5;
     std::array<std::unique_ptr<AudioModule>, numModuleSlots> moduleSlots;
     Routing currentRouting = Routing::Serial;
 
@@ -77,6 +74,9 @@ private:
     juce::dsp::ProcessorDuplicator<juce::dsp::IIR::Filter<float>, juce::dsp::IIR::Coefficients<float>> highPassFilter;
     juce::dsp::Gain<float> outputGain;
     juce::dsp::DryWetMixer<float> dryWetMixer;
+
+    //==============================================================================
+    void runMagicForge();
 
     // Parameter management
     juce::AudioProcessorValueTreeState valueTreeState;

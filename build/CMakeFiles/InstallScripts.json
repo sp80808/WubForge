@@ -5,7 +5,9 @@
 		"/Volumes/Harry/WubForge/build/JUCE/cmake_install.cmake",
 		"/Volumes/Harry/WubForge/build/JUCE/modules/cmake_install.cmake",
 		"/Volumes/Harry/WubForge/build/JUCE/extras/Build/cmake_install.cmake",
-		"/Volumes/Harry/WubForge/build/JUCE/extras/Build/juceaide/cmake_install.cmake"
+		"/Volumes/Harry/WubForge/build/JUCE/extras/Build/juceaide/cmake_install.cmake",
+		"/Volumes/Harry/WubForge/build/chowdsp_utils/cmake_install.cmake",
+		"/Volumes/Harry/WubForge/build/JUMP/cmake_install.cmake"
 	],
 	"Parallel" : false
 }

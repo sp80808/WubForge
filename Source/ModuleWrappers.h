@@ -2,7 +2,6 @@
 
 #include "Module.h"
 #include "CombStack.h"
-#include "DistortionForge.h"
 #include "FormantTracker.h"
 
 //==============================================================================
@@ -27,10 +26,7 @@ public:
 
     void process (const juce::dsp::ProcessContextReplacing<float>& context) override
     {
-        // Create a non-const context for the comb stack
-        auto& block = const_cast<juce::dsp::AudioBlock<float>&>(context.getInputBlock());
-        juce::dsp::ProcessContextReplacing<float> nonConstContext (block);
-        internalCombStack.process (nonConstContext);
+        internalCombStack.process (context);
     }
 
     void reset() override
@@ -67,10 +63,7 @@ public:
         if (keyTracker != nullptr)
             internalFormantTracker.setCurrentFrequency (keyTracker->getCurrentFrequency());
         
-        // Create a non-const context for the formant tracker
-        auto& block = const_cast<juce::dsp::AudioBlock<float>&>(context.getInputBlock());
-        juce::dsp::ProcessContextReplacing<float> nonConstContext (block);
-        internalFormantTracker.process (nonConstContext);
+        internalFormantTracker.process (context);
     }
 
     void reset() override
@@ -84,39 +77,4 @@ public:
 
 private:
     FormantTracker internalFormantTracker;
-};
-
-//==============================================================================
-/**
-    A wrapper for the DistortionForge class.
-*/
-class DistortionForgeModule : public DistortionModule
-{
-public:
-    DistortionForgeModule() = default;
-
-    void prepare (const juce::dsp::ProcessSpec& spec) override
-    {
-        internalDistortionForge.prepareToPlay (spec.sampleRate, spec.maximumBlockSize);
-    }
-
-    void process (const juce::dsp::ProcessContextReplacing<float>& context) override
-    {
-        // Create a non-const context for the distortion forge
-        auto& block = const_cast<juce::dsp::AudioBlock<float>&>(context.getInputBlock());
-        juce::dsp::ProcessContextReplacing<float> nonConstContext (block);
-        internalDistortionForge.process (nonConstContext);
-    }
-
-    void reset() override
-    {
-        internalDistortionForge.reset();
-    }
-
-    const juce::String getName() const override { return "Distortion Forge"; }
-
-    DistortionForge& getInternalProcessor() { return internalDistortionForge; }
-
-private:
-    DistortionForge internalDistortionForge;
 };

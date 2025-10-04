@@ -1,76 +1,102 @@
 #pragma once
 
-#include <juce_audio_processors/juce_audio_processors.h>
-#include <juce_dsp/juce_dsp.h>
+#include "Module.h"
+#include <juce_gui_extra/juce_gui_extra.h> // Temporarily for basic dependencies
 
 //==============================================================================
-class DistortionForge
+/**
+    DistortionForge - Professional distortion module using chowdsp_utils
+
+    Provides multiple high-quality distortion algorithms with professional
+    gain staging, tone control, and dry/wet mixing for seamless integration
+    into the WubForge modular architecture.
+*/
+class DistortionForge : public DistortionModule
 {
 public:
+    enum class Algorithm
+    {
+        Tanh,           // Hyperbolic tangent soft clipping
+        HardClip,       // Hard clipping with anti-aliasing
+        SoftClip,       // Polynomial soft clipping
+        Wavefold,       // West Coast style wavefolding
+        BitCrush        // Bit reduction with sample rate reduction
+    };
+
     DistortionForge();
-    ~DistortionForge();
+    ~DistortionForge() override = default;
 
     //==============================================================================
-    void prepareToPlay (double sampleRate, int samplesPerBlock);
-    void reset();
+    // AudioModule interface
+    void prepare (const juce::dsp::ProcessSpec& spec) override;
+    void process (const juce::dsp::ProcessContextReplacing<float>& context) override;
+    void reset() override;
+
+    const juce::String getName() const override { return "Distortion Forge"; }
 
     //==============================================================================
-    void process (juce::dsp::ProcessContextReplacing<float>& context);
+    // Parameter Controls
+    void setAlgorithm (Algorithm algorithm);
+    void setDrive (float driveDB);
+    void setTone (float toneFreqHz);
+    void setMix (float wetMix);
 
     //==============================================================================
-    // Parameter setters
-    void setWavefoldAmount (float amount);
-    void setClipAmount (float amount);
-    void setBitCrushAmount (float amount);
-    void setFormantFreq (float freqHz);
-    void setHammerMode (bool enabled);
-    void setModeBlend (float blend);
-
-    //==============================================================================
-    // Key tracking
-    void setKeyTrackFrequency (float frequency);
-    void setKeyTrackAmount (float amount);
-
-    //==============================================================================
-    // Getters for visualization
-    float getCurrentFormantFreq() const { return currentFormantFreq; }
-    bool getHammerMode() const { return hammerMode; }
+    // Advanced Controls
+    void setBias (float biasAmount);        // DC offset for asymmetric distortion
+    void setBitDepth (float bitDepth);      // For bit crushing (1-16 bits)
+    void setSampleRateReduction (float reduction); // Sample rate reduction factor
 
 private:
     //==============================================================================
-    // DSP Components
-    juce::dsp::ProcessorDuplicator<juce::dsp::IIR::Filter<float>, juce::dsp::IIR::Coefficients<float>> formantFilter;
-    juce::dsp::Gain<float> inputGain;
-    juce::dsp::Gain<float> outputGain;
+    // Internal Processing
+    void processTanh (const juce::dsp::ProcessContextReplacing<float>& context);
+    void processHardClip (const juce::dsp::ProcessContextReplacing<float>& context);
+    void processSoftClip (const juce::dsp::ProcessContextReplacing<float>& context);
+    void processWavefold (const juce::dsp::ProcessContextReplacing<float>& context);
+    void processBitCrush (const juce::dsp::ProcessContextReplacing<float>& context);
 
-    // Parameters
-    float wavefoldAmount = 0.3f;
-    float clipAmount = 0.4f;
-    float bitCrushAmount = 0.2f;
-    float formantFreq = 400.0f;
-    float currentFormantFreq = 400.0f;
-    bool hammerMode = false;
-    float modeBlend = 0.5f;
-
-    // Key tracking parameters
-    float keyTrackFrequency = 440.0f;  // Base frequency for key tracking
-    float keyTrackAmount = 0.0f;       // Amount of key tracking (0 = none, 1 = full)
-
-    // State
-    double sampleRate = 44100.0;
-    float lastFormantFreq = 400.0f;
-
-    // Hammer mode state
-    int hammerCounter = 0;
-    static constexpr int hammerInterval = 100; // Randomize every 100 process calls
+    void updateFilters();
+    void updateGainStaging();
 
     //==============================================================================
-    // DSP processing functions
-    float processWavefolding (float input);
-    float processAsymmetricClipping (float input);
-    float processBitCrushing (float input);
+    // State & Parameters
+    double sampleRate = 44100.0;
+    Algorithm currentAlgorithm = Algorithm::Tanh;
 
-    void updateFormantFilter();
+    // Core parameters
+    float driveDB = 0.0f;           // Input gain in dB (-20 to +40 dB)
+    float toneFreqHz = 2000.0f;     // Tone filter cutoff (200-8000 Hz)
+    float wetMix = 1.0f;           // Dry/wet mix (0-1)
 
+    // Advanced parameters
+    float biasAmount = 0.0f;        // DC bias for asymmetric distortion
+    float bitDepth = 16.0f;         // Bit depth for bit crushing
+    float sampleRateReduction = 1.0f; // Sample rate reduction factor
+
+    //==============================================================================
+    // DSP Components using chowdsp_utils
+
+    // Main distortion processors
+    chowdsp::ADAAHardClipper<float> hardClipper;
+    chowdsp::ADAATanhClipper<float> tanhClipper;
+    chowdsp::ADAASoftClipper<float> softClipper;
+    chowdsp::WestCoastWavefolder<float> wavefolder;
+
+    // Tone filtering
+    juce::dsp::ProcessorDuplicator<juce::dsp::IIR::Filter<float>,
+                                   juce::dsp::IIR::Coefficients<float>> toneFilter;
+
+    // Gain staging for professional audio quality
+    juce::dsp::Gain<float> inputGain;      // Pre-distortion gain
+    juce::dsp::Gain<float> outputGain;     // Post-distortion gain compensation
+    juce::dsp::DryWetMixer<float> dryWetMixer;
+
+    // Bit crushing components
+    std::vector<float> bitCrushBuffer;      // For sample-and-hold processing
+    int bitCrushCounter = 0;
+    float bitCrushPhase = 0.0f;
+
+    //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (DistortionForge)
 };

@@ -1,302 +1,197 @@
-#include "PluginProcessor.h"
 #include "PluginEditor.h"
 
 //==============================================================================
-WobbleForgeAudioProcessorEditor::WobbleForgeAudioProcessorEditor (WobbleForgeAudioProcessor& p)
-    : AudioProcessorEditor (&p), audioProcessor (p), xyPad (p), spectrogramComponent ()
+WubForgeAudioProcessorEditor::WubForgeAudioProcessorEditor (WubForgeAudioProcessor& p)
+    : MagicPluginEditor (&p, juce::Desktop::getInstance().getDisplays().getPrimaryDisplay()->DPI),
+      audioProcessor (p)
 {
-    setSize (800, 600);
+    // Set up the editor with appropriate size constraints
+    setSize (1200, 800);
+    setResizable (true, true);
+    resizeConstrainer.setMinimumSize (1000, 700);
+    resizeConstrainer.setMaximumSize (1600, 1200);
+    setConstrainer (&resizeConstrainer);
 
-    // ### Chain Controls ###
-    chainGroup.setText ("Signal Chain");
-    addAndMakeVisible (chainGroup);
-
-    routingSelector.addItemList (juce::StringArray { "Serial", "Parallel", "Feedback" }, 1);
-    addAndMakeVisible (routingSelector);
-
-    for (int i = 0; i < moduleSlotButtons.size(); ++i)
-    {
-        auto& button = moduleSlotButtons[i];
-        addAndMakeVisible(button);
-        button.onClick = [this, i] { selectedSlot = i; };
-    }
-
-    // ### Module & Routing Controls ###
-    moduleControlsGroup.setText ("Module Controls");
-    addAndMakeVisible (moduleControlsGroup);
-    routingControlsGroup.setText ("Routing Controls");
-    addAndMakeVisible (routingControlsGroup);
-
-    setupSliders();
-    setupAttachments();
-
-    // Add all sliders to the editor so they can be managed
-    addAndMakeVisible (fractalTypeSelector);
-    addAndMakeVisible (fractalFreqSlider);
-    addAndMakeVisible (fractalQSlider);
-    addAndMakeVisible (fractalDepthSlider);
-    addAndMakeVisible (fractalRatioSlider);
-    addAndMakeVisible (combCountSlider);
-    addAndMakeVisible (combDelaySlider);
-    addAndMakeVisible (combFeedbackSlider);
-    addAndMakeVisible (lfoRateSlider);
-    addAndMakeVisible (lfoDepthSlider);
-    addAndMakeVisible (wavefoldSlider);
-    addAndMakeVisible (clipSlider);
-    addAndMakeVisible (bitCrushSlider);
-    addAndMakeVisible (formantFreqSlider);
-    addAndMakeVisible (formantKeyTrackSlider);
-    addAndMakeVisible (formantGainSlider);
-    addAndMakeVisible (formantQSlider);
-    addAndMakeVisible (formantBaseFreqSlider);
-    addAndMakeVisible (fmRatioSlider);
-    addAndMakeVisible (fmIndexSlider);
-    addAndMakeVisible (feedbackAmountSlider);
-    addAndMakeVisible (feedbackDampingSlider);
-    
-    addAndMakeVisible (xyPad);
+    // Configure spectrogram component
     addAndMakeVisible (spectrogramComponent);
+    spectrogramComponent.setTimeWindow (2.0f);
+    spectrogramComponent.setFreqRange (20.0f, 20000.0f);
+    spectrogramComponent.setColourMap (0); // Viridis
+    spectrogramComponent.setUpdateRateHz (30);
+    spectrogramComponent.setEnabled (true);
 
-    startTimerHz (5);
+    // Start timer for real-time updates (30 FPS)
+    startTimerHz (30);
+
+    // Set up the magic GUI state
+    magicState.setGuiValueTree (binaryData, binaryDataSize);
+
+    // Initialize layout
+    setupLayout();
 }
 
-WobbleForgeAudioProcessorEditor::~WobbleForgeAudioProcessorEditor()
+WubForgeAudioProcessorEditor::~WubForgeAudioProcessorEditor()
 {
     stopTimer();
 }
 
 //==============================================================================
-void WobbleForgeAudioProcessorEditor::paint (juce::Graphics& g)
+void WubForgeAudioProcessorEditor::paint (juce::Graphics& g)
 {
-    g.fillAll (getLookAndFeel().findColour (juce::ResizableWindow::backgroundColourId));
+    // Fill background with dark theme
+    g.fillAll (juce::Colour (30, 30, 30));
+
+    // Draw title
     g.setColour (juce::Colours::white);
     g.setFont (24.0f);
-    g.drawText ("WubForge", getLocalBounds().removeFromTop (40).toNearestIntEdges(), juce::Justification::centred, true);
+    g.drawText ("WubForge - Spectral Bass Processor",
+                getLocalBounds().removeFromTop (40).reduced (20, 0),
+                juce::Justification::centred, true);
+
+    // Draw version info
+    g.setColour (juce::Colour (150, 150, 150));
+    g.setFont (12.0f);
+    g.drawText ("v1.0.0",
+                getLocalBounds().getRight() - 100, 10, 80, 20,
+                juce::Justification::centredRight, true);
 }
 
-void WobbleForgeAudioProcessorEditor::resized()
+void WubForgeAudioProcessorEditor::resized()
 {
-    auto area = getLocalBounds().reduced (20);
-    area.removeFromTop (40);
-
-    auto chainArea = area.removeFromTop(80);
-    chainGroup.setBounds(chainArea);
-    auto chainControls = chainGroup.getLocalBounds().reduced(10);
-    routingSelector.setBounds(chainControls.removeFromTop(25));
-    chainControls.removeFromTop(5);
-    auto slotArea = chainControls;
-    auto slotWidth = slotArea.getWidth() / 4;
-    for(auto& button : moduleSlotButtons)
-    {
-        button.setBounds(slotArea.removeFromLeft(slotWidth).reduced(2));
-    }
-
-    auto leftArea = area.removeFromLeft(area.getWidth() / 2);
-    auto moduleArea = leftArea.removeFromTop(leftArea.getHeight() * 0.7);
-    moduleControlsGroup.setBounds(moduleArea.reduced(5));
-    auto controlsArea = moduleControlsGroup.getLocalBounds().reduced(15);
-    controlsArea.removeFromTop(10);
-
-    auto sliderBounds1 = controlsArea.removeFromTop(30);
-    fractalTypeSelector.setBounds(sliderBounds1);
-    combCountSlider.setBounds(sliderBounds1);
-    wavefoldSlider.setBounds(sliderBounds1);
-    formantKeyTrackSlider.setBounds(sliderBounds1);
-    fmRatioSlider.setBounds(sliderBounds1);
-
-    controlsArea.removeFromTop(5);
-    auto sliderBounds2 = controlsArea.removeFromTop(30);
-    fractalFreqSlider.setBounds(sliderBounds2);
-    combDelaySlider.setBounds(sliderBounds2);
-    clipSlider.setBounds(sliderBounds2);
-    formantGainSlider.setBounds(sliderBounds2);
-    fmIndexSlider.setBounds(sliderBounds2);
-
-    controlsArea.removeFromTop(5);
-    auto sliderBounds3 = controlsArea.removeFromTop(30);
-    fractalQSlider.setBounds(sliderBounds3);
-    combFeedbackSlider.setBounds(sliderBounds3);
-    bitCrushSlider.setBounds(sliderBounds3);
-    formantQSlider.setBounds(sliderBounds3);
-
-    controlsArea.removeFromTop(5);
-    auto sliderBounds4 = controlsArea.removeFromTop(30);
-    fractalDepthSlider.setBounds(sliderBounds4);
-    lfoRateSlider.setBounds(sliderBounds4);
-    formantFreqSlider.setBounds(sliderBounds4);
-    formantBaseFreqSlider.setBounds(sliderBounds4);
-
-    controlsArea.removeFromTop(5);
-    auto sliderBounds5 = controlsArea.removeFromTop(30);
-    fractalRatioSlider.setBounds(sliderBounds5);
-    lfoDepthSlider.setBounds(sliderBounds5);
-
-    routingControlsGroup.setBounds(leftArea.reduced(5));
-    auto routingArea = routingControlsGroup.getLocalBounds().reduced(15);
-    routingArea.removeFromTop(10);
-    feedbackAmountSlider.setBounds(routingArea.removeFromTop(30));
-    routingArea.removeFromTop(5);
-    feedbackDampingSlider.setBounds(routingArea.removeFromTop(30));
-
-    auto rightArea = area;
-    xyPad.setBounds(rightArea.removeFromBottom(rightArea.getHeight() / 2).reduced(5));
-    spectrogramComponent.setBounds(rightArea.reduced(5));
+    setupLayout();
 }
 
 //==============================================================================
-void WobbleForgeAudioProcessorEditor::updateControlVisibility()
+void WubForgeAudioProcessorEditor::setupLayout()
 {
-    auto* selectedModule = audioProcessor.getModuleInSlot(selectedSlot);
-    juce::String groupName = "[Slot " + juce::String(selectedSlot + 1) + "] Empty";
+    auto bounds = getLocalBounds();
+    auto topSection = bounds.removeFromTop (40); // Title area
 
-    if (selectedModule != nullptr)
-        groupName = "[Slot " + juce::String(selectedSlot + 1) + "] " + selectedModule->getName();
+    // Main content area
+    auto contentArea = bounds.reduced (20);
 
-    moduleControlsGroup.setText(groupName);
+    // Left side: Spectrogram (40% width)
+    auto spectrogramArea = contentArea.removeFromLeft (contentArea.getWidth() * 0.4f);
+    spectrogramComponent.setBounds (spectrogramArea);
 
-    bool isFractal = selectedModule != nullptr && dynamic_cast<FractalFilterModule*>(selectedModule) != nullptr;
-    bool isComb = selectedModule != nullptr && dynamic_cast<CombStackModule*>(selectedModule) != nullptr;
-    bool isDistortion = selectedModule != nullptr && dynamic_cast<DistortionForgeModule*>(selectedModule) != nullptr;
-    bool isFormant = selectedModule != nullptr && dynamic_cast<FormantTrackerModule*>(selectedModule) != nullptr;
-    bool isFM = selectedModule != nullptr && dynamic_cast<FMDistortModule*>(selectedModule) != nullptr;
+    // Right side: Controls (60% width)
+    auto controlsArea = contentArea;
 
-    fractalTypeSelector.setVisible(isFractal);
-    fractalFreqSlider.setVisible(isFractal);
-    fractalQSlider.setVisible(isFractal);
-    fractalDepthSlider.setVisible(isFractal);
-    fractalRatioSlider.setVisible(isFractal);
+    // Module controls section (top 60% of controls area)
+    auto moduleControlsArea = controlsArea.removeFromTop (controlsArea.getHeight() * 0.6f);
 
-    combCountSlider.setVisible(isComb);
-    combDelaySlider.setVisible(isComb);
-    combFeedbackSlider.setVisible(isComb);
-    lfoRateSlider.setVisible(isComb);
-    lfoDepthSlider.setVisible(isComb);
-
-    wavefoldSlider.setVisible(isDistortion);
-    clipSlider.setVisible(isDistortion);
-    bitCrushSlider.setVisible(isDistortion);
-    formantFreqSlider.setVisible(isDistortion);
-
-    formantKeyTrackSlider.setVisible(isFormant);
-    formantGainSlider.setVisible(isFormant);
-    formantQSlider.setVisible(isFormant);
-    formantBaseFreqSlider.setVisible(isFormant);
-
-    fmRatioSlider.setVisible(isFM);
-    fmIndexSlider.setVisible(isFM);
-}
-
-void WobbleForgeAudioProcessorEditor::updateSlotButtonAppearance()
-{
-    for (int i = 0; i < moduleSlotButtons.size(); ++i)
+    // Create module control sections
+    auto moduleSlotHeight = moduleControlsArea.getHeight() / numModuleSlots;
+    for (int i = 0; i < numModuleSlots; ++i)
     {
-        auto& button = moduleSlotButtons[i];
-        juce::String newText = "[Empty]";
-        if (auto* module = audioProcessor.getModuleInSlot(i))
-            newText = module->getName();
+        auto slotArea = moduleControlsArea.removeFromTop (moduleSlotHeight);
 
-        if (button.getButtonText() != newText)
-            button.setButtonText(newText);
+        if (moduleControlComponents[i] == nullptr)
+        {
+            // Create a simple module control panel
+            auto* modulePanel = new juce::GroupComponent();
+            modulePanel->setText ("Module " + juce::String (i + 1));
+            modulePanel->setBounds (slotArea.reduced (5));
+            addAndMakeVisible (modulePanel);
+            moduleControlComponents[i] = modulePanel;
+        }
+        else
+        {
+            moduleControlComponents[i]->setBounds (slotArea.reduced (5));
+        }
 
-        auto& lf = getLookAndFeel();
-        button.setColour(juce::TextButton::buttonColourId, i == selectedSlot ? lf.findColour(juce::ComboBox::backgroundColourId).darker() : lf.findColour(juce::TextButton::buttonColourId));
+        // Get the module from processor and update controls
+        if (auto* module = audioProcessor.getModuleInSlot (i))
+        {
+            // Update module-specific controls based on type
+            updateModuleControls();
+        }
+    }
+
+    // Routing matrix section (bottom 20% of controls area)
+    auto routingArea = controlsArea.removeFromTop (controlsArea.getHeight() * 0.5f);
+    if (routingMatrixComponent == nullptr)
+    {
+        auto* routingMatrix = new juce::GroupComponent();
+        routingMatrix->setText ("Routing Matrix");
+        routingMatrix->setBounds (routingArea.reduced (5));
+        addAndMakeVisible (routingMatrix);
+        routingMatrixComponent = routingMatrix;
+    }
+    else
+    {
+        routingMatrixComponent->setBounds (routingArea.reduced (5));
+    }
+
+    // Preset management section (bottom 20% of controls area)
+    auto presetArea = controlsArea;
+    if (presetComponent == nullptr)
+    {
+        auto* presetPanel = new juce::GroupComponent();
+        presetPanel->setText ("Presets");
+        presetPanel->setBounds (presetArea.reduced (5));
+        addAndMakeVisible (presetPanel);
+        presetComponent = presetPanel;
+    }
+    else
+    {
+        presetComponent->setBounds (presetArea.reduced (5));
     }
 }
 
-void WobbleForgeAudioProcessorEditor::timerCallback()
+void WubForgeAudioProcessorEditor::updateModuleControls()
 {
-    updateSlotButtonAppearance();
-    updateControlVisibility();
-
-    // Feed spectrum data to the spectrogram component
-    constexpr int spectrumSize = 512;
-    static float spectrumBuffer[spectrumSize];
-
-    if (audioProcessor.getCurrentSpectrumData(spectrumBuffer, spectrumSize))
+    for (int i = 0; i < numModuleSlots; ++i)
     {
-        spectrogramComponent.pushSpectrumData(spectrumBuffer, spectrumSize, audioProcessor.getSampleRate());
+        if (auto* module = audioProcessor.getModuleInSlot (i))
+        {
+            // Update controls based on module type and parameters
+            // This would be expanded based on specific module parameter interfaces
+            juce::String moduleName = module->getName();
+            if (auto* component = moduleControlComponents[i].getComponent())
+            {
+                if (auto* group = dynamic_cast<juce::GroupComponent*>(component))
+                {
+                    group->setText (moduleName);
+                }
+            }
+        }
     }
-
-    xyPad.repaint();
 }
 
-//==============================================================================
-void WobbleForgeAudioProcessorEditor::setupSliders()
+void WubForgeAudioProcessorEditor::updateRoutingVisualization()
 {
-    auto setupSlider = [] (juce::Slider& slider)
+    // Update routing matrix visualization based on current routing state
+    // This would visualize the signal flow between modules
+    if (auto* component = routingMatrixComponent.getComponent())
     {
-        slider.setSliderStyle (juce::Slider::LinearHorizontal);
-        slider.setTextBoxStyle (juce::Slider::TextBoxRight, false, 70, 20);
-    };
-
-    setupSlider(fractalFreqSlider);
-    setupSlider(fractalQSlider);
-    setupSlider(fractalDepthSlider);
-    setupSlider(fractalRatioSlider);
-    setupSlider(combCountSlider);
-    setupSlider(combDelaySlider);
-    setupSlider(combFeedbackSlider);
-    setupSlider(lfoRateSlider);
-    setupSlider(lfoDepthSlider);
-    setupSlider(wavefoldSlider);
-    setupSlider(clipSlider);
-    setupSlider(bitCrushSlider);
-    setupSlider(formantFreqSlider);
-    setupSlider(formantKeyTrackSlider);
-    setupSlider(formantGainSlider);
-    setupSlider(formantQSlider);
-    setupSlider(formantBaseFreqSlider);
-    setupSlider(fmRatioSlider);
-    setupSlider(fmIndexSlider);
-    setupSlider(feedbackAmountSlider);
-    setupSlider(feedbackDampingSlider);
+        // Update routing display
+        component->repaint();
+    }
 }
 
-void WobbleForgeAudioProcessorEditor::setupLabels()
+void WubForgeAudioProcessorEditor::updateSpectrumData()
 {
+    // Get spectrum data from processor for visualization
+    const int maxSize = 512;
+    float spectrumData[maxSize];
+
+    if (audioProcessor.getCurrentSpectrumData (spectrumData, maxSize))
+    {
+        spectrogramComponent.pushSpectrumData (spectrumData, maxSize,
+                                               audioProcessor.getSampleRate());
+    }
 }
 
-void WobbleForgeAudioProcessorEditor::setupAttachments()
+void WubForgeAudioProcessorEditor::timerCallback()
 {
-    auto& vts = audioProcessor.getValueTreeState();
+    // Update real-time visualization data
+    updateSpectrumData();
+    updateRoutingVisualization();
 
-    routingAttachment = std::make_unique<ComboBoxAttachment> (vts, "routing", routingSelector);
-
-    fractalTypeAttachment = std::make_unique<ComboBoxAttachment> (vts, "fractalType", fractalTypeSelector);
-    fractalFreqAttachment = std::make_unique<SliderAttachment> (vts, "fractalFreq", fractalFreqSlider);
-    fractalQAttachment = std::make_unique<SliderAttachment> (vts, "fractalQ", fractalQSlider);
-    fractalDepthAttachment = std::make_unique<SliderAttachment> (vts, "fractalDepth", fractalDepthSlider);
-    fractalRatioAttachment = std::make_unique<SliderAttachment> (vts, "fractalRatio", fractalRatioSlider);
-
-    combCountAttachment = std::make_unique<SliderAttachment> (vts, "combCount", combCountSlider);
-    combDelayAttachment = std::make_unique<SliderAttachment> (vts, "combDelay", combDelaySlider);
-    combFeedbackAttachment = std::make_unique<SliderAttachment> (vts, "combFeedback", combFeedbackSlider);
-    lfoRateAttachment = std::make_unique<SliderAttachment> (vts, "lfoRate", lfoRateSlider);
-    lfoDepthAttachment = std::make_unique<SliderAttachment> (vts, "lfoDepth", lfoDepthSlider);
-
-    wavefoldAttachment = std::make_unique<SliderAttachment> (vts, "wavefoldAmount", wavefoldSlider);
-    clipAttachment = std::make_unique<SliderAttachment> (vts, "clipAmount", clipSlider);
-    bitCrushAttachment = std::make_unique<SliderAttachment> (vts, "bitCrushAmount", bitCrushSlider);
-    formantFreqAttachment = std::make_unique<SliderAttachment> (vts, "formantFreq", formantFreqSlider);
-
-    formantKeyTrackAttachment = std::make_unique<SliderAttachment>(vts, "formantKeyTrack", formantKeyTrackSlider);
-    formantGainAttachment = std::make_unique<SliderAttachment>(vts, "formantGain", formantGainSlider);
-    formantQAttachment = std::make_unique<SliderAttachment>(vts, "formantQ", formantQSlider);
-    formantBaseFreqAttachment = std::make_unique<SliderAttachment>(vts, "formantBaseFreq", formantBaseFreqSlider);
-
-    fmRatioAttachment = std::make_unique<SliderAttachment>(vts, "fmRatio", fmRatioSlider);
-    fmIndexAttachment = std::make_unique<SliderAttachment>(vts, "fmIndex", fmIndexSlider);
-
-    feedbackAmountAttachment = std::make_unique<SliderAttachment>(vts, "feedbackAmount", feedbackAmountSlider);
-    feedbackDampingAttachment = std::make_unique<SliderAttachment>(vts, "feedbackDamping", feedbackDampingSlider);
+    // Trigger repaint for smooth animation
+    if (spectrogramComponent.isVisible())
+    {
+        spectrogramComponent.repaint();
+    }
 }
-
-// XY Pad Implementation
-WobbleForgeAudioProcessorEditor::XYPad::XYPad (WobbleForgeAudioProcessor& proc) : processor (proc) {}
-void WobbleForgeAudioProcessorEditor::XYPad::paint (juce::Graphics& g) { g.fillAll(juce::Colours::black.withAlpha(0.5f)); g.setColour(juce::Colours::white); g.drawText("XY Pad (Future)", getLocalBounds(), juce::Justification::centred); }
-void WobbleForgeAudioProcessorEditor::XYPad::mouseDown (const juce::MouseEvent& event) { }
-void WobbleForgeAudioProcessorEditor::XYPad::mouseDrag (const juce::MouseEvent& event) { }
-
-// Comb Visualization Implementation
-WobbleForgeAudioProcessorEditor::CombVisualization::CombVisualization (WobbleForgeAudioProcessor& proc) : processor (proc) { }
-void WobbleForgeAudioProcessorEditor::CombVisualization::paint (juce::Graphics& g) { g.fillAll(juce::Colours::black.withAlpha(0.5f)); g.setColour(juce::Colours::white); g.drawText("Visualization (Future)", getLocalBounds(), juce::Justification::centred); }

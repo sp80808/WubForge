@@ -9,6 +9,8 @@ WubForge is a spectral bass processor VST plugin using JUCE framework. The proje
 - [x] Add key-tracked processing capabilities
 - [x] Implement full GUI with real-time visual feedback
 - [x] Add spectrograph visualization component
+- [x] Integrate professional open source DSP libraries
+- [x] Enhance processing capabilities with industrial-grade algorithms
 - [ ] Complete modular processing chain
 - [ ] Polish user interface and UX
 
@@ -19,15 +21,18 @@ WubForge is a spectral bass processor VST plugin using JUCE framework. The proje
 - [x] Fractal filtering with self-similar harmonic structures
 - [x] Key-tracking for all frequency-dependent parameters
 - [x] Dual filter types (LPF and BPF variants)
-- [ ] Modular 4-slot processing chain
+- [x] **Professional EQ system** using chowdsp_utils (3-band parametric)
+- [x] **Advanced distortion algorithms** from chowdsp_waveshapers
+- [x] Modular 4-slot processing chain
 - [ ] Advanced routing matrix (Serial/Parallel/Mid-Side/Feedback)
 
 ### Module Library
 #### Filter Modules
 - [x] Fractal Filter (LPF)
 - [x] Bandpass Fractal Filter
+- [x] **ChowEQModule** - Professional 3-band parametric EQ
 - [ ] Classic Ladder Filter
-- [ ] State Variable Filter
+- [ ] State Variable Filter (via chowdsp_utils)
 - [ ] Formant Bank Filter
 - [ ] Spectral Notches Filter
 - [ ] Karplus-Strong Pluck Filter
@@ -35,6 +40,7 @@ WubForge is a spectral bass processor VST plugin using JUCE framework. The proje
 #### Distortion Modules
 - [x] DistortionForge (Wavefolder, Clipper, Bitcrusher)
 - [x] FormantTracker
+- [x] **chowdsp_waveshapers** - West Coast folder, Wave Multiplier
 - [ ] Dynamic Alkane
 - [ ] Ohmicide Swarm
 - [ ] FM Distort
@@ -46,6 +52,12 @@ WubForge is a spectral bass processor VST plugin using JUCE framework. The proje
 - [ ] Routing matrix interface
 - [ ] "Magic Forge" randomization button
 - [ ] Preset management system
+
+### Open Source Library Integrations
+- [x] **chowdsp_utils** (304⭐️) - Professional DSP algorithms
+- [x] **SpectrogramComponent** - Custom JUCE-based real-time visualization
+- [ ] chowdsp_filters - Advanced filter collection (Butterworth, Chebyshev, Elliptic)
+- [ ] JUMP - Professional metering and UI utilities
 
 ### Advanced Features
 - [ ] Auto-harmonic enhancement

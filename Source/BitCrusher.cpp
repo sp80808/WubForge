@@ -64,8 +64,8 @@ void BitCrusher::process (juce::dsp::ProcessContextReplacing<float>& context)
         // Apply bit crushing
         processedSample = processBitCrushing (processedSample);
 
-        // Apply anti-aliasing filter - simplified for now
-        processedSample = processedSample; // Filter processing would go here
+        // Note: Anti-aliasing filter commented out due to AudioBlock constructor compatibility issues
+        // In a production version, this would apply a low-pass filter to remove aliasing artifacts
 
         // Apply dry/wet mix
         float wetSample = processedSample;
