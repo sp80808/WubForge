@@ -46,7 +46,6 @@ Audio Input → FormantTracker → SampleMorpher → Filters → Distortion
 - **Performance Priority**: Maintained low CPU usage despite advanced algorithms
 
 ## Current Development Focus
-- **Fibonacci Spiral Distort**: Novel golden ratio-based distortion algorithm
 - **Gun Bass FM Engine**: Tearout/riddim FM synthesis for aggressive bass sounds
 - **Tearout Rhythm System**: LFO and modulation system for dubstep rhythms
 

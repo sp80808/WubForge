@@ -84,7 +84,8 @@ Source/
 |
 ├── FractalFilter.h/cpp      # Implementation of the Fractal Filter module.
 ├── CombStack.h/cpp          # (Legacy) Comb filter implementation.
-├── DistortionForge.h/cpp    # (Legacy) Distortion chain implementation.
+├── DistortionForge.h/cpp    # (Legacy) Distortion chain implementation. Superseded by UniversalDistortionModule.
+├── UniversalDistortionModule.h/cpp # Universal distortion module with multiple models.
 ├── FormantTracker.h/cpp     # (Legacy) Formant tracking filter.
 |
 ├── KeyTracker.h/cpp         # MIDI key tracking.
