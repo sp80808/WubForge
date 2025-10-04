@@ -1,0 +1,38 @@
+{
+    "configurations": [
+        {
+            "name": "Mac",
+            "includePath": [
+                "${workspaceFolder}/Source",
+                "${workspaceFolder}/JUCE/modules",
+                "${workspaceFolder}/JUCE/modules/juce_core",
+                "${workspaceFolder}/JUCE/modules/juce_dsp",
+                "${workspaceFolder}/JUCE/modules/juce_audio_basics",
+                "${workspaceFolder}/JUCE/modules/juce_audio_processors",
+                "${workspaceFolder}/JUCE/modules/juce_gui_basics",
+                "${workspaceFolder}/JUCE/modules/juce_gui_extra",
+                "${workspaceFolder}/chowdsp_utils/modules"
+            ],
+            "defines": [
+                "JUCE_MAC=1",
+                "JUCE_MODULE_AVAILABLE_juce_core=1",
+                "JUCE_MODULE_AVAILABLE_juce_dsp=1",
+                "JUCE_MODULE_AVAILABLE_juce_audio_basics=1",
+                "JUCE_MODULE_AVAILABLE_juce_audio_processors=1",
+                "JUCE_MODULE_AVAILABLE_juce_gui_basics=1",
+                "JUCE_MODULE_AVAILABLE_juce_gui_extra=1",
+                "JUCE_WEB_BROWSER=0",
+                "JUCE_USE_CURL=0",
+                "JUCE_VST3_CAN_REPLACE_VST2=0"
+            ],
+            "macFrameworkPath": [
+                "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks"
+            ],
+            "compilerPath": "/usr/bin/c++",
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "macos-clang-x64"
+        }
+    ],
+    "version": 4
+}
