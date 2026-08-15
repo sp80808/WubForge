@@ -85,7 +85,6 @@ Source/
 ├── FractalFilter.h/cpp      # Implementation of the Fractal Filter module.
 ├── CombStack.h/cpp          # (Legacy) Comb filter implementation.
 ├── DistortionForge.h/cpp    # (Legacy) Distortion chain implementation. Superseded by UniversalDistortionModule.
-├── UniversalDistortionModule.h/cpp # Universal distortion module with multiple models.
 ├── FormantTracker.h/cpp     # (Legacy) Formant tracking filter.
 |
 ├── KeyTracker.h/cpp         # MIDI key tracking.
@@ -99,6 +98,12 @@ Source/
 3.  Add any new `AudioParameter`s for your module to `PluginProcessor::createParameterLayout()`.
 4.  In `PluginProcessor::updateDSPParameters()`, add a block to check for your new module type and call its parameter setters.
 5.  (Optional) To test, instantiate your new module in one of the `moduleSlots` in the `PluginProcessor`'s constructor.
+
+## Support / related SP8 Audio sounds
+
+WubForge is shared openly for development and experimentation. If the project is useful to you, you can support continued SP8 Audio development with a [one-time £10 contribution](https://buy.stripe.com/28E7sKcm477S5FTaIn3ZK0g).
+
+If you want ready-to-use bass material rather than source code, the [£29 SP8 Bass Producer Bundle](https://buy.stripe.com/14AaEW5XGfEo5FT6s73ZK0j) includes 66 Serum 2 presets plus a 200-file dubstep/bass production archive, delivered instantly after checkout.
 
 ## License
 
