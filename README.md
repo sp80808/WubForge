@@ -1,4 +1,4 @@
- # WubForge - Spectral Bass Processor
+# WubForge - Spectral Bass Processor
 
 **WubForge** is a revolutionary spectral processing plugin that transforms bass sounds through real-time FFT morphing, fractal filtering, and intelligent key-tracking. Inspired by Filterverse's fractal filters and Serum 2's spectral innovations, WubForge delivers professional bass sculpting with <5ms latency for studio production and live performance.
 
@@ -99,11 +99,13 @@ Source/
 4.  In `PluginProcessor::updateDSPParameters()`, add a block to check for your new module type and call its parameter setters.
 5.  (Optional) To test, instantiate your new module in one of the `moduleSlots` in the `PluginProcessor`'s constructor.
 
-## Support / related SP8 Audio sounds
+## Related SP8 Audio sounds
 
-WubForge is shared openly for development and experimentation. If the project is useful to you, you can support continued SP8 Audio development with a [one-time £10 contribution](https://buy.stripe.com/28E7sKcm477S5FTaIn3ZK0g).
+If WubForge is useful for your bass workflow and you want ready-to-use material, the **SP8 Producer Vault — Founding Edition** includes the current **98-preset Serum 2 Bass Treats library**, the **Ableton Bass Toolkit**, and SP8 bonus sound libraries.
 
-If you want ready-to-use bass material rather than source code, the [£29 SP8 Bass Producer Bundle](https://buy.stripe.com/14AaEW5XGfEo5FT6s73ZK0j) includes 66 Serum 2 presets plus a 200-file dubstep/bass production archive, delivered instantly after checkout.
+**September flash price: £19 one-time — 15 copies only.** Instant digital access after checkout: [Get the SP8 Producer Vault](https://buy.stripe.com/3cI7sM3J9axc32MdwV4800b).
+
+For the presets alone, **Serum 2 Bass Treats** is also available at **£8 one-time — 15 copies only**: [Get Serum 2 Bass Treats](https://buy.stripe.com/fZu6oI0wXeNscDm78x4800a).
 
 ## License
 
